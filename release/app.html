@@ -1,0 +1,4907 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Дыши Носом — дневник практики Бутейко</title>
+<meta name="description" content="Локальный дневник практики метода К. П. Бутейко. Контрольная пауза, практики, динамика. Без рекламы, без подписок, без трекеров.">
+<meta name="theme-color" content="#f4f1ea">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Дыши Носом">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Дыши Носом — дневник практики Бутейко">
+<meta property="og:description" content="Локальный дневник практики метода К. П. Бутейко. Контрольная пауза, практики, динамика. Без рекламы, без подписок, без трекеров.">
+<meta property="og:image" content="https://dyshinosom.com/assets/og-image.png">
+<meta property="og:url" content="https://dyshinosom.com/app.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Дыши Носом — дневник практики Бутейко">
+<meta name="twitter:description" content="Локальный дневник практики метода К. П. Бутейко. Без рекламы, без подписок, без трекеров.">
+<meta name="twitter:image" content="https://dyshinosom.com/assets/og-image.png">
+
+<style>
+  /* Локальные шрифты — privacy-first, без обращений к Google Fonts CDN */
+  @font-face {
+    font-family: 'Fraunces';
+    src: url('assets/fonts/Fraunces-VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Fraunces';
+    src: url('assets/fonts/Fraunces-Italic-VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('assets/fonts/JetBrainsMono-VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('assets/fonts/JetBrainsMono-Italic-VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+  }
+</style>
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --bg-soft: #ebe6db;
+    --paper: #fdfaf2;
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --ink-faint: #8a8578;
+    --accent: #c4451c;
+    --accent-soft: #e8b4a0;
+    --green: #5d7a4f;
+    --green-soft: #c4d4b8;
+    --line: #d4cdb8;
+    --line-strong: #a89f86;
+    --shadow: rgba(26, 26, 26, 0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Fraunces', Georgia, serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.5;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(196, 69, 28, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 90%, rgba(93, 122, 79, 0.05) 0%, transparent 50%);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+  }
+
+  header {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .title-block h1 {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 600;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    font-style: italic;
+    font-variation-settings: "opsz" 144;
+  }
+
+  .title-block .subtitle {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--ink-faint);
+    margin-top: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+  }
+
+  .date-stamp {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-align: right;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .date-stamp .big {
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--ink);
+    display: block;
+    margin-top: 4px;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+    overflow-x: auto;
+  }
+
+  .tab {
+    padding: 14px 22px;
+    background: none;
+    border: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-faint);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.2s;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  .tab:hover { color: var(--ink); }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .section { display: none; animation: fadeIn 0.3s ease; }
+  .section.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .form-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: 4px 4px 0 var(--shadow);
+    position: relative;
+  }
+
+  .form-card::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 30%, var(--green) 30%, var(--green) 100%);
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+
+  .section-desc {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .field-group {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .field-group:last-of-type { border-bottom: none; }
+
+  .group-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .group-title .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    background: var(--ink);
+    color: var(--bg);
+    padding: 4px 8px;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+
+  .group-title .name {
+    font-size: 1.05rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .group-title .hint {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    margin-left: auto;
+    text-transform: lowercase;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+  }
+
+  .field { display: flex; flex-direction: column; }
+
+  .field label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  .field label .unit {
+    color: var(--ink-faint);
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0.05em;
+  }
+
+  .field label .full {
+    color: var(--ink-faint);
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+    font-size: 0.78rem;
+  }
+
+  .field input, .field textarea, .field select {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--ink);
+    transition: all 0.2s;
+    font-feature-settings: "tnum";
+    width: 100%;
+  }
+
+  .field input:focus, .field textarea:focus, .field select:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(196, 69, 28, 0.1);
+  }
+
+  /* Accessibility: focus-visible везде */
+  button:focus-visible, a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  *:focus { outline: none; }
+  /* Уважаем prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  .field textarea {
+    min-height: 70px;
+    resize: vertical;
+    font-style: italic;
+  }
+
+  .field-full { grid-column: 1 / -1; }
+
+  .practice-list { display: flex; flex-direction: column; gap: 10px; }
+
+  .practice-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 10px;
+    align-items: end;
+  }
+
+  .practice-row .field label { font-size: 0.65rem; }
+
+  .btn-mini {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    padding: 0 12px;
+    height: 41px;
+    transition: all 0.15s;
+  }
+
+  .btn-mini:hover { border-color: var(--accent); color: var(--accent); }
+
+  .btn-add {
+    background: none;
+    border: 1px dashed var(--line-strong);
+    color: var(--ink-soft);
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+    transition: all 0.15s;
+    width: 100%;
+  }
+
+  .btn-add:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+    border-style: solid;
+  }
+
+  .scale-row { display: flex; gap: 4px; margin-top: 4px; }
+
+  .scale-btn {
+    flex: 1;
+    aspect-ratio: 1;
+    max-width: 44px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    transition: all 0.15s;
+    color: var(--ink-soft);
+  }
+
+  .scale-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .scale-btn.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+
+  .computed {
+    background: var(--bg-soft);
+    border: 1px dashed var(--line-strong);
+    padding: 10px 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .computed .val { font-weight: 700; color: var(--ink); font-size: 1.1rem; }
+  .computed .val.up { color: var(--green); }
+  .computed .val.down { color: var(--accent); }
+
+  .btn-row { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+
+  .btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 14px 24px;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--bg);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+
+  .btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+
+  .btn-secondary { background: transparent; color: var(--ink); }
+  .btn-secondary:hover { background: var(--ink); color: var(--bg); box-shadow: 4px 4px 0 var(--accent); }
+
+  .notice {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    margin-bottom: 24px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .notice strong {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.78rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .history-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    margin-bottom: 24px;
+  }
+
+  table.diary {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    min-width: 900px;
+  }
+
+  table.diary th {
+    background: var(--ink);
+    color: var(--bg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 12px 10px;
+    text-align: left;
+    font-weight: 500;
+    position: sticky;
+    top: 0;
+    border-right: 1px solid var(--ink-soft);
+  }
+
+  table.diary th:last-child { border-right: none; }
+
+  table.diary td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--line);
+    border-right: 1px dashed var(--line);
+    vertical-align: top;
+    font-feature-settings: "tnum";
+  }
+
+  table.diary td:last-child { border-right: none; }
+  table.diary tr:last-child td { border-bottom: none; }
+  table.diary tr:hover td { background: var(--bg-soft); }
+
+  .cell-date { font-weight: 500; white-space: nowrap; }
+  .cell-date .day {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+  }
+
+  .frac {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.05;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .frac .top { border-bottom: 1px solid var(--ink); padding: 0 6px 1px; font-weight: 600; }
+  .frac .bot { padding: 1px 6px 0; font-weight: 600; color: var(--accent); }
+  .frac .top.empty, .frac .bot.empty { color: var(--ink-faint); font-weight: 400; }
+
+  .delta-up { color: var(--green); font-weight: 600; }
+  .delta-down { color: var(--accent); font-weight: 600; }
+  .delta-zero { color: var(--ink-faint); }
+
+  .practice-tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    padding: 2px 8px;
+    margin: 1px 2px 1px 0;
+    white-space: nowrap;
+  }
+
+  .text-cell {
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+    max-width: 200px;
+  }
+
+  .row-actions { display: flex; gap: 4px; flex-direction: column; }
+
+  .btn-icon {
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--ink-faint);
+    cursor: pointer;
+    padding: 3px 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.15s;
+  }
+
+  .btn-icon:hover { border-color: var(--accent); color: var(--accent); }
+
+  .empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--ink-faint);
+  }
+
+  .empty .icon {
+    font-size: 3rem;
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+    margin-bottom: 12px;
+    color: var(--accent-soft);
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .stat-card {
+    padding: 20px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+  }
+
+  .stat-card .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-faint);
+    font-weight: 500;
+  }
+
+  .stat-card .value {
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin-top: 6px;
+    font-feature-settings: "tnum";
+    line-height: 1;
+  }
+
+  .stat-card .unit {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .stat-card .trend {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    margin-top: 8px;
+  }
+
+  .trend.up { color: var(--green); }
+  .trend.down { color: var(--accent); }
+
+  .chart-container {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+
+  .chart-container h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+
+  .chart { width: 100%; height: 220px; }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .info-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 24px;
+  }
+
+  .info-card h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--ink);
+    display: inline-block;
+  }
+
+  .info-card p {
+    font-size: 0.94rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+
+  .info-card .abbr {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  footer .links {
+    margin-top: 10px;
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  footer .links a {
+    color: var(--ink-faint);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--line);
+    padding-bottom: 1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  footer .links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .brand-link { text-decoration: none; color: inherit; display: inline-block; }
+  .brand-link:hover h1 { color: var(--accent); transition: color 0.2s; }
+
+  /* Медицинский дисклеймер при первом входе */
+  .modal-backdrop {
+    position: fixed; inset: 0;
+    background: rgba(26, 26, 26, 0.55);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+  }
+  .modal-backdrop.show { display: flex; animation: fadeIn 0.25s ease; }
+
+  .modal {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    max-width: 520px;
+    width: 100%;
+    padding: 32px;
+    box-shadow: 6px 6px 0 var(--shadow);
+    position: relative;
+  }
+  .modal::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px; right: -1px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 30%, var(--green) 30%, var(--green) 100%);
+  }
+  .modal h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+  .modal p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .modal .legal-link {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--accent-soft);
+  }
+  .modal .legal-link:hover { border-bottom-style: solid; }
+  .modal .modal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+
+  /* ─── Daily Score (Oura-style КПУ-герой) ─────────────────────────── */
+  .daily-score {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 28px;
+    align-items: center;
+    box-shadow: 4px 4px 0 var(--shadow);
+    position: relative;
+  }
+  .daily-score::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px; right: -1px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 30%, var(--green) 30%, var(--green) 100%);
+  }
+  .daily-score .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 6px;
+  }
+  .daily-score .number {
+    font-size: clamp(3.6rem, 9vw, 5.4rem);
+    font-weight: 500;
+    font-style: italic;
+    font-variation-settings: "opsz" 144;
+    line-height: 0.9;
+    font-feature-settings: "tnum";
+    letter-spacing: -0.02em;
+  }
+  .daily-score .number-zone-low { color: var(--accent); }
+  .daily-score .number-zone-mid { color: var(--ink); }
+  .daily-score .number-zone-good { color: var(--green); }
+  .daily-score .number-empty { color: var(--ink-faint); font-size: 2.2rem; font-style: italic; font-weight: 400; }
+  .daily-score .number-unit {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    margin-top: 6px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .daily-score .interpretation {
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    line-height: 1.5;
+  }
+  .daily-score .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .daily-score .streak-mini {
+    background: var(--green-soft);
+    color: var(--ink);
+    padding: 3px 10px;
+    font-weight: 500;
+  }
+  @media (max-width: 600px) {
+    .daily-score { grid-template-columns: 1fr; gap: 14px; padding: 22px 20px; text-align: left; }
+  }
+
+  /* ─── Streak badge в шапке ───────────────────────────────────────── */
+  .streak-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    background: var(--green-soft);
+    padding: 4px 10px;
+    margin-top: 8px;
+    display: none;  /* показывается из JS, если streak >= 2 */
+  }
+  .streak-badge .num { font-weight: 600; color: var(--green); }
+
+  /* ─── Smart-таймер для КП ───────────────────────────────────────── */
+  .kp-timer-trigger {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: none;
+    border: 1px dashed var(--line-strong);
+    color: var(--ink-soft);
+    padding: 8px 12px;
+    cursor: pointer;
+    margin-top: 6px;
+    width: 100%;
+    transition: all 0.15s;
+    font-weight: 500;
+  }
+  .kp-timer-trigger:hover { border-color: var(--accent); color: var(--accent); border-style: solid; }
+
+  /* ─── Кнопка голосового ввода КПУ ────────────────────────────────── */
+  .kpu-voice-btn {
+    display: none; /* показывается из JS, только если Speech API доступен */
+    background: none;
+    border: 1px dashed var(--line-strong);
+    color: var(--ink-soft);
+    padding: 7px 10px;
+    cursor: pointer;
+    margin-top: 6px;
+    width: 100%;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    transition: all 0.15s;
+    display: none;
+    align-items: center;
+    gap: 7px;
+  }
+  .kpu-voice-btn:hover { border-color: var(--green); color: var(--green); border-style: solid; }
+  .kpu-voice-btn.listening {
+    border-style: solid;
+    border-color: var(--accent);
+    color: var(--accent);
+    animation: voicePulse 1.2s ease-in-out infinite;
+  }
+  @keyframes voicePulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  .kpu-voice-btn .mic-icon {
+    font-style: normal;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .kp-timer-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 900;
+    padding: 24px;
+  }
+  .kp-timer-overlay.show { display: flex; animation: fadeIn 0.25s ease; }
+  .kp-timer-instructions {
+    font-style: italic;
+    color: var(--ink-soft);
+    text-align: center;
+    max-width: 460px;
+    margin-bottom: 36px;
+    line-height: 1.5;
+    font-size: 0.98rem;
+  }
+  .kp-timer-circle {
+    width: 240px; height: 240px;
+    border: 3px solid var(--ink);
+    border-radius: 50%;
+    display: grid; place-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+    background: var(--paper);
+    box-shadow: 6px 6px 0 var(--shadow);
+  }
+  .kp-timer-circle.running { border-color: var(--accent); background: var(--accent-soft); animation: pulse 2s ease-in-out infinite; }
+  .kp-timer-circle:active { transform: scale(0.97); }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 6px 6px 0 var(--shadow); }
+    50% { box-shadow: 8px 8px 0 var(--shadow); }
+  }
+  .kp-timer-value {
+    font-family: 'Fraunces', serif;
+    font-size: 5rem;
+    font-weight: 500;
+    font-style: italic;
+    font-variation-settings: "opsz" 144;
+    line-height: 1;
+    font-feature-settings: "tnum";
+    color: var(--ink);
+  }
+  .kp-timer-circle.running .kp-timer-value { color: var(--accent); }
+  .kp-timer-hint {
+    margin-top: 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
+    text-align: center;
+  }
+  .kp-timer-actions {
+    display: flex; gap: 12px; margin-top: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* ─── Insight-карточки (вкладка Динамика) ───────────────────────── */
+  .insights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .insight-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--green);
+    padding: 18px 22px;
+  }
+  .insight-card.warn { border-left-color: var(--accent); }
+  .insight-card.neutral { border-left-color: var(--line-strong); }
+  .insight-card .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 8px;
+  }
+  .insight-card p {
+    font-size: 1rem;
+    line-height: 1.45;
+    color: var(--ink);
+    font-style: italic;
+  }
+  .insight-card strong { font-weight: 600; font-style: normal; }
+
+  /* ─── Пресеты практик ───────────────────────────────────────────── */
+  .practice-presets {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .preset-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    padding: 7px 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-weight: 500;
+  }
+  .preset-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--paper); }
+  .preset-btn .preset-spec { opacity: 0.6; margin-left: 4px; font-weight: 400; text-transform: none; letter-spacing: 0.05em; }
+  /* Цветной bullet перед названием пресета — семантическая категория */
+  .preset-btn::before {
+    content: '';
+    display: inline-block;
+    width: 7px; height: 7px;
+    margin-right: 8px;
+    vertical-align: middle;
+    background: var(--ink-faint);
+  }
+  .preset-btn[data-category="morning"]::before { background: var(--accent); }
+  .preset-btn[data-category="acute"]::before { background: var(--accent-soft); border: 1px solid var(--accent); }
+  .preset-btn[data-category="sleep"]::before { background: var(--green); }
+  .preset-btn[data-category="recovery"]::before { background: var(--green-soft); border: 1px solid var(--green); }
+
+  /* ─── Упражнение 1А — «Снять тревогу» (метод К. П. Бутейко) ──────── */
+  .panic-trigger {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    padding: 7px 12px;
+    margin-top: 8px;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .panic-trigger:hover { border-color: var(--accent-soft); color: var(--accent); }
+  .panic-trigger::before {
+    content: '';
+    width: 8px; height: 8px;
+    background: var(--accent-soft);
+    display: inline-block;
+  }
+
+  .panic-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 950;
+    padding: 32px 24px;
+    overflow-y: auto;
+  }
+  .panic-overlay.show { display: flex; animation: fadeIn 0.3s ease; }
+
+  .panic-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  .panic-title {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 32px;
+    line-height: 1.15;
+    font-variation-settings: "opsz" 144;
+  }
+
+  .panic-circle {
+    width: 280px; height: 280px;
+    border: 1px solid var(--line-strong);
+    border-radius: 50%;
+    display: grid; place-items: center;
+    background: var(--paper);
+    transition: background 1.5s ease, border-color 1.5s ease;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 6px 6px 0 var(--shadow);
+  }
+  .panic-circle.holding {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+  }
+  .panic-circle.breathing {
+    background: var(--green-soft);
+    border-color: var(--green);
+  }
+  .panic-circle:active { transform: scale(0.98); }
+  .panic-phase {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: var(--ink);
+    text-align: center;
+    line-height: 1.2;
+    padding: 0 22px;
+    transition: color 0.4s;
+  }
+  .panic-circle.holding .panic-phase { color: var(--accent); }
+  .panic-circle.breathing .panic-phase { color: var(--green); }
+  .panic-counter {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    color: var(--ink-faint);
+    margin-top: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .panic-cycle-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+    margin-top: 24px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .panic-instructions {
+    font-style: italic;
+    color: var(--ink-soft);
+    text-align: center;
+    max-width: 520px;
+    margin-top: 32px;
+    line-height: 1.65;
+    font-size: 1rem;
+  }
+  .panic-instructions strong { color: var(--ink); font-weight: 500; font-style: normal; }
+  .panic-rules {
+    margin-top: 22px;
+    max-width: 520px;
+    border-top: 1px dashed var(--line);
+    padding-top: 18px;
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+  .panic-rules .rules-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 8px;
+  }
+  .panic-rules ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 6px;
+  }
+  .panic-rules li::before {
+    content: '·';
+    color: var(--accent);
+    margin-right: 8px;
+    font-weight: 700;
+  }
+  .panic-attribution {
+    margin-top: 22px;
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    text-align: center;
+    font-style: italic;
+    max-width: 520px;
+    line-height: 1.5;
+  }
+  .panic-emergency {
+    margin-top: 14px;
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    text-align: center;
+    font-style: italic;
+    max-width: 520px;
+    line-height: 1.55;
+  }
+  .panic-emergency strong { color: var(--accent); font-style: normal; }
+  .panic-actions {
+    display: flex; gap: 12px; margin-top: 28px;
+    flex-wrap: wrap; justify-content: center;
+  }
+
+  /* ─── Welcome-экран при самом первом входе ──────────────────────── */
+  .welcome-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+    padding: 32px 24px;
+    overflow-y: auto;
+  }
+  .welcome-overlay.show { display: flex; animation: fadeIn 0.4s ease; }
+  .welcome-content {
+    max-width: 620px;
+    width: 100%;
+    text-align: left;
+  }
+  .welcome-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--ink-faint);
+    margin-bottom: 28px;
+  }
+  .welcome-title {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    margin-bottom: 36px;
+    font-variation-settings: "opsz" 144;
+    color: var(--ink);
+  }
+  .welcome-title em { color: var(--accent); font-weight: 600; }
+  .welcome-points {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 44px;
+  }
+  .welcome-point {
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+  }
+  .welcome-point .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .welcome-point .text {
+    font-size: 1.05rem;
+    color: var(--ink);
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .welcome-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 20px 16px 60px; }
+    .form-card { padding: 20px; }
+    .grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ─── Онбординг — 3 экрана после дисклеймера ─────────────────────── */
+  .onboarding-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1090;
+    padding: 28px 24px;
+    overflow-y: auto;
+  }
+  .onboarding-overlay.show { display: flex; animation: fadeIn 0.3s ease; }
+
+  .onboarding-wrap {
+    max-width: 560px;
+    width: 100%;
+  }
+
+  /* Прогресс-точки */
+  .ob-dots {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 36px;
+  }
+  .ob-dot {
+    width: 28px; height: 3px;
+    background: var(--line);
+    transition: background 0.3s;
+  }
+  .ob-dot.active { background: var(--accent); }
+  .ob-dot.done   { background: var(--ink-faint); }
+
+  /* Экраны */
+  .ob-screen { display: none; }
+  .ob-screen.ob-active { display: block; animation: fadeIn 0.25s ease; }
+
+  .ob-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  .ob-title {
+    font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144;
+    margin-bottom: 24px;
+  }
+  .ob-title em { color: var(--accent); font-weight: 600; font-style: italic; }
+
+  /* Иллюстрация-виджет */
+  .ob-visual {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    position: relative;
+    box-shadow: 4px 4px 0 var(--shadow);
+  }
+  .ob-visual::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px; right: -1px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 30%, var(--green) 30%, var(--green) 100%);
+  }
+  .ob-visual-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
+    margin-bottom: 8px;
+  }
+  .ob-visual-number {
+    font-size: 4.5rem;
+    font-weight: 500;
+    font-style: italic;
+    font-variation-settings: "opsz" 144;
+    line-height: 0.9;
+    color: var(--accent);
+    font-feature-settings: "tnum";
+    margin-bottom: 6px;
+  }
+  .ob-visual-unit {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-faint);
+  }
+  .ob-visual-caption {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--line);
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* Шаги-список (экран 2) */
+  .ob-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 24px;
+  }
+  .ob-step {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px dashed var(--line);
+    align-items: start;
+  }
+  .ob-step:last-child { border-bottom: none; }
+  .ob-step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    background: var(--ink);
+    color: var(--bg);
+    padding: 3px 0;
+    text-align: center;
+    letter-spacing: 0.05em;
+  }
+  .ob-step-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--ink);
+    font-style: italic;
+  }
+  .ob-step-text strong { font-style: normal; font-weight: 500; }
+
+  .ob-body {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin-bottom: 22px;
+    font-style: italic;
+  }
+  .ob-body strong { color: var(--ink); font-weight: 500; font-style: normal; }
+
+  .ob-nav {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .ob-skip {
+    background: none;
+    border: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    cursor: pointer;
+    padding: 0;
+    margin-left: auto;
+    transition: color 0.15s;
+  }
+  .ob-skip:hover { color: var(--ink); }
+
+  /* ─── Мастер тренировки ─────────────────────────────────────────── */
+  .wizard-launcher {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .btn-wizard-open {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    padding: 12px 20px;
+    border: 1px solid var(--green);
+    background: var(--green);
+    color: var(--bg);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+  .btn-wizard-open:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 var(--ink);
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+  .wizard-launcher-hint {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .wizard-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 920;
+    overflow-y: auto;
+    padding-bottom: 60px;
+  }
+  .wizard-overlay.show { display: flex; animation: fadeIn 0.25s ease; }
+
+  .wizard-progress-bar {
+    width: 100%;
+    height: 3px;
+    background: var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    flex-shrink: 0;
+  }
+  .wizard-progress-fill {
+    height: 100%;
+    background: var(--accent);
+    transition: width 0.4s ease;
+  }
+  .wizard-top-row {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 520px;
+    padding: 14px 0 4px;
+  }
+  .wizard-close-btn {
+    background: none;
+    border: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.64rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    cursor: pointer;
+    padding: 6px 0;
+    transition: color 0.15s;
+  }
+  .wizard-close-btn:hover { color: var(--accent); }
+
+  .wizard-step {
+    width: 100%;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 4px;
+  }
+  .wizard-step.wz-hidden { display: none; }
+
+  .wizard-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--ink-faint);
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .wizard-title {
+    font-size: clamp(1.65rem, 4vw, 2.1rem);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 16px;
+    line-height: 1.15;
+    font-variation-settings: "opsz" 144;
+  }
+  .wizard-title em { color: var(--accent); font-weight: 500; }
+
+  .wizard-instructions {
+    font-style: italic;
+    color: var(--ink-soft);
+    text-align: center;
+    max-width: 400px;
+    margin-bottom: 22px;
+    line-height: 1.6;
+    font-size: 0.93rem;
+  }
+
+  .wizard-kp-circle {
+    width: 190px; height: 190px;
+    border: 3px solid var(--ink);
+    border-radius: 50%;
+    display: grid; place-items: center;
+    cursor: pointer;
+    user-select: none;
+    background: var(--paper);
+    box-shadow: 6px 6px 0 var(--shadow);
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .wizard-kp-circle.wz-running {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  .wizard-kp-circle.wz-done { border-color: var(--green); background: var(--green-soft); }
+  .wizard-kp-circle:active { transform: scale(0.97); }
+  .wizard-kp-value {
+    font-family: 'Fraunces', serif;
+    font-size: 3.8rem;
+    font-weight: 500;
+    font-style: italic;
+    font-variation-settings: "opsz" 144;
+    line-height: 1;
+    font-feature-settings: "tnum";
+    color: var(--ink);
+  }
+  .wizard-kp-circle.wz-running .wizard-kp-value { color: var(--accent); }
+  .wizard-kp-circle.wz-done .wizard-kp-value { color: var(--green); }
+
+  .wizard-timer-hint {
+    margin-top: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-faint);
+    text-align: center;
+    min-height: 1.4em;
+  }
+  .wizard-manual-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 14px;
+    border-top: 1px dashed var(--line);
+    padding-top: 13px;
+    width: 100%;
+    max-width: 280px;
+  }
+  .wizard-manual-row label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .wizard-manual-row input {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    padding: 7px 10px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--ink);
+    width: 80px;
+    text-align: center;
+    font-feature-settings: "tnum";
+  }
+  .wizard-manual-row input:focus { outline: none; border-color: var(--accent); }
+
+  .wizard-nav {
+    display: flex;
+    gap: 12px;
+    margin-top: 26px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Шаг 2 — выбор типа упражнения */
+  .wizard-ex-choices {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 22px;
+    justify-content: center;
+  }
+  .wizard-ex-btn {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    padding: 16px 22px;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: center;
+    min-width: 110px;
+  }
+  .wizard-ex-btn.wz-active {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+    box-shadow: 3px 3px 0 var(--accent);
+  }
+  .wizard-ex-btn:hover:not(.wz-active) { border-color: var(--ink-soft); }
+  .wizard-ex-name {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+  }
+  .wizard-ex-desc {
+    display: block;
+    font-size: 0.76rem;
+    font-style: italic;
+    color: var(--ink-faint);
+  }
+  .wizard-ex-btn.wz-active .wizard-ex-desc { color: var(--bg); opacity: 0.65; }
+
+  .wizard-ex-circle {
+    width: 180px; height: 180px;
+    border: 3px solid var(--line-strong);
+    border-radius: 50%;
+    display: grid; place-items: center;
+    cursor: pointer;
+    user-select: none;
+    background: var(--paper);
+    box-shadow: 6px 6px 0 var(--shadow);
+    transition: all 0.2s;
+  }
+  .wizard-ex-circle.wz-running { border-color: var(--green); background: var(--green-soft); animation: pulse 3s ease-in-out infinite; }
+  .wizard-ex-circle.wz-done { border-color: var(--green); background: var(--green-soft); }
+  .wizard-ex-circle:active { transform: scale(0.97); }
+  .wizard-ex-value {
+    font-family: 'Fraunces', serif;
+    font-size: 2.6rem;
+    font-weight: 500;
+    font-style: italic;
+    font-variation-settings: "opsz" 144;
+    line-height: 1;
+    font-feature-settings: "tnum";
+    color: var(--ink-faint);
+  }
+  .wizard-ex-circle.wz-running .wizard-ex-value { color: var(--green); }
+  .wizard-ex-circle.wz-done .wizard-ex-value { color: var(--green); }
+
+  /* Шаг 4 — самочувствие */
+  .wizard-wb-block {
+    width: 100%;
+    max-width: 460px;
+    border-top: 1px dashed var(--line);
+    padding-top: 16px;
+    margin-bottom: 4px;
+  }
+  .wizard-wb-block:first-of-type { border-top: none; }
+  .wizard-wb-q {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  .wizard-wb-opts { display: flex; gap: 8px; flex-wrap: wrap; }
+  .wizard-wb-btn {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    padding: 9px 16px;
+    cursor: pointer;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 0.94rem;
+    color: var(--ink-soft);
+    transition: all 0.15s;
+    flex: 1;
+    min-width: 80px;
+    text-align: center;
+  }
+  .wizard-wb-btn.wz-active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .wizard-wb-btn:hover:not(.wz-active) { border-color: var(--ink); color: var(--ink); }
+
+  /* Шаг 5 — итог */
+  .wizard-delta-block { text-align: center; margin: 8px 0 16px; }
+  .wizard-delta-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--ink-faint);
+    margin-bottom: 6px;
+  }
+  .wizard-delta-num {
+    font-size: clamp(4rem, 10vw, 5.5rem);
+    font-weight: 500;
+    font-style: italic;
+    font-variation-settings: "opsz" 144;
+    line-height: 0.9;
+    font-feature-settings: "tnum";
+    letter-spacing: -0.02em;
+  }
+  .wizard-delta-num.up { color: var(--green); }
+  .wizard-delta-num.zero { color: var(--ink-faint); }
+  .wizard-delta-num.down { color: var(--accent); }
+  .wizard-delta-unit {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-top: 6px;
+  }
+  .wizard-result-phrase {
+    font-style: italic;
+    color: var(--ink-soft);
+    text-align: center;
+    font-size: 1.02rem;
+    margin-bottom: 20px;
+    max-width: 340px;
+  }
+  .wizard-summary-table {
+    width: 100%;
+    max-width: 380px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 0 var(--shadow);
+  }
+  .wizard-summary-row {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    border-bottom: 1px dashed var(--line);
+    padding: 10px 14px;
+    align-items: baseline;
+  }
+  .wizard-summary-row:last-child { border-bottom: none; }
+  .wizard-s-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+  }
+  .wizard-s-val { font-feature-settings: "tnum"; font-size: 0.94rem; text-align: right; font-weight: 500; }
+
+  /* ─── Карточка прогресса для шаринга ──────────────────────────── */
+  .share-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+  }
+  .share-preview-wrap {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 24px;
+    margin-bottom: 24px;
+    display: none;
+    box-shadow: 4px 4px 0 var(--shadow);
+    position: relative;
+  }
+  .share-preview-wrap::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px; right: -1px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 30%, var(--green) 30%, var(--green) 100%);
+  }
+  .share-preview-wrap.show { display: block; animation: fadeIn 0.25s ease; }
+  .share-preview-wrap canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+  }
+  .share-preview-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+
+  /* ─── Вкладка «Скоро» ──────────────────────────────────────────── */
+  .coming-soon-intro {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 22px 28px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .coming-soon-intro::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px; right: -1px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--line-strong) 0%, var(--line) 100%);
+  }
+  .coming-soon-intro p { font-style: italic; color: var(--ink-soft); font-size: 0.95rem; line-height: 1.55; }
+  .coming-soon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .coming-soon-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 22px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    position: relative;
+    opacity: 0.55;
+  }
+  .coming-soon-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px; right: -1px;
+    height: 3px;
+    background: var(--bg-soft);
+  }
+  .coming-soon-card:hover { opacity: 0.8; }
+  .cs-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.57rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--ink-faint);
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    padding: 3px 8px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .coming-soon-card h3 { font-size: 1.06rem; font-weight: 500; font-style: italic; margin-bottom: 7px; }
+  .coming-soon-card p { font-size: 0.85rem; color: var(--ink-soft); font-style: italic; line-height: 1.45; }
+  .cs-popup {
+    display: none;
+    margin-top: 12px;
+    border-top: 1px dashed var(--line);
+    padding-top: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.64rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+  .cs-popup.show { display: block; animation: fadeIn 0.2s ease; }
+
+/* ─── Настройки ──────────────────────────────────────────────────── */
+.settings-group { margin-bottom: 28px; }
+.settings-group:last-child { margin-bottom: 0; }
+.settings-group-title {
+  font-family:'JetBrains Mono',monospace; font-size:.7rem;
+  text-transform:uppercase; letter-spacing:.08em; color:var(--accent);
+  margin-bottom:14px; padding-bottom:7px; border-bottom:1px solid var(--line);
+}
+.settings-row {
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; margin-bottom:12px; flex-wrap:wrap;
+}
+.settings-label {
+  font-family:'JetBrains Mono',monospace; font-size:.82rem;
+  color:var(--ink); flex:1; min-width:140px;
+}
+.settings-input {
+  border:2px solid var(--line-strong); background:var(--bg);
+  padding:7px 10px; font-family:'JetBrains Mono',monospace;
+  font-size:.85rem; color:var(--ink); max-width:220px; width:100%;
+}
+.settings-input:focus { outline:none; border-color:var(--ink); }
+.settings-toggle-group { display:flex; gap:3px; flex-wrap:wrap; }
+.stg-btn {
+  border:2px solid var(--line-strong); background:var(--paper);
+  padding:6px 12px; font-family:'JetBrains Mono',monospace;
+  font-size:.76rem; cursor:pointer; color:var(--ink-soft);
+}
+.stg-btn.active { background:var(--ink); color:var(--paper); box-shadow:2px 2px 0 var(--accent); }
+.stg-btn:hover:not(.active) { background:var(--bg-soft); }
+.settings-data-btns { display:flex; flex-wrap:wrap; gap:8px; }
+.settings-about { display:flex; flex-direction:column; gap:10px; }
+.settings-version {
+  font-family:'Fraunces',serif; font-variation-settings:"opsz" 144;
+  font-style:italic; font-size:1.02rem; color:var(--ink);
+}
+.settings-links { display:flex; flex-direction:column; gap:5px; }
+.settings-link {
+  font-family:'JetBrains Mono',monospace; font-size:.78rem;
+  color:var(--accent); text-decoration:none;
+}
+.settings-link:hover { text-decoration:underline; }
+.settings-tagline {
+  font-family:'JetBrains Mono',monospace; font-size:.68rem;
+  color:var(--ink-faint); margin-top:2px;
+}
+@media (max-width:480px) {
+  .settings-row { flex-direction:column; align-items:flex-start; }
+  .settings-input { max-width:100%; }
+}
+
+/* ─── Улучшенные empty states ────────────────────────────────────── */
+.empty-state { text-align:center; padding:52px 24px; grid-column:1/-1; }
+.empty-state-glyph {
+  font-family:'Fraunces',serif; font-variation-settings:"opsz" 144;
+  font-style:italic; font-size:2.8rem; color:var(--ink-faint);
+  margin-bottom:18px; display:block;
+}
+.empty-state-text {
+  font-family:'Fraunces',serif; font-variation-settings:"opsz" 144;
+  font-style:italic; font-size:1.03rem; color:var(--ink-soft);
+  line-height:1.65; margin-bottom:20px;
+  max-width:300px; margin-left:auto; margin-right:auto;
+}
+.empty-state-sub {
+  font-family:'JetBrains Mono',monospace; font-size:.72rem;
+  color:var(--ink-faint); margin-bottom:22px; display:block;
+}
+
+/* ─── Подсказки таймера упражнения ───────────────────────────────── */
+.wz-ex-tip {
+  font-family:'Fraunces',serif; font-variation-settings:"opsz" 144;
+  font-style:italic; font-size:.93rem; color:var(--ink-soft);
+  text-align:center; margin-top:14px; min-height:2.5em;
+  padding:0 12px; opacity:1; transition:opacity 0.6s ease;
+}
+.wz-ex-tip.tip-hidden { opacity:0; }
+@media (prefers-reduced-motion:reduce) { .wz-ex-tip { transition:none !important; } }
+
+/* ─── Достижения ─────────────────────────────────────────────────── */
+.achievements-section { margin-top: 28px; }
+.achievements-eyebrow {
+  font-family:'JetBrains Mono',monospace; font-size:.7rem;
+  text-transform:uppercase; letter-spacing:.08em; color:var(--accent);
+  margin-bottom:14px; padding-bottom:7px; border-bottom:1px solid var(--line);
+}
+.achievements-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:10px;
+}
+.badge {
+  border:2px solid var(--line-strong); background:var(--bg-soft);
+  padding:14px 12px; text-align:center; position:relative;
+  cursor:default; transition:transform .15s, box-shadow .15s;
+}
+.badge.unlocked {
+  border-color:var(--ink); background:var(--paper);
+  box-shadow:3px 3px 0 var(--accent);
+}
+.badge.unlocked:hover { transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--accent); }
+@media (prefers-reduced-motion:reduce) {
+  .badge, .badge.unlocked:hover { transition:none; transform:none; }
+}
+.badge-icon {
+  font-size:1.8rem; margin-bottom:8px; display:block;
+  filter:grayscale(1) opacity(.35);
+}
+.badge.unlocked .badge-icon { filter:none; }
+.badge-name {
+  font-family:'JetBrains Mono',monospace; font-size:.72rem;
+  font-weight:600; color:var(--ink-faint); line-height:1.3; margin-bottom:4px;
+}
+.badge.unlocked .badge-name { color:var(--ink); }
+.badge-desc {
+  font-family:'JetBrains Mono',monospace; font-size:.65rem;
+  color:var(--ink-faint); line-height:1.5;
+}
+.badge-lock {
+  position:absolute; top:6px; right:7px;
+  font-size:.65rem; color:var(--ink-faint);
+  font-family:'JetBrains Mono',monospace;
+}
+.badge.unlocked .badge-lock { display:none; }
+
+/* ─── Попап достижения ────────────────────────────────────────────── */
+.ach-popup {
+  position:fixed; bottom:80px; left:50%; transform:translateX(-50%);
+  background:var(--paper); border:2px solid var(--ink);
+  box-shadow:4px 4px 0 var(--accent); padding:16px 22px;
+  z-index:900; text-align:center; min-width:240px; max-width:320px;
+  animation:ach-in .35s ease; display:none;
+}
+.ach-popup.show { display:block; }
+@keyframes ach-in { from { opacity:0; transform:translateX(-50%) translateY(16px); } to { opacity:1; transform:translateX(-50%) translateY(0); } }
+@media (prefers-reduced-motion:reduce) { @keyframes ach-in { from{opacity:0;} to{opacity:1;} } }
+.ach-popup-icon { font-size:2rem; margin-bottom:8px; }
+.ach-popup-title {
+  font-family:'Fraunces',serif; font-variation-settings:"opsz" 144;
+  font-style:italic; font-size:.96rem; font-weight:700; color:var(--ink);
+  margin-bottom:4px;
+}
+.ach-popup-sub {
+  font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--ink-soft);
+}
+
+/* ─── Печать ────────────────────────────────────────────────────────── */
+@media print {
+  @page { margin: 18mm 16mm; }
+
+  /* Скрыть всё, кроме таблицы */
+  header, footer, .tabs, .section:not(#history),
+  .history-controls, .rec-card, .wizard-launcher,
+  .notice, .panic-overlay, .wizard-overlay, .onboarding-overlay,
+  .welcome-overlay, .kp-timer-overlay, .push-banner,
+  .fab-btn, .bs-overlay, .ach-popup { display:none !important; }
+
+  body { background:none !important; background-image:none !important; font-size:11pt; color:#000; }
+  .container { padding:0 !important; max-width:100%; }
+  #history { display:block !important; }
+  #history .form-card { border:none; box-shadow:none; padding:0; }
+
+  /* Заголовок печати */
+  #history .form-card::before {
+    content: 'Дневник практики Бутейко — dyshinosom.com';
+    display:block; font-family:Georgia,serif; font-size:13pt; font-weight:700;
+    color:#000; margin-bottom:16px; padding-bottom:8px;
+    border-bottom:1pt solid #000;
+  }
+
+  /* Таблица */
+  table { width:100%; border-collapse:collapse; font-family:Georgia,serif; font-size:9pt; }
+  th { background:#000; color:#fff; padding:5px 7px; text-align:left; font-weight:700; border:1pt solid #000; }
+  td { padding:4px 7px; border:1pt solid #ccc; vertical-align:top; }
+  tr:nth-child(even) td { background:#f5f5f5; }
+  .frac { display:block; }
+  .frac .top, .frac .bot { display:inline; }
+
+  /* Скрыть кнопки в ячейках таблицы */
+  td button, td a { display:none !important; }
+
+  /* Ссылки в тексте — без оформления */
+  a { color:#000; text-decoration:none; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="header-top">
+    <div class="title-block">
+      <a href="index.html" class="brand-link" aria-label="На главную">
+        <h1>Дыши Носом</h1>
+      </a>
+      <div class="subtitle">Дневник метода К. П. Бутейко</div>
+    </div>
+    <div class="date-stamp">
+      Сегодня
+      <span class="big" id="todayDate">—</span>
+      <div class="streak-badge" id="streakBadge"></div>
+      <button type="button" class="theme-btn" id="themeToggleBtn" aria-label="Переключить тему" title="Тёмная / светлая тема">☀</button>
+      <button type="button" class="panic-trigger" id="panicOpenBtn" aria-label="Открыть упражнение 1А — снять тревогу">Снять тревогу · 1А</button>
+    </div>
+  </div>
+</header>
+
+<div class="tabs">
+  <button class="tab active" data-section="entry">Новая запись</button>
+  <button class="tab" data-section="history">Журнал</button>
+  <button class="tab" data-section="trends">Динамика</button>
+  <button class="tab" data-section="info">Справка</button>
+  <button class="tab" data-section="soon">Скоро</button>
+  <button class="tab" data-section="settings">⚙</button>
+</div>
+
+<section class="section active" id="entry">
+  <div class="daily-score" id="dailyScore">
+    <!-- заполняется из JS -->
+  </div>
+
+  <div class="rec-card" id="recCard"><div class="rec-icon">○</div><div class="rec-text">Загрузка рекомендации…</div></div>
+
+  <div class="wizard-launcher">
+    <button type="button" class="btn-wizard-open" id="wizardOpenBtn">▸ Провести тренировку</button>
+    <span class="wizard-launcher-hint">5 шагов · КП, упражнение, самочувствие</span>
+  </div>
+
+  <div class="notice">
+    <strong>Важно</strong> · Метод Бутейко имеет противопоказания. Перед началом практики рекомендуется консультация с врачом, особенно при заболеваниях сердца, диабете, беременности или психических расстройствах.
+  </div>
+
+  <div class="form-card">
+    <h2 class="section-title">Запись дня</h2>
+    <p class="section-desc">Структура соответствует методике с доски: КПУ/ЧПУ, практики, ΔКП, РФ, ПП, ПКС, ОС.</p>
+
+    <div class="field-group">
+      <div class="group-title">
+        <span class="num">01</span>
+        <span class="name">Дата</span>
+      </div>
+      <div class="grid">
+        <div class="field">
+          <label>Дата записи</label>
+          <input type="date" id="entryDate">
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="group-title">
+        <span class="num">02</span>
+        <span class="name">Утренние показатели</span>
+        <span class="hint">сразу после пробуждения</span>
+      </div>
+      <div class="grid">
+        <div class="field">
+          <label>КПУ <span class="full">контр. пауза утром, сек</span></label>
+          <input type="number" id="kpu" min="0" max="180" placeholder="напр. 16">
+          <button type="button" class="kpu-voice-btn" id="kpuVoiceBtn" aria-label="Голосовой ввод КПУ">
+            <span class="mic-icon">🎙</span><span id="kpuVoiceBtnLabel">Назвать число вслух</span>
+          </button>
+          <button type="button" class="kp-timer-trigger" id="kpTimerOpenBtn">⏱ Измерить КП в приложении</button>
+        </div>
+        <div class="field">
+          <label>ЧПУ <span class="full">частота пульса утром</span></label>
+          <input type="number" id="chpu" min="30" max="200" placeholder="напр. 88">
+        </div>
+        <div class="field">
+          <label>ΔКП <span class="full">авто: разница с прошлым днём</span></label>
+          <div class="computed"><span>авто</span><span class="val" id="dkp_value">—</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="group-title">
+        <span class="num">03</span>
+        <span class="name">Практики</span>
+        <span class="hint">тип + время</span>
+      </div>
+      <div class="practice-presets" id="practicePresets"><!-- из JS --></div>
+      <div class="practice-list" id="practiceList"></div>
+      <button type="button" class="btn-add" id="addPracticeBtn">+ Добавить практику вручную</button>
+    </div>
+
+    <div class="field-group">
+      <div class="group-title">
+        <span class="num">04</span>
+        <span class="name">Условия дня</span>
+        <span class="hint">факторы и сопутствующие практики</span>
+      </div>
+      <div class="grid">
+        <div class="field field-full">
+          <label>РФ <span class="full">разделывающие факторы</span></label>
+          <textarea id="rf" placeholder="что мешало или сбивало с режима: стресс, переедание, простуда, перегрев..."></textarea>
+        </div>
+        <div class="field field-full">
+          <label>ПП <span class="full">пассивные практики</span></label>
+          <textarea id="pp" placeholder="прогулки, осанка, носовое дыхание в течение дня, контроль рта во сне..."></textarea>
+        </div>
+        <div class="field field-full">
+          <label>ПКС <span class="full">подготовка ко сну</span></label>
+          <textarea id="pks" placeholder="время отбоя, режим, гигиена сна, дыхание перед сном..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="group-title">
+        <span class="num">05</span>
+        <span class="name">Общее состояние</span>
+        <span class="hint">ОС</span>
+      </div>
+      <div class="grid">
+        <div class="field">
+          <label>Оценка ОС <span class="unit">1–10</span></label>
+          <div class="scale-row" id="scale_os"></div>
+        </div>
+        <div class="field field-full">
+          <label>Комментарий к ОС <span class="full">симптомы, ощущения, реакции</span></label>
+          <textarea id="os_note" placeholder="напр. лёгкая голова, носовое дыхание комфортно, к вечеру одышка..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn" id="saveBtn">Сохранить запись</button>
+      <button class="btn btn-secondary" id="clearBtn">Очистить форму</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="history">
+  <div class="form-card">
+    <h2 class="section-title">Журнал записей</h2>
+    <p class="section-desc">Все наблюдения, сгруппированные по дням, с автоматическим расчётом ΔКП.</p>
+
+    <div class="history-controls">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--ink-soft);">
+        Всего записей: <span id="entryCount" style="color: var(--ink); font-weight: 500;">0</span>
+      </div>
+      <div class="btn-row" style="margin: 0;">
+        <div class="json-export-row">
+          <button class="btn btn-secondary" id="exportBtn">Экспорт в CSV</button>
+          <button class="btn btn-secondary" id="exportJsonBtn">Экспорт в JSON</button>
+          <button class="btn btn-secondary" id="importJsonBtn">Импорт из JSON</button>
+          <input type="file" id="jsonImportInput" accept=".json">
+        </div>
+        <button class="btn btn-secondary" id="printBtn">Распечатать</button>
+        <button class="btn btn-secondary" id="clearAllBtn" style="border-color: var(--accent); color: var(--accent);">Удалить всё</button>
+      </div>
+    </div>
+
+    <div id="tableWrap"></div>
+  </div>
+</section>
+
+<section class="section" id="trends">
+  <div class="trends-view-toggle">
+    <button class="tvt-btn active" id="tvtWeek">Неделя</button>
+    <button class="tvt-btn" id="tvtMonth">Месяц</button>
+  </div>
+  <div id="weekView">
+  <div class="share-bar">
+    <button type="button" class="btn btn-secondary" id="shareCardBtn">↗ Поделиться прогрессом</button>
+  </div>
+  <div class="share-preview-wrap" id="sharePreviewWrap">
+    <canvas id="shareCanvas" width="1080" height="1080" aria-label="Карточка прогресса"></canvas>
+    <div class="share-preview-actions">
+      <button class="btn" id="shareDownloadBtn">Скачать PNG</button>
+      <button class="btn btn-secondary" id="shareCloseBtn">Закрыть</button>
+    </div>
+  </div>
+  <div class="insights" id="insights"><!-- из JS, может быть пустым --></div>
+  <div class="stats" id="statsBlock"></div>
+
+  <div class="chart-container">
+    <h3>КПУ — контрольная пауза утром</h3>
+    <svg class="chart" id="chartKPU"></svg>
+  </div>
+
+  <div class="chart-container">
+    <h3>ЧПУ — частота пульса утром</h3>
+    <svg class="chart" id="chartCHPU"></svg>
+  </div>
+
+  <div class="chart-container">
+    <h3>ОС — общее состояние</h3>
+    <svg class="chart" id="chartOS"></svg>
+  </div>
+  </div><!-- /weekView -->
+  <div id="calendarView" style="display:none">
+    <div class="cal-header">
+      <button class="cal-nav" id="calPrev">&#8592;</button>
+      <div class="cal-month-lbl" id="calMonthLbl"></div>
+      <button class="cal-nav" id="calNext">&#8594;</button>
+    </div>
+    <div class="cal-grid" id="calGrid"></div>
+    <div class="cal-aggs" id="calAggs"></div>
+  </div>
+  <div class="achievements-section" id="achievementsSection">
+    <div class="achievements-eyebrow">Достижения</div>
+    <div class="achievements-grid" id="achievementsGrid">
+      <!-- заполняется из JS -->
+    </div>
+  </div>
+</section>
+
+<section class="section" id="info">
+  <div class="form-card">
+    <h2 class="section-title">Расшифровка показателей</h2>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>КПУ</h3>
+        <p><span class="abbr">КПУ</span> — контрольная пауза утром. Главный показатель метода. Измеряется лёжа, сразу после пробуждения: после обычного выдоха задержите дыхание до первого ощутимого позыва вдохнуть (без усилия).</p>
+      </div>
+
+      <div class="info-card">
+        <h3>ЧПУ</h3>
+        <p><span class="abbr">ЧПУ</span> — частота пульса утром. Измеряется в покое, сразу после пробуждения, лёжа. Отражает общее состояние и адаптацию организма к практике.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>Тип практики</h3>
+        <p>Обозначения практик из методики (например, <span class="abbr">2А</span>, <span class="abbr">1С</span>). В записи указывается тип и продолжительность сессии в минутах.</p>
+        <p>Пример: «2А — 35 мин», «1С — 10 мин».</p>
+      </div>
+
+      <div class="info-card">
+        <h3>ΔКП</h3>
+        <p><span class="abbr">ΔКП</span> — динамика контрольной паузы. Рассчитывается автоматически как разница КПУ текущего дня с КПУ предыдущей записи.</p>
+        <p>Положительное значение (+9) — рост, отрицательное (−17) — спад.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>РФ</h3>
+        <p><span class="abbr">РФ</span> — разделывающие факторы. То, что нарушает или сбивает режим: переедание, стресс, перегрев, недосып, болезни, ротовое дыхание.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>ПП</h3>
+        <p><span class="abbr">ПП</span> — пассивные практики. Поддерживающие действия в течение дня: контроль носового дыхания, осанка, прогулки, заклеивание рта на ночь.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>ПКС</h3>
+        <p><span class="abbr">ПКС</span> — подготовка ко сну. Режим вечера: время отбоя, гигиена сна, дыхательные упражнения перед сном, спокойствие.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>ОС</h3>
+        <p><span class="abbr">ОС</span> — общее состояние. Субъективная оценка самочувствия за день по шкале 1–10 с текстовым комментарием о симптомах и ощущениях.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="soon">
+  <div class="coming-soon-intro">
+    <p>Разделы в разработке — они появятся в следующих версиях. Все данные по-прежнему хранятся только у вас, без серверов и трекеров.</p>
+  </div>
+  <div class="coming-soon-grid">
+
+    <div class="coming-soon-card" data-cs="1">
+      <span class="cs-badge">в разработке</span>
+      <h3>Сообщество</h3>
+      <p>Чат с практикующими, совместные занятия онлайн и взаимная поддержка.</p>
+      <div class="cs-popup" id="csPopup1">Этот раздел появится в следующих версиях. Следи за обновлениями.</div>
+    </div>
+
+    <div class="coming-soon-card" data-cs="2">
+      <span class="cs-badge">в разработке</span>
+      <h3>Найти тренера</h3>
+      <p>Каталог сертифицированных инструкторов метода Бутейко с отзывами и контактами.</p>
+      <div class="cs-popup" id="csPopup2">Этот раздел появится в следующих версиях. Следи за обновлениями.</div>
+    </div>
+
+    <div class="coming-soon-card" data-cs="3">
+      <span class="cs-badge">в разработке</span>
+      <h3>Мировой индекс КП</h3>
+      <p>Агрегированная динамика контрольной паузы участников со всего мира.</p>
+      <div class="cs-popup" id="csPopup3">Этот раздел появится в следующих версиях. Следи за обновлениями.</div>
+    </div>
+
+    <div class="coming-soon-card" data-cs="4">
+      <span class="cs-badge">в разработке</span>
+      <h3>Новости и исследования</h3>
+      <p>Дайджест научных публикаций по методу с AI-суммаризацией — понятно и без перегруза.</p>
+      <div class="cs-popup" id="csPopup4">Этот раздел появится в следующих версиях. Следи за обновлениями.</div>
+    </div>
+
+    <div class="coming-soon-card" data-cs="5">
+      <span class="cs-badge">в разработке</span>
+      <h3>База знаний</h3>
+      <p>Библиотека по методу Бутейко: упражнения, исследования, история и первоисточники.</p>
+      <div class="cs-popup" id="csPopup5">Этот раздел появится в следующих версиях. Следи за обновлениями.</div>
+    </div>
+
+    <div class="coming-soon-card" data-cs="6">
+      <span class="cs-badge">в разработке</span>
+      <h3>AI‑ассистент</h3>
+      <p>Персональный разбор практики на основе твоего дневника — паттерны, динамика, рекомендации.</p>
+      <div class="cs-popup" id="csPopup6">Этот раздел появится в следующих версиях. Следи за обновлениями.</div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  Дыши Носом · Данные хранятся только в вашем браузере
+  <div class="links">
+    <a href="index.html">Главная</a>
+    <a href="about.html">О методе</a>
+    <a href="privacy.html">Конфиденциальность</a>
+    <a href="terms.html">Условия и дисклеймер</a>
+  </div>
+</footer>
+
+<!-- Welcome — экран самого первого входа -->
+<div class="welcome-overlay" id="welcomeOverlay" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+  <div class="welcome-content">
+    <div class="welcome-eyebrow">Дневник практики метода К. П. Бутейко</div>
+    <h1 class="welcome-title" id="welcomeTitle">Это не приложение —<br>это&nbsp;<em>привычка</em>.</h1>
+    <div class="welcome-points">
+      <div class="welcome-point">
+        <div class="num">01 · 60 секунд в день</div>
+        <div class="text">Открыли утром, измерили КПУ, сохранили. Этого достаточно, чтобы держать практику в&nbsp;форме.</div>
+      </div>
+      <div class="welcome-point">
+        <div class="num">02 · все данные — у вас</div>
+        <div class="text">Записи хранятся только в этом браузере. Никаких серверов, никаких трекеров. Удалить и&nbsp;экспортировать в&nbsp;CSV можно в&nbsp;один тап.</div>
+      </div>
+      <div class="welcome-point">
+        <div class="num">03 · дневник, не курс</div>
+        <div class="text">Мы не учим методу — этим занимаются сертифицированные инструкторы. Это инструмент, который не&nbsp;заменяет ни&nbsp;их, ни&nbsp;врача.</div>
+      </div>
+    </div>
+    <div class="welcome-actions">
+      <button class="btn" id="welcomeNextBtn">Понял, дальше</button>
+      <a class="btn btn-secondary" href="index.html">На главную</a>
+    </div>
+  </div>
+</div>
+
+<!-- Медицинский дисклеймер при первом входе -->
+<div class="modal-backdrop" id="disclaimerModal" role="dialog" aria-modal="true" aria-labelledby="disclaimerTitle">
+  <div class="modal">
+    <h2 id="disclaimerTitle">Прежде чем начать</h2>
+    <p>Приложение «Дыши Носом» — это <strong>дневник практики</strong>, а не медицинское изделие. Оно не предназначено для диагностики, лечения или профилактики заболеваний и не заменяет консультацию врача.</p>
+    <p>Метод К. П. Бутейко имеет противопоказания. Перед началом практики рекомендуется консультация со специалистом, особенно при заболеваниях сердца, диабете, беременности или психических расстройствах.</p>
+    <p>Все данные хранятся локально в вашем браузере. Подробности — в <a href="privacy.html" class="legal-link">политике конфиденциальности</a> и <a href="terms.html" class="legal-link">условиях использования</a>.</p>
+    <div class="modal-actions">
+      <button class="btn" id="disclaimerAcceptBtn">Понятно, продолжить</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Онбординг — 3 экрана после дисклеймера ───────────────────── -->
+<div class="onboarding-overlay" id="onboardingOverlay" role="dialog" aria-modal="true" aria-labelledby="obTitle1">
+  <div class="onboarding-wrap">
+
+    <!-- Прогресс-точки -->
+    <div class="ob-dots">
+      <div class="ob-dot active" id="obDot1"></div>
+      <div class="ob-dot" id="obDot2"></div>
+      <div class="ob-dot" id="obDot3"></div>
+    </div>
+
+    <!-- Экран 1 — Что такое контрольная пауза -->
+    <div class="ob-screen ob-active" id="obScreen1">
+      <div class="ob-eyebrow">Шаг 1 / 3</div>
+      <h2 class="ob-title" id="obTitle1">Что такое <em>контрольная пауза</em></h2>
+      <div class="ob-visual" aria-hidden="true">
+        <div class="ob-visual-label">КПУ · пример</div>
+        <div class="ob-visual-number">28</div>
+        <div class="ob-visual-unit">секунд</div>
+        <div class="ob-visual-caption">После обычного выдоха — зажмите нос и считайте секунды до первого желания вдохнуть. Это и есть ваша контрольная пауза.</div>
+      </div>
+      <p class="ob-body">Контрольная пауза (КП) — главный показатель метода Бутейко. Она отражает уровень CO₂ в крови и, косвенно, глубину дыхания. <strong>Норма по методу — 60 секунд.</strong> Большинство начинают с 10–25 сек, и это нормально.</p>
+      <div class="ob-nav">
+        <button class="btn" id="obNext1">Далее →</button>
+        <button class="ob-skip" id="obSkip1">Пропустить всё</button>
+      </div>
+    </div>
+
+    <!-- Экран 2 — Как вести дневник -->
+    <div class="ob-screen" id="obScreen2">
+      <div class="ob-eyebrow">Шаг 2 / 3</div>
+      <h2 class="ob-title">Как вести <em>дневник</em></h2>
+      <div class="ob-steps">
+        <div class="ob-step">
+          <div class="ob-step-num">01</div>
+          <div class="ob-step-text"><strong>Утром, не вставая с кровати</strong> — измеряете КП и пульс. Записываете одно число. Это занимает 30 секунд.</div>
+        </div>
+        <div class="ob-step">
+          <div class="ob-step-num">02</div>
+          <div class="ob-step-text"><strong>Делаете упражнение</strong> — тип и продолжительность фиксируете в дневнике. Дневник считает ΔКП сам.</div>
+        </div>
+        <div class="ob-step">
+          <div class="ob-step-num">03</div>
+          <div class="ob-step-text"><strong>Вечером — пара строк</strong> об общем состоянии, если было что-то важное. Не обязательно каждый день.</div>
+        </div>
+      </div>
+      <div class="ob-nav">
+        <button class="btn" id="obNext2">Далее →</button>
+        <button class="ob-skip" id="obSkip2">Пропустить</button>
+      </div>
+    </div>
+
+    <!-- Экран 3 — Первый шаг -->
+    <div class="ob-screen" id="obScreen3">
+      <div class="ob-eyebrow">Шаг 3 / 3</div>
+      <h2 class="ob-title">Время для <em>первого замера</em></h2>
+      <p class="ob-body">Сделайте первый замер прямо сейчас — это займёт меньше минуты. Вы узнаете свою стартовую точку, и с этого момента дневник начнёт рисовать вашу линию.</p>
+      <div class="ob-visual" aria-hidden="true" style="text-align:center; padding: 28px;">
+        <div style="font-size:3.5rem; font-style:italic; font-family:'Fraunces',serif; font-variation-settings:'opsz' 144; color: var(--ink-faint); margin-bottom:10px;">→</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.18em; color:var(--ink-faint);">Откроется таймер · тапните по кругу</div>
+      </div>
+      <div class="ob-nav">
+        <button class="btn" id="obMeasureBtn">Измерить КП прямо сейчас</button>
+        <button class="btn btn-secondary" id="obFinishBtn">Позже</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Упражнение 1А — «Уменьшение глубины дыхания после дыхательных пауз», метод К. П. Бутейко -->
+<div class="panic-overlay" id="panicOverlay" role="dialog" aria-modal="true" aria-labelledby="panicTitle">
+  <div class="panic-eyebrow">Упражнение 1А · метод Бутейко — уменьшаем глубину дыхания</div>
+  <p class="panic-explain">Уменьшаем глубину дыхания через паузы после выдоха</p>
+  <h2 class="panic-title" id="panicTitle">Снять тревогу за&nbsp;несколько минут</h2>
+
+  <div class="panic-circle" id="panicCircle" role="button" tabindex="0" aria-label="Тапните, чтобы переключить фазу">
+    <div>
+      <div class="panic-phase" id="panicPhase">Готовы — тапните</div>
+      <div class="panic-counter" id="panicCounter"></div>
+    </div>
+  </div>
+  <div class="panic-cycle-meta" id="panicCycleMeta"></div>
+  <div class="panic-cycle-ind" id="panicCycleInd"></div>
+  <div class="panic-wb" id="panicWellbeing">
+    <div class="panic-wb-q">Как вы сейчас?</div>
+    <div class="panic-wb-opts">
+      <button class="pwb" id="pwbBetter">Стало лучше — закрыть</button>
+      <button class="pwb" id="pwbContinue">Продолжить ещё 4 цикла</button>
+      <a href="tel:112" class="pwb emerg">Нужна помощь → 112</a>
+    </div>
+  </div>
+
+  <p class="panic-instructions" id="panicInstructions">
+    Сядьте ровно, плечи расправлены, руки на бёдрах. <strong>Дышите только носом</strong> — рот закрыт. После спокойного выдоха тапните по кругу — закроете нос. Подержите до <strong>лёгкой нехватки воздуха</strong>, не передерживайте. Тапните ещё раз — отпустите нос и дышите ровно 3–4 цикла. Снова тап — снова пауза. Через 3–5 минут тревога начнёт отступать.
+  </p>
+
+  <div class="panic-rules">
+    <div class="rules-label">Что важно</div>
+    <ul>
+      <li>Дышим <strong>только носом</strong>. Через рот в Бутейко не дышим — это потеря CO₂.</li>
+      <li>Пауза — <strong>до первого ощущения нехватки</strong>. Не душить себя.</li>
+      <li>После паузы дышим <strong>как раньше</strong>. Не учащать, не углублять.</li>
+      <li>Спина прямая. Согнутая поза сама подкармливает тревогу.</li>
+      <li>Ни в коем случае не сжимать горло.</li>
+    </ul>
+  </div>
+
+  <p class="panic-attribution">
+    Упражнение 1А — «уменьшение глубины дыхания после дыхательных пауз». Не сама практика метода, а её первый, успокаивающий шаг. Подробный разбор у&nbsp;<a href="https://www.youtube.com/watch?v=eNVTi69Wvds" target="_blank" rel="noopener" class="legal-link">Дениса Файзуллина</a>.
+  </p>
+  <p class="panic-emergency">
+    Если паника сильная или сопровождается болью в&nbsp;груди, удушьем, обмороком — звоните <strong>103</strong> или <strong>112</strong>. Это упражнение успокаивает, но не заменяет медицинскую помощь. Если принимаете препараты от&nbsp;тревоги — не отменяйте их сами.
+  </p>
+
+  <div class="panic-actions">
+    <button class="btn btn-secondary" id="panicCloseBtn">Закрыть</button>
+  </div>
+</div>
+
+<section class="section" id="settings">
+  <div class="form-card">
+    <h2 class="section-title">Настройки</h2>
+
+    <div class="settings-group">
+      <div class="settings-group-title">Профиль</div>
+      <div class="settings-row">
+        <label class="settings-label" for="settingName">Как вас звать</label>
+        <input type="text" id="settingName" class="settings-input" placeholder="Необязательно — для приветствия" maxlength="40">
+      </div>
+    </div>
+
+    <div class="settings-group">
+      <div class="settings-group-title">Напоминания</div>
+      <div class="settings-row">
+        <span class="settings-label">Время утреннего замера</span>
+        <input type="time" id="settingReminderTime" class="settings-input" value="08:00">
+      </div>
+    </div>
+
+    <div class="settings-group">
+      <div class="settings-group-title">Единицы практики</div>
+      <div class="settings-row">
+        <span class="settings-label">Отображать время практики в</span>
+        <div class="settings-toggle-group">
+          <button class="stg-btn active" id="settingUnitMin" data-unit="min">Минутах</button>
+          <button class="stg-btn" id="settingUnitSec" data-unit="sec">Секундах</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-group">
+      <div class="settings-group-title">Вид</div>
+      <div class="settings-row">
+        <span class="settings-label">Тема</span>
+        <div class="settings-toggle-group">
+          <button class="stg-btn" id="settingThemeAuto" data-theme-val="auto">Авто</button>
+          <button class="stg-btn" id="settingThemeLight" data-theme-val="light">Светлая</button>
+          <button class="stg-btn" id="settingThemeDark" data-theme-val="dark">Тёмная</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-group">
+      <div class="settings-group-title">Данные</div>
+      <div class="settings-data-btns">
+        <button class="btn btn-secondary" id="settingsExportCsv">Экспорт CSV</button>
+        <button class="btn btn-secondary" id="settingsExportJson">Экспорт JSON</button>
+        <button class="btn btn-secondary" id="settingsImportJson">Импорт JSON</button>
+        <input type="file" id="settingsJsonInput" accept=".json" style="display:none">
+        <button class="btn btn-secondary" id="settingsDeleteAll" style="border-color:var(--accent);color:var(--accent)">Удалить все данные</button>
+      </div>
+    </div>
+
+    <div class="settings-group">
+      <div class="settings-group-title">О приложении</div>
+      <div class="settings-about">
+        <div class="settings-version">Дыши Носом · версия 1.0</div>
+        <div class="settings-links">
+          <a href="about.html" class="settings-link">О методе Бутейко</a>
+          <a href="privacy.html" class="settings-link">Политика конфиденциальности</a>
+          <a href="terms.html" class="settings-link">Условия использования</a>
+        </div>
+        <div class="settings-tagline">Локальный дневник · без серверов · без подписок · без рекламы</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Мастер тренировки — 5 шагов ─────────────────────────────── -->
+<div class="wizard-overlay" id="wizardOverlay" role="dialog" aria-modal="true" aria-labelledby="wzTitle1">
+
+  <div class="wizard-progress-bar">
+    <div class="wizard-progress-fill" id="wzProgressFill" style="width:20%"></div>
+  </div>
+
+  <div class="wizard-top-row">
+    <button type="button" class="wizard-close-btn" id="wizardCloseBtn">✕ Выйти без сохранения</button>
+  </div>
+
+  <!-- Шаг 1 — КП до -->
+  <div class="wizard-step" id="wzStep1">
+    <div class="wizard-eyebrow">Шаг 1 / 5 · Тренировка</div>
+    <h2 class="wizard-title" id="wzTitle1">Контрольная пауза <em>до</em></h2>
+    <p class="wizard-instructions">Сядьте ровно. После спокойного выдоха тапните по кругу — начнётся отсчёт. Тапните снова при <strong>первом желании вдохнуть</strong> — не терпите.</p>
+    <div class="wizard-kp-circle" id="wzKpBeforeCircle">
+      <span class="wizard-kp-value" id="wzKpBeforeVal">0</span>
+    </div>
+    <p class="wizard-timer-hint" id="wzKpBeforeHint">Тапните, чтобы начать отсчёт</p>
+    <div class="wizard-manual-row">
+      <label for="wzKpBeforeInput">Или вручную</label>
+      <input type="number" id="wzKpBeforeInput" placeholder="сек" min="0" max="300" inputmode="numeric">
+    </div>
+    <div class="wizard-nav">
+      <button class="btn" id="wzStep1Next">Далее →</button>
+    </div>
+  </div>
+
+  <!-- Шаг 2 — Упражнение -->
+  <div class="wizard-step wz-hidden" id="wzStep2">
+    <div class="wizard-eyebrow">Шаг 2 / 5 · Тренировка</div>
+    <h2 class="wizard-title">Упражнение</h2>
+    <div class="wizard-ex-choices">
+      <button type="button" class="wizard-ex-btn wz-active" id="wzExBtn1C" data-ex="1С">
+        <span class="wizard-ex-name">1С</span>
+        <span class="wizard-ex-desc">Снять нагрузку</span>
+      </button>
+      <button type="button" class="wizard-ex-btn" id="wzExBtn2A" data-ex="2А">
+        <span class="wizard-ex-name">2А</span>
+        <span class="wizard-ex-desc">Основное</span>
+      </button>
+    </div>
+    <div class="wizard-ex-circle" id="wzExCircle">
+      <span class="wizard-ex-value" id="wzExVal">0:00</span>
+    </div>
+    <p class="wizard-timer-hint" id="wzExHint">Тапните для старта · ещё раз — стоп</p>
+    <div class="wz-ex-tip tip-hidden" id="wzExTip"></div>
+    <div class="wizard-nav">
+      <button class="btn" id="wzStep2Next">Далее →</button>
+    </div>
+  </div>
+
+  <!-- Шаг 3 — КП после -->
+  <div class="wizard-step wz-hidden" id="wzStep3">
+    <div class="wizard-eyebrow">Шаг 3 / 5 · Тренировка</div>
+    <h2 class="wizard-title">Контрольная пауза <em>после</em></h2>
+    <p class="wizard-instructions">Та же техника: после спокойного выдоха тапните, затем — при первом желании вдохнуть.</p>
+    <div class="wizard-kp-circle" id="wzKpAfterCircle">
+      <span class="wizard-kp-value" id="wzKpAfterVal">0</span>
+    </div>
+    <p class="wizard-timer-hint" id="wzKpAfterHint">Тапните, чтобы начать отсчёт</p>
+    <div class="wizard-manual-row">
+      <label for="wzKpAfterInput">Или вручную</label>
+      <input type="number" id="wzKpAfterInput" placeholder="сек" min="0" max="300" inputmode="numeric">
+    </div>
+    <div class="wizard-nav">
+      <button class="btn" id="wzStep3Next">Далее →</button>
+    </div>
+  </div>
+
+  <!-- Шаг 4 — Самочувствие -->
+  <div class="wizard-step wz-hidden" id="wzStep4">
+    <div class="wizard-eyebrow">Шаг 4 / 5 · Тренировка</div>
+    <h2 class="wizard-title">Как вы?</h2>
+
+    <div class="wizard-wb-block">
+      <div class="wizard-wb-q">Как дышится?</div>
+      <div class="wizard-wb-opts">
+        <button type="button" class="wizard-wb-btn" data-wb-group="breath" data-wb-val="Легче">Легче</button>
+        <button type="button" class="wizard-wb-btn" data-wb-group="breath" data-wb-val="Так же">Так же</button>
+        <button type="button" class="wizard-wb-btn" data-wb-group="breath" data-wb-val="Тяжелее">Тяжелее</button>
+      </div>
+    </div>
+    <div class="wizard-wb-block">
+      <div class="wizard-wb-q">Голова?</div>
+      <div class="wizard-wb-opts">
+        <button type="button" class="wizard-wb-btn" data-wb-group="head" data-wb-val="Ясная">Ясная</button>
+        <button type="button" class="wizard-wb-btn" data-wb-group="head" data-wb-val="Нейтрально">Нейтрально</button>
+        <button type="button" class="wizard-wb-btn" data-wb-group="head" data-wb-val="Лёгкий туман">Лёгкий туман</button>
+      </div>
+    </div>
+    <div class="wizard-wb-block">
+      <div class="wizard-wb-q">Состояние?</div>
+      <div class="wizard-wb-opts">
+        <button type="button" class="wizard-wb-btn" data-wb-group="state" data-wb-val="Спокойно">Спокойно</button>
+        <button type="button" class="wizard-wb-btn" data-wb-group="state" data-wb-val="Нейтрально">Нейтрально</button>
+        <button type="button" class="wizard-wb-btn" data-wb-group="state" data-wb-val="Напряжение">Напряжение</button>
+      </div>
+    </div>
+
+    <div class="wizard-nav">
+      <button class="btn" id="wzStep4Next">Далее →</button>
+    </div>
+  </div>
+
+  <!-- Шаг 5 — Итог -->
+  <div class="wizard-step wz-hidden" id="wzStep5">
+    <div class="wizard-eyebrow">Итог · Тренировка</div>
+    <h2 class="wizard-title" id="wzResultTitle">Готово</h2>
+
+    <div class="wizard-delta-block">
+      <div class="wizard-delta-label">ΔКП за тренировку</div>
+      <div class="wizard-delta-num zero" id="wzDeltaNum">—</div>
+      <div class="wizard-delta-unit">секунд</div>
+    </div>
+
+    <p class="wizard-result-phrase" id="wzResultPhrase"></p>
+
+    <div class="wizard-summary-table" id="wzSummaryTable"></div>
+
+    <div class="wizard-nav">
+      <button class="btn" id="wzSaveBtn">Сохранить запись</button>
+      <button class="btn btn-secondary" id="wzDiscardBtn">Закрыть без сохранения</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- Smart-таймер для измерения КП -->
+<div class="kp-timer-overlay" id="kpTimer" role="dialog" aria-modal="true" aria-labelledby="kpTimerHint">
+  <p class="kp-timer-instructions">
+    Лёжа на спине, после обычного выдоха. Тапните по кругу — начнётся отсчёт. Тапните повторно при <em>первом ощутимом позыве</em> вдохнуть, без усилия.
+  </p>
+  <div class="kp-timer-circle" id="kpTimerCircle">
+    <span class="kp-timer-value" id="kpTimerValue">0</span>
+  </div>
+  <p class="kp-timer-hint" id="kpTimerHint">Тапните, чтобы начать отсчёт</p>
+  <div class="kp-timer-actions">
+    <button class="btn" id="kpTimerSaveBtn">Сохранить в дневник</button>
+    <button class="btn btn-secondary" id="kpTimerCancelBtn">Отмена</button>
+  </div>
+</div>
+
+</div>
+
+<script>
+// Ключ хранилища. Поддерживаем чтение из старого ключа buteyko_diary_v2 для миграции.
+const STORAGE_KEY = 'dyshinosom_diary_v1';
+(function migrateLegacy() {
+  try {
+    if (!localStorage.getItem(STORAGE_KEY)) {
+      const legacy = localStorage.getItem('buteyko_diary_v2');
+      if (legacy) localStorage.setItem(STORAGE_KEY, legacy);
+    }
+  } catch (e) { /* noop */ }
+})();
+
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.section).classList.add('active');
+    if (tab.dataset.section === 'entry') { renderDailyScore(); renderRecommendation(); }
+    if (tab.dataset.section === 'settings') renderSettings();
+    if (tab.dataset.section === 'history') renderHistory();
+    if (tab.dataset.section === 'trends') { renderTrends(); renderInsights(); renderAchievements(); }
+  });
+});
+
+const today = new Date();
+document.getElementById('todayDate').textContent = today.toLocaleDateString('ru-RU', { day: '2-digit', month: 'long', year: 'numeric' });
+document.getElementById('entryDate').value = today.toISOString().split('T')[0];
+
+const scaleOS = document.getElementById('scale_os');
+for (let i = 1; i <= 10; i++) {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'scale-btn';
+  btn.textContent = i;
+  btn.dataset.value = i;
+  btn.addEventListener('click', () => {
+    scaleOS.querySelectorAll('.scale-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+  scaleOS.appendChild(btn);
+}
+
+const practiceList = document.getElementById('practiceList');
+
+function addPracticeRow(type = '', minutes = '') {
+  const row = document.createElement('div');
+  row.className = 'practice-row';
+  row.innerHTML = `
+    <div class="field">
+      <label>Тип</label>
+      <input type="text" class="practice-type" placeholder="напр. 2А" value="${escapeAttr(type)}">
+    </div>
+    <div class="field">
+      <label>Время <span class="unit">мин</span></label>
+      <input type="number" class="practice-min" min="0" max="240" placeholder="35" value="${escapeAttr(minutes)}">
+    </div>
+    <button type="button" class="btn-mini practice-remove" title="Удалить">✕</button>
+  `;
+  row.querySelector('.practice-remove').addEventListener('click', () => row.remove());
+  practiceList.appendChild(row);
+}
+
+document.getElementById('addPracticeBtn').addEventListener('click', () => addPracticeRow());
+addPracticeRow();
+
+function loadEntries() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+  catch(e) { return []; }
+}
+function saveEntries(entries) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+}
+
+const kpuInput = document.getElementById('kpu');
+const dkpValue = document.getElementById('dkp_value');
+
+function updateDKP() {
+  const dateStr = document.getElementById('entryDate').value;
+  const kpu = parseFloat(kpuInput.value);
+  if (!dateStr || isNaN(kpu)) {
+    dkpValue.textContent = '—';
+    dkpValue.className = 'val';
+    return;
+  }
+  const entries = loadEntries()
+    .filter(e => e.date < dateStr && e.kpu != null)
+    .sort((a, b) => b.date.localeCompare(a.date));
+  if (entries.length === 0) {
+    dkpValue.textContent = 'нет данных';
+    dkpValue.className = 'val';
+    return;
+  }
+  const prev = entries[0].kpu;
+  const delta = kpu - prev;
+  const sign = delta > 0 ? '+' : '';
+  dkpValue.textContent = `${sign}${delta}`;
+  dkpValue.className = 'val ' + (delta > 0 ? 'up' : (delta < 0 ? 'down' : ''));
+}
+
+kpuInput.addEventListener('input', updateDKP);
+document.getElementById('entryDate').addEventListener('change', updateDKP);
+
+document.getElementById('saveBtn').addEventListener('click', () => {
+  const date = document.getElementById('entryDate').value;
+  if (!date) { alert('Укажите дату'); return; }
+
+  const practices = [];
+  practiceList.querySelectorAll('.practice-row').forEach(row => {
+    const type = row.querySelector('.practice-type').value.trim();
+    const min = row.querySelector('.practice-min').value.trim();
+    if (type || min) {
+      practices.push({ type, min: min ? parseFloat(min) : null });
+    }
+  });
+
+  const osActive = scaleOS.querySelector('.scale-btn.active');
+
+  const entry = {
+    id: Date.now(),
+    date,
+    kpu: kpuInput.value ? parseFloat(kpuInput.value) : null,
+    chpu: document.getElementById('chpu').value ? parseFloat(document.getElementById('chpu').value) : null,
+    practices,
+    rf: document.getElementById('rf').value.trim() || null,
+    pp: document.getElementById('pp').value.trim() || null,
+    pks: document.getElementById('pks').value.trim() || null,
+    os: osActive ? parseInt(osActive.dataset.value) : null,
+    os_note: document.getElementById('os_note').value.trim() || null
+  };
+
+  const priorEntries = loadEntries()
+    .filter(e => e.date < entry.date && e.kpu != null)
+    .sort((a, b) => b.date.localeCompare(a.date));
+  entry.dkp = (entry.kpu != null && priorEntries.length > 0) ? entry.kpu - priorEntries[0].kpu : null;
+
+  const hasData = entry.kpu != null || entry.chpu != null || practices.length > 0 ||
+                  entry.rf || entry.pp || entry.pks || entry.os != null || entry.os_note;
+  if (!hasData) { alert('Заполните хотя бы одно поле'); return; }
+
+  const entries = loadEntries();
+  const existingIdx = entries.findIndex(e => e.date === entry.date);
+  if (existingIdx >= 0) {
+    if (!confirm('На эту дату уже есть запись. Заменить?')) return;
+    entries[existingIdx] = entry;
+  } else {
+    entries.push(entry);
+  }
+  saveEntries(entries);
+
+  const btn = document.getElementById('saveBtn');
+  const originalText = btn.textContent;
+  btn.textContent = '✓ Сохранено';
+  btn.style.background = 'var(--green)';
+  btn.style.borderColor = 'var(--green)';
+  setTimeout(() => {
+    btn.textContent = originalText;
+    btn.style.background = '';
+    btn.style.borderColor = '';
+    clearForm();
+  }, 1200);
+});
+
+function clearForm() {
+  ['kpu','chpu','rf','pp','pks','os_note'].forEach(id => document.getElementById(id).value = '');
+  scaleOS.querySelectorAll('.scale-btn.active').forEach(b => b.classList.remove('active'));
+  practiceList.innerHTML = '';
+  addPracticeRow();
+  document.getElementById('entryDate').value = new Date().toISOString().split('T')[0];
+  updateDKP();
+}
+
+document.getElementById('clearBtn').addEventListener('click', () => {
+  if (confirm('Очистить все поля формы?')) clearForm();
+});
+
+function escapeHtml(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function escapeAttr(s) { return escapeHtml(s); }
+
+function renderHistory() {
+  const entries = loadEntries().sort((a, b) => b.date.localeCompare(a.date));
+  document.getElementById('entryCount').textContent = entries.length;
+  const wrap = document.getElementById('tableWrap');
+
+  if (entries.length === 0) {
+    wrap.innerHTML = `<div class="empty-state">
+      <span class="empty-state-glyph">—</span>
+      <div class="empty-state-text">Первая запись — самая важная. Начните с утреннего замера КП.</div>
+      <span class="empty-state-sub">после пробуждения · лёжа · только нос</span>
+      <button class="btn" onclick="document.querySelector('[data-section=entry]').click()">Сделать запись</button>
+    </div>`;
+    return;
+  }
+
+  const sortedAsc = [...entries].sort((a, b) => a.date.localeCompare(b.date));
+  const dkpMap = {};
+  let lastKpu = null;
+  sortedAsc.forEach(e => {
+    if (e.kpu != null) {
+      dkpMap[e.id] = (lastKpu != null) ? e.kpu - lastKpu : null;
+      lastKpu = e.kpu;
+    } else {
+      dkpMap[e.id] = null;
+    }
+  });
+
+  let html = `<div class="table-wrap"><table class="diary">
+    <thead>
+      <tr>
+        <th>Дата</th>
+        <th>ЧПУ / КПУ</th>
+        <th>Практики</th>
+        <th>ΔКП</th>
+        <th>РФ</th>
+        <th>ПП</th>
+        <th>ПКС</th>
+        <th>ОС</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>`;
+
+  entries.forEach(e => {
+    const d = new Date(e.date);
+    const dateFmt = d.toLocaleDateString('ru-RU', { day: '2-digit', month: 'short' });
+    const dayName = d.toLocaleDateString('ru-RU', { weekday: 'short' });
+
+    const dkp = dkpMap[e.id];
+    let dkpHtml = '<span class="delta-zero">—</span>';
+    if (dkp != null) {
+      if (dkp > 0) dkpHtml = `<span class="delta-up">+${dkp}</span>`;
+      else if (dkp < 0) dkpHtml = `<span class="delta-down">${dkp}</span>`;
+      else dkpHtml = `<span class="delta-zero">0</span>`;
+    }
+
+    const practicesHtml = (e.practices && e.practices.length > 0)
+      ? e.practices.map(p => `<span class="practice-tag">${escapeHtml(p.type) || '—'}${p.min != null ? ' · ' + p.min + 'м' : ''}</span>`).join('')
+      : '<span class="delta-zero">—</span>';
+
+    const osHtml = e.os != null
+      ? `<strong>${e.os}/10</strong>${e.os_note ? '<div class="text-cell">' + escapeHtml(e.os_note) + '</div>' : ''}`
+      : (e.os_note ? `<div class="text-cell">${escapeHtml(e.os_note)}</div>` : '<span class="delta-zero">—</span>');
+
+    html += `<tr>
+      <td class="cell-date">${dateFmt}<span class="day">${dayName}</span><span class="day" style="font-size:0.6rem;">${e.date}</span></td>
+      <td>
+        <span class="frac">
+          <span class="top ${e.chpu == null ? 'empty' : ''}">${e.chpu != null ? e.chpu : '—'}</span>
+          <span class="bot ${e.kpu == null ? 'empty' : ''}">${e.kpu != null ? e.kpu : '—'}</span>
+        </span>
+      </td>
+      <td>${practicesHtml}</td>
+      <td>${dkpHtml}</td>
+      <td>${e.rf ? `<div class="text-cell">${escapeHtml(e.rf)}</div>` : '<span class="delta-zero">—</span>'}</td>
+      <td>${e.pp ? `<div class="text-cell">${escapeHtml(e.pp)}</div>` : '<span class="delta-zero">—</span>'}</td>
+      <td>${e.pks ? `<div class="text-cell">${escapeHtml(e.pks)}</div>` : '<span class="delta-zero">—</span>'}</td>
+      <td>${osHtml}</td>
+      <td><div class="row-actions"><button class="btn-icon" onclick="deleteEntry(${e.id})">Удал.</button></div></td>
+    </tr>`;
+  });
+
+  html += '</tbody></table></div>';
+  wrap.innerHTML = html;
+}
+
+window.deleteEntry = function(id) {
+  if (!confirm('Удалить запись?')) return;
+  saveEntries(loadEntries().filter(e => e.id !== id));
+  renderHistory();
+};
+
+document.getElementById('clearAllBtn').addEventListener('click', () => {
+  if (confirm('Удалить ВСЕ записи? Это действие необратимо.')) {
+    saveEntries([]);
+    renderHistory();
+  }
+});
+
+document.getElementById('exportBtn').addEventListener('click', () => {
+  const entries = loadEntries().sort((a, b) => a.date.localeCompare(b.date));
+  if (entries.length === 0) { alert('Нет данных для экспорта'); return; }
+
+  const headers = ['Дата','КПУ','ЧПУ','Практики','ΔКП','РФ','ПП','ПКС','ОС','Комментарий ОС'];
+  let lastKpu = null;
+  const rows = entries.map(e => {
+    let dkp = null;
+    if (e.kpu != null) {
+      dkp = (lastKpu != null) ? e.kpu - lastKpu : null;
+      lastKpu = e.kpu;
+    }
+    const practicesStr = (e.practices || []).map(p => `${p.type || ''}${p.min != null ? ' (' + p.min + ' мин)' : ''}`).join('; ');
+    return [
+      e.date, e.kpu, e.chpu, practicesStr, dkp,
+      e.rf, e.pp, e.pks, e.os, e.os_note
+    ].map(v => v == null ? '' : `"${String(v).replace(/"/g, '""')}"`).join(',');
+  });
+
+  const csv = '\ufeff' + [headers.join(','), ...rows].join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `dyshinosom_${new Date().toISOString().split('T')[0]}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+function renderTrends() {
+  const entries = loadEntries().sort((a, b) => a.date.localeCompare(b.date));
+  const stats = document.getElementById('statsBlock');
+
+  if (entries.length === 0) {
+    stats.innerHTML = '';
+    document.getElementById('insights').innerHTML = `<div class="empty-state">
+      <span class="empty-state-glyph">○</span>
+      <div class="empty-state-text">Графики появятся после трёх записей — это минимум для отслеживания тенденции.</div>
+      <span class="empty-state-sub">Бутейко — про месяцы, не про мгновение</span>
+    </div>`;
+    return;
+  }
+
+  const avg = (key) => {
+    const vals = entries.map(e => e[key]).filter(v => v != null && !isNaN(v));
+    if (vals.length === 0) return null;
+    return vals.reduce((a,b) => a+b, 0) / vals.length;
+  };
+  const trend = (key) => {
+    const vals = entries.map(e => e[key]).filter(v => v != null && !isNaN(v));
+    if (vals.length < 2) return 0;
+    const half = Math.floor(vals.length / 2);
+    const first = vals.slice(0, half).reduce((a,b) => a+b, 0) / half;
+    const second = vals.slice(half).reduce((a,b) => a+b, 0) / (vals.length - half);
+    return second - first;
+  };
+
+  const formatStat = (label, key, unit, betterHigher = true) => {
+    const a = avg(key);
+    const t = trend(key);
+    if (a == null) return `<div class="stat-card"><div class="label">${label}</div><div class="value">—</div></div>`;
+    const trendClass = (betterHigher ? t > 0 : t < 0) ? 'up' : (Math.abs(t) < 0.05 ? '' : 'down');
+    const arrow = t > 0.1 ? '↑' : (t < -0.1 ? '↓' : '→');
+    return `<div class="stat-card">
+      <div class="label">${label}</div>
+      <div class="value">${a.toFixed(1)}<span class="unit"> ${unit}</span></div>
+      <div class="trend ${trendClass}">${arrow} ${Math.abs(t).toFixed(1)}</div>
+    </div>`;
+  };
+
+  const totalMin = entries.reduce((sum, e) => {
+    return sum + (e.practices || []).reduce((s, p) => s + (p.min || 0), 0);
+  }, 0);
+
+  stats.innerHTML = [
+    formatStat('Средняя КПУ', 'kpu', 'сек', true),
+    formatStat('Средняя ЧПУ', 'chpu', 'уд/мин', false),
+    formatStat('Среднее ОС', 'os', '/10', true),
+    `<div class="stat-card"><div class="label">Всего практик</div><div class="value">${totalMin}<span class="unit"> мин</span></div></div>`,
+    `<div class="stat-card"><div class="label">Записей всего</div><div class="value">${entries.length}<span class="unit"> дней</span></div></div>`
+  ].join('');
+
+  drawChart('chartKPU', entries, 'kpu', 'var(--accent)');
+  drawChart('chartCHPU', entries, 'chpu', 'var(--green)');
+  drawChart('chartOS', entries, 'os', 'var(--ink)');
+}
+
+function drawChart(svgId, entries, key, color) {
+  const svg = document.getElementById(svgId);
+  svg.innerHTML = '';
+  const data = entries.map(e => ({ date: e.date, value: e[key] })).filter(d => d.value != null);
+
+  if (data.length === 0) {
+    svg.innerHTML = `<text x="50%" y="50%" text-anchor="middle" fill="var(--ink-faint)" font-family="Fraunces" font-style="italic" font-size="14">Нет данных</text>`;
+    return;
+  }
+
+  const W = svg.clientWidth || 800;
+  const H = 220;
+  const PAD = { l: 40, r: 20, t: 20, b: 30 };
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+
+  const values = data.map(d => d.value);
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const range = max - min || 1;
+  const yMin = Math.max(0, min - range * 0.15);
+  const yMax = max + range * 0.15;
+
+  const xStep = (W - PAD.l - PAD.r) / Math.max(1, data.length - 1);
+  const yScale = (v) => PAD.t + (H - PAD.t - PAD.b) * (1 - (v - yMin) / (yMax - yMin));
+
+  for (let i = 0; i <= 4; i++) {
+    const y = PAD.t + (H - PAD.t - PAD.b) * i / 4;
+    const v = yMax - (yMax - yMin) * i / 4;
+    svg.innerHTML += `<line x1="${PAD.l}" y1="${y}" x2="${W - PAD.r}" y2="${y}" stroke="var(--line)" stroke-dasharray="2,3"/>`;
+    svg.innerHTML += `<text x="${PAD.l - 8}" y="${y + 4}" text-anchor="end" font-family="JetBrains Mono" font-size="10" fill="var(--ink-faint)">${v.toFixed(0)}</text>`;
+  }
+
+  let pathD = '';
+  data.forEach((d, i) => {
+    const x = PAD.l + xStep * i;
+    const y = yScale(d.value);
+    pathD += (i === 0 ? 'M' : 'L') + x + ',' + y + ' ';
+  });
+  svg.innerHTML += `<path d="${pathD}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round"/>`;
+
+  data.forEach((d, i) => {
+    const x = PAD.l + xStep * i;
+    const y = yScale(d.value);
+    svg.innerHTML += `<circle cx="${x}" cy="${y}" r="3.5" fill="white" stroke="${color}" stroke-width="2"/>`;
+  });
+
+  const labels = data.length === 1 ? [0] : (data.length === 2 ? [0, data.length - 1] : [0, Math.floor(data.length / 2), data.length - 1]);
+  labels.forEach(i => {
+    const x = PAD.l + xStep * i;
+    const d = new Date(data[i].date);
+    const label = d.toLocaleDateString('ru-RU', { day: '2-digit', month: 'short' });
+    svg.innerHTML += `<text x="${x}" y="${H - 8}" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="var(--ink-faint)">${label}</text>`;
+  });
+}
+
+// ─── Daily Score (Oura-style КПУ-герой) ──────────────────────────────
+function classifyKpu(kpu) {
+  if (kpu < 10) return { zone: 'low', range: '<10 сек', interp: 'Зона глубокого дыхания. Лёгкие работают на пределе — это много для одного человека. Лучше не форсировать одному, а заняться с инструктором.' };
+  if (kpu < 20) return { zone: 'low', range: '10–19 сек', interp: 'Учащённое дыхание. Нормальная точка старта — отсюда и растут.' };
+  if (kpu < 40) return { zone: 'mid', range: '20–39 сек', interp: 'Нормальное дыхание по шкале метода. Видна устойчивая практика — продолжайте мягко.' };
+  if (kpu < 60) return { zone: 'good', range: '40–59 сек', interp: 'Глубоко нормальное дыхание. Здесь начинается «зона здоровья» по К. П. Бутейко.' };
+  return { zone: 'good', range: '60+ сек', interp: 'Целевая зона метода. Удерживать её — и есть смысл всей практики.' };
+}
+
+function renderDailyScore() {
+  const root = document.getElementById('dailyScore');
+  if (!root) return;
+  const entries = loadEntries().filter(e => e.kpu != null).sort((a, b) => b.date.localeCompare(a.date));
+  if (entries.length === 0) {
+    root.innerHTML = `
+      <div>
+        <div class="label">Сегодня</div>
+        <div class="number number-empty">— —</div>
+        <div class="number-unit">первая КПУ ещё не измерена</div>
+      </div>
+      <div>
+        <div class="interpretation">Сделайте первую запись внизу — здесь появится ваше число и зона по шкале метода. Это будет первая точка вашей линии.</div>
+      </div>`;
+    return;
+  }
+  const last = entries[0];
+  const cls = classifyKpu(last.kpu);
+  const today = new Date().toISOString().split('T')[0];
+  const isToday = last.date === today;
+  const dateStr = new Date(last.date).toLocaleDateString('ru-RU', { day: '2-digit', month: 'long' });
+  const _sn = (function(){ try { return (JSON.parse(localStorage.getItem('dyshinosom_settings_v1'))||{}).name||''; } catch(e){return '';} })();
+  const meta = isToday
+    ? (_sn ? 'Доброе утро, ' + _sn : 'Сегодня')
+    : 'Последняя запись · ' + dateStr;
+  const streak = computeStreak();
+  const streakHtml = streak >= 2 ? `<span class="streak-mini">${streak} ${streak < 5 ? 'дня' : 'дней'} подряд</span>` : '';
+  root.innerHTML = `
+    <div>
+      <div class="label">${meta}</div>
+      <div class="number number-zone-${cls.zone}">${last.kpu}</div>
+      <div class="number-unit">КПУ · секунд</div>
+    </div>
+    <div>
+      <div class="interpretation">${cls.interp}</div>
+      <div class="meta">Зона метода: ${cls.range} ${streakHtml}</div>
+    </div>`;
+}
+
+// ─── Streak: дней подряд с КПУ ───────────────────────────────────────
+function computeStreak() {
+  const entries = loadEntries().filter(e => e.kpu != null).sort((a, b) => b.date.localeCompare(a.date));
+  if (entries.length === 0) return 0;
+  const today = new Date(); today.setHours(0,0,0,0);
+  const dayMs = 86400000;
+  // Streak считается, только если последняя запись сегодня или вчера (не «обнуляем», но и не считаем устаревший)
+  const lastDate = new Date(entries[0].date); lastDate.setHours(0,0,0,0);
+  const diffFromToday = Math.round((today - lastDate) / dayMs);
+  if (diffFromToday > 1) return 0;
+  let streak = 1;
+  for (let i = 1; i < entries.length; i++) {
+    const a = new Date(entries[i-1].date); a.setHours(0,0,0,0);
+    const b = new Date(entries[i].date); b.setHours(0,0,0,0);
+    const diff = Math.round((a - b) / dayMs);
+    if (diff === 1) streak++;
+    else break;
+  }
+  return streak;
+}
+
+function renderStreakBadge() {
+  const el = document.getElementById('streakBadge');
+  if (!el) return;
+  const streak = computeStreak();
+  if (streak >= 2) {
+    const word = streak < 5 ? 'дня' : 'дней';
+    el.innerHTML = `<span class="num">${streak}</span>&nbsp;${word} подряд`;
+    el.style.display = 'inline-block';
+  } else {
+    el.style.display = 'none';
+  }
+}
+
+// ─── Smart-таймер для измерения КП ───────────────────────────────────
+const kpTimerOverlay = document.getElementById('kpTimer');
+const kpTimerCircle = document.getElementById('kpTimerCircle');
+const kpTimerValue = document.getElementById('kpTimerValue');
+const kpTimerHint = document.getElementById('kpTimerHint');
+let kpTimerState = 'idle';
+let kpTimerSeconds = 0;
+let kpTimerInterval = null;
+
+function openKpTimer() {
+  kpTimerState = 'idle';
+  kpTimerSeconds = 0;
+  kpTimerValue.textContent = '0';
+  kpTimerCircle.classList.remove('running');
+  kpTimerHint.textContent = 'Тапните, чтобы начать отсчёт';
+  kpTimerOverlay.classList.add('show');
+}
+function closeKpTimer() {
+  if (kpTimerInterval) { clearInterval(kpTimerInterval); kpTimerInterval = null; }
+  kpTimerOverlay.classList.remove('show');
+}
+kpTimerCircle.addEventListener('click', () => {
+  if (kpTimerState === 'idle') {
+    kpTimerState = 'running';
+    kpTimerCircle.classList.add('running');
+    kpTimerHint.textContent = 'Тапните при первом ощутимом позыве вдохнуть';
+    kpTimerInterval = setInterval(() => {
+      kpTimerSeconds++;
+      kpTimerValue.textContent = kpTimerSeconds;
+    }, 1000);
+  } else if (kpTimerState === 'running') {
+    kpTimerState = 'done';
+    if (kpTimerInterval) { clearInterval(kpTimerInterval); kpTimerInterval = null; }
+    kpTimerCircle.classList.remove('running');
+    kpTimerHint.textContent = `Записано: ${kpTimerSeconds} сек. Тап «Сохранить» — внесёт в КПУ.`;
+  }
+});
+document.getElementById('kpTimerSaveBtn').addEventListener('click', () => {
+  if (kpTimerSeconds > 0) {
+    kpuInput.value = kpTimerSeconds;
+    updateDKP();
+  }
+  closeKpTimer();
+});
+document.getElementById('kpTimerCancelBtn').addEventListener('click', closeKpTimer);
+document.getElementById('kpTimerOpenBtn').addEventListener('click', openKpTimer);
+
+// ─── Упражнение 1А К. П. Бутейко — снять тревогу через паузы ─────────
+// Логика: tap-driven, ритм управляет пользователь. Не таймер с фиксированными
+// циклами, а сопровождение шагов «пауза → отдых → пауза». Каждый тап
+// переключает фазу; счётчик показывает время в секундах для контроля.
+const panicOverlay = document.getElementById('panicOverlay');
+const panicCircle = document.getElementById('panicCircle');
+const panicPhase = document.getElementById('panicPhase');
+const panicCounter = document.getElementById('panicCounter');
+const panicCycleMeta = document.getElementById('panicCycleMeta');
+const panicCloseBtn = document.getElementById('panicCloseBtn');
+const panicOpenBtn = document.getElementById('panicOpenBtn');
+
+let panicState = 'ready';   // ready | holding | breathing | done
+let panicTickHandle = null;
+let panicSeconds = 0;
+let panicCycleCount = 0;
+let panicSessionStart = 0;
+
+function panicReset() {
+  panicState = 'ready';
+  panicSeconds = 0;
+  panicCycleCount = 0;
+  panicSessionStart = 0;
+  if (panicTickHandle) { clearInterval(panicTickHandle); panicTickHandle = null; }
+  panicCircle.classList.remove('holding', 'breathing');
+  panicPhase.textContent = 'Готовы — тапните';
+  panicCounter.textContent = '';
+  panicCycleMeta.textContent = '';
+}
+
+function openPanic() {
+  panicReset();
+  panicOverlay.classList.add('show');
+}
+function closePanic() {
+  if (panicTickHandle) { clearInterval(panicTickHandle); panicTickHandle = null; }
+  panicOverlay.classList.remove('show');
+  panicReset();
+}
+
+function panicAdvance() {
+  // ready → holding → breathing → holding → breathing → ... → done (через 3–5 минут)
+  if (panicState === 'ready') {
+    panicState = 'holding';
+    panicSeconds = 0;
+    panicCycleCount = 1;
+    panicSessionStart = Date.now();
+    panicCircle.classList.remove('breathing');
+    panicCircle.classList.add('holding');
+    panicPhase.textContent = 'Закройте нос';
+    panicCounter.textContent = '0 сек';
+    panicCycleMeta.textContent = `Цикл ${panicCycleCount} из ${MAX_CYCLES}`;
+    if (panicTickHandle) clearInterval(panicTickHandle);
+    panicTickHandle = setInterval(() => {
+      panicSeconds++;
+      panicCounter.textContent = `${panicSeconds} сек`;
+      // Подсказка: если уже долго держит — мягко напоминаем не передерживать
+      if (panicSeconds === 8) {
+        panicPhase.textContent = 'Только до лёгкой нехватки';
+      }
+      if (panicSeconds === 15) {
+        panicPhase.textContent = 'Открывайте нос — не передерживайте';
+      }
+    }, 1000);
+    return;
+  }
+  if (panicState === 'holding') {
+    panicState = 'breathing';
+    panicSeconds = 0;
+    panicCircle.classList.remove('holding');
+    panicCircle.classList.add('breathing');
+    panicPhase.textContent = 'Дышите носом, ровно';
+    panicCounter.textContent = '3–4 цикла';
+    if (panicTickHandle) clearInterval(panicTickHandle);
+    panicTickHandle = setInterval(() => {
+      panicSeconds++;
+      panicCounter.textContent = `${panicSeconds} сек · 3–4 цикла`;
+    }, 1000);
+    return;
+  }
+  if (panicState === 'breathing') {
+    panicCycleCount++;
+    panicState = 'holding';
+    panicSeconds = 0;
+    panicCircle.classList.remove('breathing');
+    panicCircle.classList.add('holding');
+    panicPhase.textContent = 'Снова закройте нос';
+    panicCounter.textContent = '0 сек';
+    // Считаем минуты с начала сессии
+    const elapsedMs = Date.now() - panicSessionStart;
+    const elapsedMin = Math.floor(elapsedMs / 60000);
+    if (elapsedMin >= 5 && panicCycleCount >= 6) {
+      panicCycleMeta.textContent = `Цикл ${panicCycleCount} · уже ${elapsedMin} мин — можете заканчивать`;
+    } else {
+      panicCycleMeta.textContent = `Цикл ${panicCycleCount} из ${MAX_CYCLES}`;
+    }
+    if (panicTickHandle) clearInterval(panicTickHandle);
+    panicTickHandle = setInterval(() => {
+      panicSeconds++;
+      panicCounter.textContent = `${panicSeconds} сек`;
+      if (panicSeconds === 8) panicPhase.textContent = 'Только до лёгкой нехватки';
+      if (panicSeconds === 15) panicPhase.textContent = 'Открывайте — не передерживайте';
+    }, 1000);
+    return;
+  }
+}
+
+panicOpenBtn.addEventListener('click', openPanic);
+panicCloseBtn.addEventListener('click', closePanic);
+panicCircle.addEventListener('click', panicAdvance);
+panicCircle.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); panicAdvance(); }
+});
+
+// ─── Insight-карточки на естественном языке ──────────────────────────
+function renderInsights() {
+  const root = document.getElementById('insights');
+  if (!root) return;
+  const entries = loadEntries().filter(e => e.kpu != null).sort((a, b) => a.date.localeCompare(b.date));
+  if (entries.length < 2) { root.innerHTML = ''; return; }
+
+  const cards = [];
+  const kpus = entries.map(e => e.kpu);
+  const last = entries[entries.length - 1];
+  const avgAll = kpus.reduce((a, b) => a + b, 0) / kpus.length;
+
+  // 1. Тенденция: сколько последних дней подряд КПУ не падает / не растёт
+  let growing = 0;
+  for (let i = entries.length - 1; i > 0; i--) {
+    if (entries[i].kpu >= entries[i-1].kpu) growing++; else break;
+  }
+  if (growing >= 3) {
+    const word = growing < 5 ? 'дня' : 'дней';
+    cards.push({
+      type:'good',
+      label:'Похоже, поймали ритм',
+      text: `КПУ растёт уже <strong>${growing} ${word} подряд</strong>. Это уже не случайность — привычка проступает.`
+    });
+  } else if (entries.length >= 5) {
+    let dropping = 0;
+    for (let i = entries.length - 1; i > 0; i--) {
+      if (entries[i].kpu <= entries[i-1].kpu) dropping++; else break;
+    }
+    if (dropping >= 3) {
+      const word = dropping < 5 ? 'дня' : 'дней';
+      cards.push({
+        type:'warn',
+        label:'Стоит остановиться и подумать',
+        text: `Кажется, КПУ снижается <strong>${dropping} ${word} подряд</strong>. Часто за этим — стресс, простуда или переедание. Может, посмотреть на РФ за эти дни?`
+      });
+    }
+  }
+
+  // 2. Неделя vs всё время
+  if (entries.length >= 5) {
+    const recent = kpus.slice(-7);
+    const avgRecent = recent.reduce((a, b) => a + b, 0) / recent.length;
+    const diff = avgRecent - avgAll;
+    if (Math.abs(diff) >= 2) {
+      const better = diff > 0;
+      cards.push({
+        type: better ? 'good' : 'neutral',
+        label: better ? 'Неделя выходит сильнее обычного' : 'Неделя пока спокойнее',
+        text: better
+          ? `За последние 7 дней среднее — <strong>${avgRecent.toFixed(1)} сек</strong>, на ${Math.abs(diff).toFixed(1)} сек выше вашего обычного. Так и выглядит прогресс.`
+          : `За последние 7 дней среднее — <strong>${avgRecent.toFixed(1)} сек</strong>, на ${Math.abs(diff).toFixed(1)} сек ниже среднего. Нормальные колебания, не повод волноваться.`
+      });
+    }
+  }
+
+  // 3. Сегодняшняя выше среднего
+  if (entries.length >= 5 && last.kpu > avgAll * 1.1) {
+    cards.push({
+      type:'good',
+      label:'Сильный день',
+      text:`<strong>${last.kpu} сек</strong> — это выше вашего обычного (${avgAll.toFixed(1)} сек). Хорошо.`
+    });
+  }
+
+  // 4. Streak
+  const streak = computeStreak();
+  if (streak >= 3) {
+    const word = streak < 5 ? 'дня' : 'дней';
+    cards.push({
+      type:'good',
+      label:'Привычка крепнет',
+      text:`Вы открываете дневник <strong>${streak} ${word} подряд</strong>. В методе Бутейко регулярность важнее рекордов — каждый день удерживает форму.`
+    });
+  }
+
+  // Показываем максимум 3
+  if (cards.length === 0) { root.innerHTML = ''; return; }
+  root.innerHTML = cards.slice(0, 3).map(c => `
+    <div class="insight-card ${c.type === 'warn' ? 'warn' : c.type === 'neutral' ? 'neutral' : ''}">
+      <div class="label">${c.label}</div>
+      <p>${c.text}</p>
+    </div>
+  `).join('');
+}
+
+// ─── Пресеты практик (группировка по результату) ─────────────────────
+const PRACTICE_PRESETS = [
+  { name: 'Утренняя норма', type: '2А', min: 35, category: 'morning' },
+  { name: 'Снять заложенность', type: '1С', min: 10, category: 'acute' },
+  { name: 'Спокойный сон', type: '1С', min: 15, category: 'sleep' },
+  { name: 'Восстановление', type: '2А', min: 20, category: 'recovery' },
+];
+function renderPresets() {
+  const wrap = document.getElementById('practicePresets');
+  if (!wrap) return;
+  wrap.innerHTML = PRACTICE_PRESETS.map(p =>
+    `<button type="button" class="preset-btn" data-category="${escapeAttr(p.category)}" data-type="${escapeAttr(p.type)}" data-min="${p.min}">${escapeHtml(p.name)}<span class="preset-spec">· ${p.type} ${p.min}м</span></button>`
+  ).join('');
+  wrap.querySelectorAll('.preset-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      addPracticeRow(btn.dataset.type, btn.dataset.min);
+    });
+  });
+}
+
+renderHistory();
+updateDKP();
+renderDailyScore();
+renderRecommendation();
+renderStreakBadge();
+renderPresets();
+
+// Обновлять Daily Score и streak после каждого сохранения / удаления
+const _origSaveEntries = saveEntries;
+saveEntries = function(entries) {
+  _origSaveEntries(entries);
+  renderDailyScore();
+  renderStreakBadge();
+};
+
+// Welcome → Disclaimer цепочка для первого входа
+const WELCOME_KEY = 'dyshinosom_welcome_v1';
+const DISCLAIMER_KEY = 'dyshinosom_disclaimer_v1';
+const welcomeOverlay = document.getElementById('welcomeOverlay');
+const welcomeNextBtn = document.getElementById('welcomeNextBtn');
+const disclaimerModal = document.getElementById('disclaimerModal');
+const disclaimerAcceptBtn = document.getElementById('disclaimerAcceptBtn');
+
+const seenWelcome = !!localStorage.getItem(WELCOME_KEY);
+const acceptedDisclaimer = !!localStorage.getItem(DISCLAIMER_KEY);
+
+if (!seenWelcome) {
+  // Самый первый вход — показываем welcome, потом дисклеймер
+  welcomeOverlay.classList.add('show');
+} else if (!acceptedDisclaimer) {
+  // Welcome уже видели, но дисклеймер ещё не приняли
+  disclaimerModal.classList.add('show');
+}
+
+welcomeNextBtn.addEventListener('click', () => {
+  localStorage.setItem(WELCOME_KEY, new Date().toISOString());
+  welcomeOverlay.classList.remove('show');
+  if (!acceptedDisclaimer) {
+    setTimeout(() => disclaimerModal.classList.add('show'), 250);
+  }
+});
+disclaimerAcceptBtn.addEventListener('click', () => {
+  localStorage.setItem(DISCLAIMER_KEY, new Date().toISOString());
+  disclaimerModal.classList.remove('show');
+  // Показать онбординг, если ещё не видели
+  if (!localStorage.getItem('dyshinosom_onboarding_v1')) {
+    setTimeout(() => startOnboarding(), 200);
+  }
+});
+
+// ─── Онбординг ───────────────────────────────────────────────────────
+(function() {
+  const ONBOARDING_KEY = 'dyshinosom_onboarding_v1';
+  const overlay = document.getElementById('onboardingOverlay');
+  if (!overlay) return;
+
+  const screens = [
+    document.getElementById('obScreen1'),
+    document.getElementById('obScreen2'),
+    document.getElementById('obScreen3'),
+  ];
+  const dots = [
+    document.getElementById('obDot1'),
+    document.getElementById('obDot2'),
+    document.getElementById('obDot3'),
+  ];
+
+  let currentScreen = 0;
+
+  function showScreen(idx) {
+    screens.forEach((s, i) => {
+      s.classList.toggle('ob-active', i === idx);
+    });
+    dots.forEach((d, i) => {
+      d.classList.toggle('active', i === idx);
+      d.classList.toggle('done',   i < idx);
+    });
+    currentScreen = idx;
+  }
+
+  function finishOnboarding(openTimer) {
+    localStorage.setItem(ONBOARDING_KEY, new Date().toISOString());
+    overlay.classList.remove('show');
+    if (openTimer) {
+      setTimeout(() => {
+        const openBtn = document.getElementById('kpTimerOpenBtn');
+        if (openBtn) openBtn.click();
+      }, 250);
+    }
+  }
+
+  // Навигация
+  document.getElementById('obNext1').addEventListener('click', () => showScreen(1));
+  document.getElementById('obNext2').addEventListener('click', () => showScreen(2));
+  document.getElementById('obSkip1').addEventListener('click', () => finishOnboarding(false));
+  document.getElementById('obSkip2').addEventListener('click', () => finishOnboarding(false));
+  document.getElementById('obFinishBtn').addEventListener('click', () => finishOnboarding(false));
+  document.getElementById('obMeasureBtn').addEventListener('click', () => finishOnboarding(true));
+
+  // Свайп (touch)
+  let touchStartX = 0;
+  overlay.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+  overlay.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(dx) < 50) return;
+    if (dx < 0 && currentScreen < screens.length - 1) showScreen(currentScreen + 1);
+    if (dx > 0 && currentScreen > 0) showScreen(currentScreen - 1);
+  }, { passive: true });
+
+  // Глобальная функция для запуска (вызывается после дисклеймера)
+  window.startOnboarding = function() {
+    showScreen(0);
+    overlay.classList.add('show');
+  };
+})();
+
+// ─── Мастер тренировки ───────────────────────────────────────────────
+(function() {
+  const wizardOverlay  = document.getElementById('wizardOverlay');
+  const wizardCloseBtn = document.getElementById('wizardCloseBtn');
+  const wizardOpenBtn  = document.getElementById('wizardOpenBtn');
+  const wzProgressFill = document.getElementById('wzProgressFill');
+
+  // Состояние мастера
+  let wzState = {
+    step: 1,
+    kpBefore: null,
+    kpAfter: null,
+    exType: '1С',
+    exSec: 0,
+    wb: { breath: null, head: null, state: null }
+  };
+
+  // ── KP-таймеры ──────────────────────────────────────────────────────
+  function makeKpTimer(circleEl, valueEl, hintEl, inputEl, onResult) {
+    let state = 'idle', sec = 0, handle = null;
+
+    function reset() {
+      if (handle) clearInterval(handle);
+      handle = null; state = 'idle'; sec = 0;
+      circleEl.classList.remove('wz-running', 'wz-done');
+      valueEl.textContent = '0';
+      hintEl.textContent = 'Тапните, чтобы начать отсчёт';
+    }
+
+    function tap() {
+      if (state === 'idle') {
+        state = 'running'; sec = 0;
+        circleEl.classList.add('wz-running');
+        hintEl.textContent = 'Тапните при первом желании вдохнуть';
+        handle = setInterval(() => { sec++; valueEl.textContent = sec; }, 1000);
+      } else if (state === 'running') {
+        if (handle) clearInterval(handle);
+        state = 'done';
+        circleEl.classList.remove('wz-running');
+        circleEl.classList.add('wz-done');
+        hintEl.textContent = 'Измерено: ' + sec + ' сек';
+        inputEl.value = sec;
+        if (onResult) onResult(sec);
+      }
+    }
+    circleEl.addEventListener('click', tap);
+    circleEl.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tap(); } });
+    circleEl.setAttribute('tabindex', '0');
+    circleEl.setAttribute('role', 'button');
+    circleEl.setAttribute('aria-label', 'Тапните для управления таймером');
+
+    return { reset };
+  }
+
+  const timerBefore = makeKpTimer(
+    document.getElementById('wzKpBeforeCircle'),
+    document.getElementById('wzKpBeforeVal'),
+    document.getElementById('wzKpBeforeHint'),
+    document.getElementById('wzKpBeforeInput'),
+    (v) => { wzState.kpBefore = v; }
+  );
+  const timerAfter = makeKpTimer(
+    document.getElementById('wzKpAfterCircle'),
+    document.getElementById('wzKpAfterVal'),
+    document.getElementById('wzKpAfterHint'),
+    document.getElementById('wzKpAfterInput'),
+    (v) => { wzState.kpAfter = v; }
+  );
+
+  // ── Таймер упражнения ────────────────────────────────────────────────
+  const wzExCircle = document.getElementById('wzExCircle');
+  const wzExVal    = document.getElementById('wzExVal');
+  const wzExHint   = document.getElementById('wzExHint');
+  let exState = 'idle', exSec = 0, exHandle = null;
+
+  function fmtTime(s) {
+    const m = Math.floor(s / 60);
+    const ss = String(s % 60).padStart(2, '0');
+    return m + ':' + ss;
+  }
+  function resetExTimer() {
+    if (exHandle) clearInterval(exHandle);
+    exHandle = null; exState = 'idle'; exSec = 0;
+    wzExCircle.classList.remove('wz-running', 'wz-done');
+    wzExVal.textContent = '0:00';
+    wzExHint.textContent = 'Тапните для старта · ещё раз — стоп';
+  }
+  // ── Подсказки из транскриптов Файзуллина (каждые 60 сек) ──────────
+  const WZ_TIPS = [
+    'Дышите только носом',
+    'Поддерживайте лёгкое ощущение нехватки воздуха',
+    'Расслабьте плечи и живот',
+    'Не контролируйте дыхание сознательно — просто наблюдайте',
+    'Если хочется вдохнуть глубже — это нормально, просто замечайте',
+  ];
+  let exTipIdx = 0;
+  const wzExTip = document.getElementById('wzExTip');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function showNextTip() {
+    if (!wzExTip) return;
+    wzExTip.textContent = WZ_TIPS[exTipIdx % WZ_TIPS.length];
+    exTipIdx++;
+    if (reducedMotion) {
+      wzExTip.classList.remove('tip-hidden');
+    } else {
+      wzExTip.classList.add('tip-hidden');
+      setTimeout(() => { wzExTip.classList.remove('tip-hidden'); }, 50);
+    }
+  }
+
+  wzExCircle.addEventListener('click', () => {
+    if (exState === 'idle') {
+      exState = 'running'; exSec = 0; exTipIdx = 0;
+      wzExCircle.classList.add('wz-running');
+      wzExHint.textContent = 'Идёт упражнение · тапните чтобы остановить';
+      showNextTip();
+      exHandle = setInterval(() => {
+        exSec++;
+        wzExVal.textContent = fmtTime(exSec);
+        if (exSec % 60 === 0) showNextTip();
+      }, 1000);
+    } else if (exState === 'running') {
+      if (exHandle) clearInterval(exHandle);
+      exState = 'done';
+      wzExCircle.classList.remove('wz-running');
+      wzExCircle.classList.add('wz-done');
+      const mins = (exSec / 60).toFixed(1);
+      wzExHint.textContent = 'Завершено: ' + fmtTime(exSec) + ' (' + mins + ' мин)';
+      if (wzExTip) wzExTip.classList.add('tip-hidden');
+      wzState.exSec = exSec;
+    }
+  });
+
+  // ── Выбор типа упражнения ────────────────────────────────────────────
+  document.querySelectorAll('.wizard-ex-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.wizard-ex-btn').forEach(b => b.classList.remove('wz-active'));
+      btn.classList.add('wz-active');
+      wzState.exType = btn.dataset.ex;
+    });
+  });
+
+  // ── Самочувствие ─────────────────────────────────────────────────────
+  document.querySelectorAll('.wizard-wb-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.dataset.wbGroup;
+      document.querySelectorAll('.wizard-wb-btn[data-wb-group="' + group + '"]')
+        .forEach(b => b.classList.remove('wz-active'));
+      btn.classList.add('wz-active');
+      wzState.wb[group] = btn.dataset.wbVal;
+    });
+  });
+
+  // ── Навигация по шагам ───────────────────────────────────────────────
+  function setStep(n) {
+    wzState.step = n;
+    for (let i = 1; i <= 5; i++) {
+      const el = document.getElementById('wzStep' + i);
+      if (el) el.classList.toggle('wz-hidden', i !== n);
+    }
+    wzProgressFill.style.width = (n * 20) + '%';
+  }
+
+  function readKpInput(inputId) {
+    const v = parseFloat(document.getElementById(inputId).value);
+    return isNaN(v) || v <= 0 ? null : v;
+  }
+
+  document.getElementById('wzStep1Next').addEventListener('click', () => {
+    const v = readKpInput('wzKpBeforeInput');
+    if (v !== null) wzState.kpBefore = v;
+    setStep(2);
+    resetExTimer();
+  });
+
+  document.getElementById('wzStep2Next').addEventListener('click', () => {
+    if (exState === 'running') {
+      // Остановить таймер если ещё идёт
+      if (exHandle) clearInterval(exHandle);
+      exState = 'done';
+      wzExCircle.classList.remove('wz-running');
+      wzExCircle.classList.add('wz-done');
+      wzState.exSec = exSec;
+    }
+    setStep(3);
+  });
+
+  document.getElementById('wzStep3Next').addEventListener('click', () => {
+    const v = readKpInput('wzKpAfterInput');
+    if (v !== null) wzState.kpAfter = v;
+    setStep(4);
+  });
+
+  document.getElementById('wzStep4Next').addEventListener('click', () => {
+    buildResult();
+    setStep(5);
+  });
+
+  // ── Итоговый экран ───────────────────────────────────────────────────
+  function buildResult() {
+    const before = wzState.kpBefore;
+    const after  = wzState.kpAfter;
+
+    let delta = null;
+    let deltaClass = 'zero';
+    let deltaText = '—';
+    let phrase = 'Практика завершена. Регулярность — главное в методе.';
+
+    if (before != null && after != null) {
+      delta = after - before;
+      deltaText = (delta > 0 ? '+' : '') + delta;
+      if (delta > 0) {
+        deltaClass = 'up';
+        phrase = 'Отличная практика — КП выросла.';
+      } else if (delta === 0) {
+        deltaClass = 'zero';
+        phrase = 'Стабильность — тоже результат.';
+      } else {
+        deltaClass = 'down';
+        phrase = 'Бывает. Главное — регулярность, не каждый раз.';
+      }
+    } else if (before != null || after != null) {
+      phrase = 'Практика завершена.';
+    }
+
+    document.getElementById('wzDeltaNum').textContent = deltaText;
+    document.getElementById('wzDeltaNum').className = 'wizard-delta-num ' + deltaClass;
+    document.getElementById('wzResultTitle').textContent =
+      delta !== null && delta > 0 ? 'Отличная практика' :
+      delta !== null && delta === 0 ? 'Стабильный результат' :
+      delta !== null && delta < 0 ? 'Практика завершена' : 'Готово';
+    document.getElementById('wzResultPhrase').textContent = phrase;
+
+    const exMins = wzState.exSec > 0 ? (wzState.exSec / 60).toFixed(1) : null;
+    const wb = wzState.wb;
+    const wbParts = [wb.breath, wb.head, wb.state].filter(Boolean);
+
+    let rows = '';
+    if (before != null) rows += row('КП до', before + ' сек');
+    if (after != null)  rows += row('КП после', after + ' сек');
+    if (exMins)         rows += row('Упражнение', wzState.exType + ' · ' + exMins + ' мин');
+    if (wbParts.length) rows += row('Самочувствие', wbParts.join(', '));
+
+    document.getElementById('wzSummaryTable').innerHTML = rows;
+  }
+
+  function row(label, val) {
+    return '<div class="wizard-summary-row"><span class="wizard-s-label">' +
+      escapeHtml(label) + '</span><span class="wizard-s-val">' + escapeHtml(String(val)) + '</span></div>';
+  }
+
+  // ── Сохранение записи ────────────────────────────────────────────────
+  document.getElementById('wzSaveBtn').addEventListener('click', () => {
+    const today = new Date().toISOString().split('T')[0];
+    const before = wzState.kpBefore;
+    const after  = wzState.kpAfter;
+    const exMins = wzState.exSec > 0 ? parseFloat((wzState.exSec / 60).toFixed(1)) : null;
+    const wb = wzState.wb;
+    const wbParts = [wb.breath && 'Дыхание: ' + wb.breath, wb.head && 'Голова: ' + wb.head, wb.state && 'Состояние: ' + wb.state].filter(Boolean);
+    const osNote = wbParts.length ? wbParts.join(' · ') + (after != null ? ' | КП после: ' + after + ' сек' : '') : (after != null ? 'КП после: ' + after + ' сек' : null);
+
+    const practices = wzState.exSec > 0 ? [{ type: wzState.exType, min: exMins }] : [];
+
+    const entry = {
+      id: Date.now(),
+      date: today,
+      kpu: before,
+      chpu: null,
+      practices,
+      rf: null,
+      pp: null,
+      pks: null,
+      os: null,
+      os_note: osNote
+    };
+
+    // ΔКП — от предыдущей записи к kpBefore (или kpAfter если нет before)
+    const refKpu = before != null ? before : after;
+    if (refKpu != null) {
+      const priors = loadEntries()
+        .filter(e => e.date < today && e.kpu != null)
+        .sort((a, b) => b.date.localeCompare(a.date));
+      entry.dkp = priors.length > 0 ? refKpu - priors[0].kpu : null;
+    } else {
+      entry.dkp = null;
+    }
+
+    const entries = loadEntries();
+    const existingIdx = entries.findIndex(e => e.date === today);
+    if (existingIdx >= 0) {
+      if (!confirm('На сегодня уже есть запись. Заменить?')) return;
+      entries[existingIdx] = entry;
+    } else {
+      entries.push(entry);
+    }
+    saveEntries(entries);
+
+    const btn = document.getElementById('wzSaveBtn');
+    const orig = btn.textContent;
+    btn.textContent = '✓ Сохранено';
+    btn.style.background = 'var(--green)';
+    btn.style.borderColor = 'var(--green)';
+    setTimeout(() => { closeWizard(); }, 1000);
+  });
+
+  // ── Открытие / закрытие ──────────────────────────────────────────────
+  function openWizard() {
+    wzState = { step: 1, kpBefore: null, kpAfter: null, exType: '1С', exSec: 0, wb: { breath: null, head: null, state: null } };
+    timerBefore.reset();
+    timerAfter.reset();
+    resetExTimer();
+    document.getElementById('wzKpBeforeInput').value = '';
+    document.getElementById('wzKpAfterInput').value = '';
+    document.querySelectorAll('.wizard-wb-btn').forEach(b => b.classList.remove('wz-active'));
+    document.querySelectorAll('.wizard-ex-btn').forEach(b => b.classList.remove('wz-active'));
+    document.getElementById('wzExBtn1C').classList.add('wz-active');
+    wzState.exType = '1С';
+    setStep(1);
+    wizardOverlay.classList.add('show');
+  }
+  function closeWizard() {
+    wizardOverlay.classList.remove('show');
+  }
+
+  wizardOpenBtn.addEventListener('click', openWizard);
+  wizardCloseBtn.addEventListener('click', () => { if (confirm('Выйти без сохранения?')) closeWizard(); });
+  document.getElementById('wzDiscardBtn').addEventListener('click', closeWizard);
+})();
+
+// ─── Вкладка «Скоро» — попапы при клике ─────────────────────────────
+document.querySelectorAll('.coming-soon-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const id = card.dataset.cs;
+    const popup = document.getElementById('csPopup' + id);
+    if (!popup) return;
+    const isOpen = popup.classList.contains('show');
+    // Закрыть все, открыть выбранный
+    document.querySelectorAll('.cs-popup').forEach(p => p.classList.remove('show'));
+    if (!isOpen) popup.classList.add('show');
+  });
+});
+
+// ─── Карточка прогресса (Canvas 1080×1080) ───────────────────────────
+(function() {
+  const shareBtn      = document.getElementById('shareCardBtn');
+  const previewWrap   = document.getElementById('sharePreviewWrap');
+  const canvas        = document.getElementById('shareCanvas');
+  const downloadBtn   = document.getElementById('shareDownloadBtn');
+  const closeBtn      = document.getElementById('shareCloseBtn');
+  if (!shareBtn || !canvas) return;
+
+  // Цвета проекта (дублируем CSS-переменные для Canvas)
+  const C = {
+    bg:         '#f4f1ea',
+    bgSoft:     '#ebe6db',
+    paper:      '#fdfaf2',
+    ink:        '#1a1a1a',
+    inkSoft:    '#4a4a4a',
+    inkFaint:   '#8a8578',
+    accent:     '#c4451c',
+    accentSoft: '#e8b4a0',
+    green:      '#5d7a4f',
+    greenSoft:  '#c4d4b8',
+    line:       '#d4cdb8',
+    lineStrong: '#a89f86',
+  };
+
+  function renderCard() {
+    const entries = loadEntries().filter(e => e.kpu != null).sort((a, b) => a.date.localeCompare(b.date));
+    const ctx = canvas.getContext('2d');
+    const W = 1080, H = 1080;
+    ctx.clearRect(0, 0, W, H);
+
+    // ── Фон ──────────────────────────────────────────────────────────
+    ctx.fillStyle = C.bg;
+    ctx.fillRect(0, 0, W, H);
+
+    // Тонкий текстурный оттенок (радиальный градиент)
+    const gBg = ctx.createRadialGradient(W * 0.15, H * 0.08, 0, W * 0.15, H * 0.08, W * 0.6);
+    gBg.addColorStop(0, 'rgba(196,69,28,0.04)');
+    gBg.addColorStop(1, 'rgba(196,69,28,0)');
+    ctx.fillStyle = gBg;
+    ctx.fillRect(0, 0, W, H);
+
+    const gBg2 = ctx.createRadialGradient(W * 0.85, H * 0.92, 0, W * 0.85, H * 0.92, W * 0.55);
+    gBg2.addColorStop(0, 'rgba(93,122,79,0.05)');
+    gBg2.addColorStop(1, 'rgba(93,122,79,0)');
+    ctx.fillStyle = gBg2;
+    ctx.fillRect(0, 0, W, H);
+
+    // ── Акцентная полоса сверху ───────────────────────────────────
+    const stripeH = 16;
+    ctx.fillStyle = C.accent;
+    ctx.fillRect(0, 0, W * 0.30, stripeH);
+    ctx.fillStyle = C.green;
+    ctx.fillRect(W * 0.30, 0, W, stripeH);
+
+    const PAD = 80;
+
+    // ── Eyebrow ───────────────────────────────────────────────────
+    ctx.font = '500 28px "JetBrains Mono", monospace';
+    ctx.fillStyle = C.inkFaint;
+    ctx.letterSpacing = '0.22em';
+    ctx.fillText('КОНТРОЛЬНАЯ ПАУЗА · МЕТОД БУТЕЙКО', PAD, PAD + 48);
+    ctx.letterSpacing = '0';
+
+    // ── Главное число ─────────────────────────────────────────────
+    const last = entries.length > 0 ? entries[entries.length - 1] : null;
+    const kpuVal = last ? last.kpu : null;
+
+    if (kpuVal != null) {
+      // Зона цвет
+      const zoneColor = kpuVal < 20 ? C.accent : kpuVal < 40 ? C.ink : C.green;
+      ctx.font = 'italic 600 340px "Fraunces", Georgia, serif';
+      ctx.fillStyle = zoneColor;
+      ctx.textBaseline = 'alphabetic';
+      const numText = String(kpuVal);
+      const numW = ctx.measureText(numText).width;
+      ctx.fillText(numText, PAD, 460);
+
+      ctx.font = '400 44px "JetBrains Mono", monospace';
+      ctx.fillStyle = C.inkFaint;
+      ctx.fillText('СЕКУНД · КПУ', PAD, 510);
+
+      // ── Зона метода ───────────────────────────────────────────
+      const zoneTxt = kpuVal < 20 ? 'Зона: начало практики' :
+                      kpuVal < 40 ? 'Зона: нормальное дыхание' :
+                      kpuVal < 60 ? 'Зона: здоровье' : 'Целевая зона метода';
+      ctx.font = 'italic 36px "Fraunces", Georgia, serif';
+      ctx.fillStyle = zoneColor;
+      ctx.fillText(zoneTxt, PAD, 574);
+    } else {
+      ctx.font = 'italic 120px "Fraunces", Georgia, serif';
+      ctx.fillStyle = C.inkFaint;
+      ctx.fillText('Первый замер ещё впереди', PAD, 460);
+    }
+
+    // ── Разделитель ────────────────────────────────────────────────
+    ctx.strokeStyle = C.line;
+    ctx.lineWidth = 2;
+    ctx.setLineDash([6, 6]);
+    ctx.beginPath();
+    ctx.moveTo(PAD, 620);
+    ctx.lineTo(W - PAD, 620);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // ── Статистика: 3 ячейки ───────────────────────────────────────
+    const statY = 660;
+    const colW = (W - PAD * 2) / 3;
+
+    // 1. Динамика за 7 дней
+    const recent7 = entries.slice(-7);
+    let weekDelta = null;
+    if (recent7.length >= 2) {
+      weekDelta = recent7[recent7.length - 1].kpu - recent7[0].kpu;
+    }
+    drawStatCell(ctx, PAD, statY, colW - 20, weekDelta != null ? (weekDelta >= 0 ? '+' + weekDelta : String(weekDelta)) : '—', 'ЗА 7 ДНЕЙ',
+      weekDelta != null && weekDelta > 0 ? C.green : weekDelta != null && weekDelta < 0 ? C.accent : C.inkFaint, C);
+
+    // 2. Стрик
+    const streak = computeStreak();
+    const streakWord = streak === 0 ? '—' : streak + ' ' + (streak % 10 === 1 && streak !== 11 ? 'день' : streak % 10 < 5 && (streak < 11 || streak > 14) ? 'дня' : 'дней');
+    drawStatCell(ctx, PAD + colW, statY, colW - 20, streakWord, 'ПОДРЯД', streak >= 3 ? C.green : C.inkFaint, C);
+
+    // 3. Всего записей
+    drawStatCell(ctx, PAD + colW * 2, statY, colW - 20, entries.length > 0 ? String(entries.length) : '—', 'ЗАПИСЕЙ', C.inkFaint, C);
+
+    // ── Нижняя полоса: логотип + дата ─────────────────────────────
+    const bottomY = H - 80;
+
+    // Фоновая полоса
+    ctx.fillStyle = C.ink;
+    ctx.fillRect(0, H - 120, W, 120);
+
+    ctx.font = 'italic 500 48px "Fraunces", Georgia, serif';
+    ctx.fillStyle = C.bg;
+    ctx.textBaseline = 'middle';
+    ctx.fillText('Дыши Носом', PAD, H - 60);
+
+    const dateStr = new Date().toLocaleDateString('ru-RU', { day: '2-digit', month: 'long', year: 'numeric' });
+    ctx.font = '400 28px "JetBrains Mono", monospace';
+    ctx.fillStyle = C.inkFaint;
+    ctx.textAlign = 'right';
+    ctx.fillText(dateStr.toUpperCase(), W - PAD, H - 60);
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'alphabetic';
+  }
+
+  function drawStatCell(ctx, x, y, w, value, label, valueColor, C) {
+    ctx.font = 'italic 500 80px "Fraunces", Georgia, serif';
+    ctx.fillStyle = valueColor;
+    ctx.textBaseline = 'alphabetic';
+    ctx.fillText(value, x, y + 70);
+
+    ctx.font = '400 28px "JetBrains Mono", monospace';
+    ctx.fillStyle = C.inkFaint;
+    ctx.fillText(label, x, y + 112);
+  }
+
+  shareBtn.addEventListener('click', () => {
+    const entries = loadEntries().filter(e => e.kpu != null);
+    if (entries.length === 0) {
+      alert('Добавьте хотя бы одну запись с КПУ, чтобы сгенерировать карточку.');
+      return;
+    }
+    renderCard();
+    previewWrap.classList.add('show');
+    previewWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  downloadBtn.addEventListener('click', () => {
+    const link = document.createElement('a');
+    link.download = 'dyshinosom-progress-' + new Date().toISOString().split('T')[0] + '.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  });
+
+  closeBtn.addEventListener('click', () => {
+    previewWrap.classList.remove('show');
+  });
+})();
+
+// ─── Голосовой ввод КПУ (Web Speech API) ────────────────────────────
+(function() {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const voiceBtn   = document.getElementById('kpuVoiceBtn');
+  const voiceLabel = document.getElementById('kpuVoiceBtnLabel');
+  const kpuField   = document.getElementById('kpu');
+
+  if (!SpeechRecognition || !voiceBtn) return; // браузер не поддерживает — кнопка остаётся скрытой
+
+  // Показываем кнопку — API доступен
+  voiceBtn.style.display = 'flex';
+
+  const recognition = new SpeechRecognition();
+  recognition.lang = 'ru-RU';
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 5;
+  recognition.continuous = false;
+
+  let listening = false;
+
+  // Нормализует распознанную строку в число секунд
+  function parseSpokenNumber(text) {
+    const t = text.trim().toLowerCase();
+    // Сначала пробуем прямое число: «16», «28» и т.п.
+    const direct = parseInt(t.replace(/[^0-9]/g, ''), 10);
+    if (!isNaN(direct) && direct > 0 && direct <= 300) return direct;
+
+    // Словарь русских числительных
+    const words = {
+      'ноль': 0, 'нуль': 0,
+      'один': 1, 'одна': 1, 'одно': 1,
+      'два': 2, 'две': 2,
+      'три': 3, 'четыре': 4, 'пять': 5, 'шесть': 6,
+      'семь': 7, 'восемь': 8, 'девять': 9, 'десять': 10,
+      'одиннадцать': 11, 'двенадцать': 12, 'тринадцать': 13,
+      'четырнадцать': 14, 'пятнадцать': 15, 'шестнадцать': 16,
+      'семнадцать': 17, 'восемнадцать': 18, 'девятнадцать': 19,
+      'двадцать': 20, 'тридцать': 30, 'сорок': 40, 'пятьдесят': 50,
+      'шестьдесят': 60, 'семьдесят': 70, 'восемьдесят': 80, 'девяносто': 90,
+      'сто': 100, 'двести': 200, 'триста': 300
+    };
+    const tokens = t.split(/\s+/);
+    let total = 0;
+    for (const tok of tokens) {
+      if (tok in words) total += words[tok];
+    }
+    if (total > 0 && total <= 300) return total;
+    return null;
+  }
+
+  recognition.onresult = (event) => {
+    let best = null;
+    for (let i = 0; i < event.results[0].length; i++) {
+      const candidate = event.results[0][i].transcript;
+      const num = parseSpokenNumber(candidate);
+      if (num !== null) { best = num; break; }
+    }
+    if (best !== null) {
+      kpuField.value = best;
+      kpuField.dispatchEvent(new Event('input')); // триггерит updateDKP
+      voiceLabel.textContent = 'Записано: ' + best + ' сек';
+      setTimeout(() => { voiceLabel.textContent = 'Назвать число вслух'; }, 2000);
+    } else {
+      voiceLabel.textContent = 'Не разобрал — повторите';
+      setTimeout(() => { voiceLabel.textContent = 'Назвать число вслух'; }, 2000);
+    }
+  };
+
+  recognition.onerror = (event) => {
+    const msgs = { 'no-speech': 'Не услышал — попробуйте ещё', 'not-allowed': 'Нет доступа к микрофону', 'network': 'Ошибка сети' };
+    voiceLabel.textContent = msgs[event.error] || 'Ошибка: ' + event.error;
+    setTimeout(() => { voiceLabel.textContent = 'Назвать число вслух'; }, 2500);
+  };
+
+  recognition.onend = () => {
+    listening = false;
+    voiceBtn.classList.remove('listening');
+  };
+
+  voiceBtn.addEventListener('click', () => {
+    if (listening) {
+      recognition.stop();
+      return;
+    }
+    listening = true;
+    voiceBtn.classList.add('listening');
+    voiceLabel.textContent = 'Слушаю…';
+    try {
+      recognition.start();
+    } catch (e) {
+      // recognition может уже быть запущен
+      listening = false;
+      voiceBtn.classList.remove('listening');
+      voiceLabel.textContent = 'Назвать число вслух';
+    }
+  });
+})();
+
+// ─── Тёмная тема ──────────────────────────────────────────────────
+(function() {
+  const THEME_KEY = 'dyshinosom_theme_v1';
+  const btn = document.getElementById('themeToggleBtn');
+  if (!btn) return;
+  function applyTheme(t) {
+    if (t === 'dark') { document.documentElement.setAttribute('data-theme','dark'); btn.textContent = '☾'; }
+    else if (t === 'light') { document.documentElement.setAttribute('data-theme','light'); btn.textContent = '☀'; }
+    else { document.documentElement.removeAttribute('data-theme'); btn.textContent = window.matchMedia('(prefers-color-scheme:dark)').matches ? '☾' : '☀'; }
+  }
+  applyTheme(localStorage.getItem(THEME_KEY) || 'auto');
+  btn.addEventListener('click', () => {
+    const cur = document.documentElement.getAttribute('data-theme');
+    const isDark = cur === 'dark' || (!cur && window.matchMedia('(prefers-color-scheme:dark)').matches);
+    const next = isDark ? 'light' : 'dark';
+    localStorage.setItem(THEME_KEY, next);
+    applyTheme(next);
+  });
+})();
+
+// ─── Карточка «Рекомендация дня» ─────────────────────────────────
+function renderRecommendation() {
+  const card = document.getElementById('recCard');
+  if (!card) return;
+  const allEntries = loadEntries().sort((a,b) => b.date.localeCompare(a.date));
+  const kpuEntries = allEntries.filter(e => e.kpu != null);
+  let icon = '○', text = '';
+  if (kpuEntries.length < 3) {
+    icon = '◇';
+    text = 'Замеряйте КП в одно и то же время каждое утро — это главное правило точности метода.';
+  } else {
+    const yd = new Date(); yd.setDate(yd.getDate()-1);
+    const ydStr = yd.toISOString().split('T')[0];
+    const hasYd = allEntries.some(e => e.date === ydStr);
+    if (!hasYd) {
+      icon = '→';
+      text = 'Вчера не было записи. Ничего страшного — просто продолжайте сегодня.';
+    } else {
+      const k = kpuEntries.slice(0,3).map(e => e.kpu);
+      if (k[0] < k[1] && k[1] < k[2]) {
+        icon = '↓';
+        text = 'КП снижается три дня подряд. Сократите нагрузку, сделайте только 1С · 10 минут и ложитесь пораньше.';
+      } else if (k[0] > k[1] && k[1] > k[2]) {
+        icon = '↑';
+        text = 'Отличная динамика. Попробуйте увеличить время практики на 5 минут.';
+      } else {
+        icon = '→';
+        text = 'Средняя КП за последние три дня: ' + ((k[0]+k[1]+k[2])/3).toFixed(0) + ' сек. Продолжайте практику.';
+      }
+    }
+  }
+  card.innerHTML = '<div class="rec-icon">'+icon+'</div><div class="rec-text">'+text+'</div>';
+}
+
+// ─── Месячный вид в Динамике ──────────────────────────────────────
+let _calYear = new Date().getFullYear(), _calMonth = new Date().getMonth();
+
+function renderMonthCalendar(year, month) {
+  const entries = loadEntries();
+  const byDate = {};
+  entries.forEach(e => { byDate[e.date] = e; });
+  const todayStr = new Date().toISOString().split('T')[0];
+  const MN = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+  document.getElementById('calMonthLbl').textContent = MN[month] + ' ' + year;
+  const grid = document.getElementById('calGrid');
+  grid.innerHTML = '';
+  ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'].forEach(d => {
+    const el = document.createElement('div'); el.className='cal-wd'; el.textContent=d; grid.appendChild(el);
+  });
+  const firstDay = new Date(year, month, 1).getDay();
+  const offset = firstDay === 0 ? 6 : firstDay - 1;
+  for (let i = 0; i < offset; i++) {
+    const el = document.createElement('div'); el.className='cal-cell cal-empty'; grid.appendChild(el);
+  }
+  const days = new Date(year, month+1, 0).getDate();
+  const monthEntries = [];
+  for (let d = 1; d <= days; d++) {
+    const ds = year+'-'+String(month+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+    const entry = byDate[ds];
+    const el = document.createElement('div');
+    el.textContent = d;
+    if (!entry || entry.kpu == null) {
+      el.className = 'cal-cell no-entry';
+    } else {
+      const k = entry.kpu;
+      el.className = 'cal-cell ' + (k < 10 ? 'zone-r' : k < 20 ? 'zone-y' : k < 40 ? 'zone-g' : 'zone-dg');
+      monthEntries.push(entry);
+      el.addEventListener('click', function(ev) { showCalMini(ev, ds, entry); });
+    }
+    if (ds === todayStr) el.classList.add('cal-today');
+    grid.appendChild(el);
+  }
+  // Aggregates
+  const aggs = document.getElementById('calAggs');
+  const kpuVals = monthEntries.map(e=>e.kpu).filter(v=>v!=null);
+  const avgKpu = kpuVals.length ? (kpuVals.reduce((a,b)=>a+b,0)/kpuVals.length).toFixed(1) : '—';
+  const bestKpu = kpuVals.length ? Math.max(...kpuVals) : '—';
+  const withPractice = monthEntries.filter(e=>e.practices&&e.practices.some(p=>p.min>0)).length;
+  const pct = Math.round(withPractice/days*100);
+  aggs.innerHTML = `
+    <div class="cal-agg"><div class="cal-agg-lbl">Средняя КП</div><div class="cal-agg-val">${avgKpu}<span style="font-size:.7rem"> сек</span></div></div>
+    <div class="cal-agg"><div class="cal-agg-lbl">Лучший день</div><div class="cal-agg-val">${bestKpu}<span style="font-size:.7rem"> сек</span></div></div>
+    <div class="cal-agg"><div class="cal-agg-lbl">Практик</div><div class="cal-agg-val">${pct}<span style="font-size:.7rem">%</span></div></div>
+  `;
+}
+
+function showCalMini(event, dateStr, entry) {
+  const old = document.getElementById('calMiniCard');
+  if (old) old.remove();
+  const d = new Date(dateStr+'T12:00:00');
+  const label = d.toLocaleDateString('ru-RU',{day:'2-digit',month:'long'});
+  const pr = (entry.practices||[]).map(p=>(p.type||'')+(p.min?' · '+p.min+' мин':'')).join(', ')||'—';
+  const card = document.createElement('div');
+  card.className = 'cal-mini'; card.id = 'calMiniCard';
+  card.innerHTML = `<button class="cal-mini-x" id="calMiniX">✕</button><h4>${label}</h4>
+    <div class="cmr"><strong>КП:</strong> ${entry.kpu!=null?entry.kpu+' сек':'—'}</div>
+    <div class="cmr"><strong>Практики:</strong> ${pr}</div>
+    <div class="cmr"><strong>ОС:</strong> ${entry.os!=null?entry.os+'/10':'—'}</div>
+    ${entry.os_note?'<div class="cmr" style="font-style:italic;margin-top:4px;font-size:.72rem">'+entry.os_note+'</div>':''}`;
+  document.body.appendChild(card);
+  const rect = event.currentTarget.getBoundingClientRect();
+  let top = rect.bottom+6, left = rect.left;
+  card.style.top = top+'px'; card.style.left = left+'px';
+  if (left+240 > window.innerWidth-10) card.style.left = (window.innerWidth-250)+'px';
+  if (top+160 > window.innerHeight) card.style.top = (rect.top-165)+'px';
+  document.getElementById('calMiniX').addEventListener('click',()=>card.remove());
+  setTimeout(()=>{
+    document.addEventListener('click',function ch(e){if(!card.contains(e.target)){card.remove();document.removeEventListener('click',ch);}});
+  },0);
+}
+
+(function() {
+  const weekBtn = document.getElementById('tvtWeek');
+  const monthBtn = document.getElementById('tvtMonth');
+  const weekView = document.getElementById('weekView');
+  const calView = document.getElementById('calendarView');
+  if (!weekBtn||!monthBtn) return;
+  weekBtn.addEventListener('click',()=>{
+    weekBtn.classList.add('active'); monthBtn.classList.remove('active');
+    weekView.style.display=''; calView.style.display='none';
+  });
+  monthBtn.addEventListener('click',()=>{
+    monthBtn.classList.add('active'); weekBtn.classList.remove('active');
+    weekView.style.display='none'; calView.style.display='block';
+    renderMonthCalendar(_calYear, _calMonth);
+  });
+  document.getElementById('calPrev').addEventListener('click',()=>{
+    _calMonth--; if(_calMonth<0){_calMonth=11;_calYear--;} renderMonthCalendar(_calYear,_calMonth);
+  });
+  document.getElementById('calNext').addEventListener('click',()=>{
+    _calMonth++; if(_calMonth>11){_calMonth=0;_calYear++;} renderMonthCalendar(_calYear,_calMonth);
+  });
+})();
+
+// ─── Panic Button — цикл и самочувствие (Задание 9) ──────────────
+const panicCycleInd = document.getElementById('panicCycleInd');
+const panicWb = document.getElementById('panicWellbeing');
+const MAX_CYCLES = 4;
+
+// Patch panicReset to clear new elements
+const _origPanicReset = panicReset;
+window.panicReset = function() {
+  _origPanicReset();
+  if (panicCycleInd) panicCycleInd.textContent = '';
+  if (panicWb) panicWb.style.display = 'none';
+};
+panicReset = window.panicReset;
+
+// Patch panicAdvance to show cycle indicator and wellbeing
+const _origAdvance = panicAdvance;
+window.panicAdvance = function() {
+  _origAdvance();
+  // Update cycle indicator
+  if (panicCycleInd && panicCycleCount > 0) {
+    const done = Math.min(panicCycleCount-1, MAX_CYCLES);
+    const bullets = Array.from({length:MAX_CYCLES},(_, i)=>`<span class="${i<done?'cyc-done':''}">${i<done?'●':'○'}</span>`).join(' ');
+    panicCycleInd.innerHTML = `Цикл ${panicCycleCount} из ${MAX_CYCLES} &nbsp; ${bullets}`;
+  }
+  // Show wellbeing only after all MAX_CYCLES complete
+  if (panicWb) {
+    if (panicCycleCount > MAX_CYCLES && panicState === 'breathing') {
+      panicWb.style.display = 'block';
+    } else {
+      panicWb.style.display = 'none';
+    }
+  }
+};
+panicAdvance = window.panicAdvance;
+
+document.getElementById('pwbBetter').addEventListener('click', () => { closePanic(); });
+document.getElementById('pwbContinue').addEventListener('click', () => {
+  if (panicWb) panicWb.style.display = 'none';
+  panicCycleCount = 1; // reset for 4 more cycles
+  if (panicCycleInd) {
+    const bullets = Array.from({length:MAX_CYCLES},(_,i)=>'<span>○</span>').join(' ');
+    panicCycleInd.innerHTML = 'Цикл 1 из ' + MAX_CYCLES + '   ' + bullets;
+  }
+});
+
+// ─── Push-уведомления (Задание 11) ────────────────────────────────
+(function() {
+  const PUSH_KEY = 'dyshinosom_push_v1';
+  const banner = document.getElementById('pushBanner');
+  if (!banner || !('Notification' in window)) return;
+  if (localStorage.getItem(PUSH_KEY)) return;
+  const onboarded = localStorage.getItem('dyshinosom_onboarding_v1');
+  if (!onboarded) return;
+  setTimeout(()=>{
+    if (Notification.permission!=='denied' && !localStorage.getItem(PUSH_KEY))
+      banner.classList.add('show');
+  }, 4000);
+  function scheduleNotif() {
+    const now = new Date(), t = new Date();
+    t.setHours(8,0,0,0);
+    if (t <= now) t.setDate(t.getDate()+1);
+    setTimeout(()=>{
+      if (Notification.permission==='granted')
+        new Notification('Дыши Носом',{body:'Доброе утро. Время замерить КП — это займёт минуту.',icon:'assets/icons/icon-192.png',tag:'morning-kp'});
+      scheduleNotif();
+    }, t - now);
+  }
+  document.getElementById('pushYesBtn').addEventListener('click', async ()=>{
+    banner.classList.remove('show');
+    localStorage.setItem(PUSH_KEY,'yes');
+    const p = await Notification.requestPermission();
+    if (p==='granted') scheduleNotif();
+  });
+  document.getElementById('pushNoBtn').addEventListener('click', ()=>{
+    banner.classList.remove('show');
+    localStorage.setItem(PUSH_KEY,'no');
+  });
+  if (Notification.permission==='granted' && localStorage.getItem(PUSH_KEY)==='yes') scheduleNotif();
+})();
+
+// ─── JSON Экспорт / Импорт (Задание 12) ──────────────────────────
+document.getElementById('exportJsonBtn').addEventListener('click', ()=>{
+  const entries = loadEntries();
+  if (!entries.length) { alert('Нет данных для экспорта'); return; }
+  const blob = new Blob([JSON.stringify(entries,null,2)],{type:'application/json;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'dyshinosom-backup-'+new Date().toISOString().split('T')[0]+'.json';
+  a.click(); URL.revokeObjectURL(url);
+});
+document.getElementById('importJsonBtn').addEventListener('click', ()=>{
+  document.getElementById('jsonImportInput').click();
+});
+document.getElementById('jsonImportInput').addEventListener('change', (ev)=>{
+  const file = ev.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (e)=>{
+    try {
+      const imported = JSON.parse(e.target.result);
+      if (!Array.isArray(imported)) throw new Error('Ожидается массив записей');
+      const existing = loadEntries();
+      const existingDates = new Set(existing.map(x=>x.date));
+      let added = 0;
+      imported.forEach(entry=>{ if(entry.date && !existingDates.has(entry.date)){existing.push(entry);added++;} });
+      saveEntries(existing);
+      renderHistory(); renderDailyScore();
+      alert('Импортировано записей: '+added+'. Существующие не изменены.');
+    } catch(err) { alert('Ошибка: '+err.message); }
+    ev.target.value = '';
+  };
+  reader.readAsText(file);
+});
+
+// ─── FAB + Быстрая запись (Задание 17) ───────────────────────────
+(function() {
+  const fab = document.getElementById('fabBtn');
+  const bsOverlay = document.getElementById('bsOverlay');
+  if (!fab) return;
+  let bsMerge = false;
+  fab.addEventListener('click', ()=>{
+    const today = new Date().toISOString().split('T')[0];
+    const has = loadEntries().some(e=>e.date===today);
+    const conflict = document.getElementById('bsConflict');
+    if (has) conflict.classList.add('show'); else conflict.classList.remove('show');
+    bsMerge = false;
+    document.getElementById('bsNewBtn').classList.add('sel');
+    document.getElementById('bsMergeBtn').classList.remove('sel');
+    document.getElementById('bsKpu').value='';
+    document.getElementById('bsMins').value='';
+    bsOverlay.classList.add('show');
+  });
+  document.getElementById('bsMergeBtn').addEventListener('click',()=>{
+    bsMerge=true;
+    document.getElementById('bsMergeBtn').classList.add('sel');
+    document.getElementById('bsNewBtn').classList.remove('sel');
+  });
+  document.getElementById('bsNewBtn').addEventListener('click',()=>{
+    bsMerge=false;
+    document.getElementById('bsNewBtn').classList.add('sel');
+    document.getElementById('bsMergeBtn').classList.remove('sel');
+  });
+  function closeBS(){bsOverlay.classList.remove('show');}
+  document.getElementById('bsCloseBtn').addEventListener('click',closeBS);
+  bsOverlay.addEventListener('click',e=>{if(e.target===bsOverlay)closeBS();});
+  document.getElementById('bsSaveBtn').addEventListener('click',()=>{
+    const kpuVal = document.getElementById('bsKpu').value;
+    const kpu = kpuVal!=='' ? parseFloat(kpuVal) : null;
+    const minsVal = document.getElementById('bsMins').value;
+    const mins = minsVal!=='' ? parseFloat(minsVal) : null;
+    const type = document.getElementById('bsType').value;
+    if (kpu==null) { alert('Введите значение КП (секунды)'); return; }
+    const today = new Date().toISOString().split('T')[0];
+    const entries = loadEntries();
+    const idx = entries.findIndex(e=>e.date===today);
+    if (idx>=0 && bsMerge) {
+      if (kpu!=null) entries[idx].kpu=kpu;
+      if (type && mins>0) { entries[idx].practices=entries[idx].practices||[]; entries[idx].practices.push({type,min:mins}); }
+      entries[idx]=entries[idx];
+    } else {
+      entries.push({id:Date.now(),date:today,kpu,chpu:null,practices:(type&&mins>0)?[{type,min:mins}]:[],rf:null,pp:null,pks:null,os:null,os_note:null,dkp:null});
+    }
+    saveEntries(entries);
+    closeBS(); renderDailyScore(); renderRecommendation();
+    if (document.getElementById('history').classList.contains('active')) renderHistory();
+    if (document.getElementById('trends').classList.contains('active')) { renderTrends(); renderInsights(); }
+  });
+})();
+
+
+// ─── Настройки (Задание 19) ───────────────────────────────────────
+const SETTINGS_KEY = 'dyshinosom_settings_v1';
+function loadSettings() {
+  try { return JSON.parse(localStorage.getItem(SETTINGS_KEY)) || {}; } catch(e) { return {}; }
+}
+function saveSettings(obj) { localStorage.setItem(SETTINGS_KEY, JSON.stringify(obj)); }
+
+function renderSettings() {
+  const s = loadSettings();
+  const nameEl = document.getElementById('settingName');
+  if (nameEl) nameEl.value = s.name || '';
+  const timeEl = document.getElementById('settingReminderTime');
+  if (timeEl) timeEl.value = s.reminderTime || '08:00';
+  const unit = s.practiceUnit || 'min';
+  document.querySelectorAll('[data-unit]').forEach(b => b.classList.toggle('active', b.dataset.unit === unit));
+  const cur = document.documentElement.hasAttribute('data-theme')
+    ? document.documentElement.getAttribute('data-theme') : 'auto';
+  document.querySelectorAll('[data-theme-val]').forEach(b => b.classList.toggle('active', b.dataset.themeVal === cur));
+}
+
+(function() {
+  const nameEl = document.getElementById('settingName');
+  if (nameEl) nameEl.addEventListener('input', () => {
+    const s = loadSettings(); s.name = nameEl.value.trim(); saveSettings(s); renderDailyScore();
+  });
+  const timeEl = document.getElementById('settingReminderTime');
+  if (timeEl) timeEl.addEventListener('change', () => {
+    const s = loadSettings(); s.reminderTime = timeEl.value; saveSettings(s);
+  });
+  document.querySelectorAll('[data-unit]').forEach(btn => btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-unit]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const s = loadSettings(); s.practiceUnit = btn.dataset.unit; saveSettings(s);
+  }));
+  document.querySelectorAll('[data-theme-val]').forEach(btn => btn.addEventListener('click', () => {
+    const val = btn.dataset.themeVal;
+    localStorage.setItem('dyshinosom_theme_v1', val);
+    const themeBtn = document.getElementById('themeToggleBtn');
+    if (val === 'dark') {
+      document.documentElement.setAttribute('data-theme','dark');
+      if (themeBtn) themeBtn.textContent = '☾';
+    } else if (val === 'light') {
+      document.documentElement.setAttribute('data-theme','light');
+      if (themeBtn) themeBtn.textContent = '☀';
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      if (themeBtn) themeBtn.textContent = window.matchMedia('(prefers-color-scheme:dark)').matches ? '☾' : '☀';
+    }
+    renderSettings();
+  }));
+  const sc = document.getElementById('settingsExportCsv');
+  if (sc) sc.addEventListener('click', () => document.getElementById('exportBtn').click());
+  const sj = document.getElementById('settingsExportJson');
+  if (sj) sj.addEventListener('click', () => document.getElementById('exportJsonBtn').click());
+  const si = document.getElementById('settingsImportJson');
+  if (si) si.addEventListener('click', () => document.getElementById('settingsJsonInput').click());
+  const sjInput = document.getElementById('settingsJsonInput');
+  if (sjInput) sjInput.addEventListener('change', (ev) => {
+    const file = ev.target.files[0]; if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const imported = JSON.parse(e.target.result);
+        if (!Array.isArray(imported)) throw new Error('Ожидается массив записей');
+        const existing = loadEntries();
+        const existingDates = new Set(existing.map(x => x.date));
+        let added = 0;
+        imported.forEach(entry => { if (entry.date && !existingDates.has(entry.date)) { existing.push(entry); added++; } });
+        saveEntries(existing); renderHistory(); renderDailyScore();
+        alert('Импортировано: ' + added + ' записей. Существующие не изменены.');
+      } catch(err) { alert('Ошибка: ' + err.message); }
+      ev.target.value = '';
+    };
+    reader.readAsText(file);
+  });
+  const sd = document.getElementById('settingsDeleteAll');
+  if (sd) sd.addEventListener('click', () => {
+    if (confirm('Удалить ВСЕ записи дневника? Это действие необратимо.')) {
+      saveEntries([]); renderHistory(); renderDailyScore(); renderRecommendation();
+      alert('Все данные дневника удалены.');
+    }
+  });
+})();
+
+
+// ─── Достижения (Задание 3) ──────────────────────────────────────
+const ACH_KEY = 'dyshinosom_achievements_v1';
+const ACH_DEFS = [
+  {
+    id: 'week1',
+    icon: '🔥',
+    name: 'Первая неделя',
+    desc: '7 записей подряд',
+    check: (entries) => {
+      const sorted = entries.filter(e => e.kpu != null || e.practices?.length > 0)
+        .map(e => e.date).sort();
+      if (sorted.length < 7) return false;
+      for (let i = 6; i < sorted.length; i++) {
+        let streak = 1;
+        for (let j = i; j > 0; j--) {
+          const a = new Date(sorted[j] + 'T12:00:00');
+          const b = new Date(sorted[j-1] + 'T12:00:00');
+          if (Math.round((a - b) / 86400000) === 1) { streak++; if (streak >= 7) return true; }
+          else break;
+        }
+      }
+      return false;
+    }
+  },
+  {
+    id: 'kp20',
+    icon: '⭐',
+    name: 'КП 20+',
+    desc: 'КП впервые ≥ 20 сек',
+    check: (entries) => entries.some(e => e.kpu != null && e.kpu >= 20)
+  },
+  {
+    id: 'month1',
+    icon: '📅',
+    name: 'Месяц практики',
+    desc: '30 записей всего',
+    check: (entries) => entries.length >= 30
+  }
+];
+
+function loadAchievements() {
+  try { return JSON.parse(localStorage.getItem(ACH_KEY)) || {}; } catch(e) { return {}; }
+}
+function saveAchievements(obj) { localStorage.setItem(ACH_KEY, JSON.stringify(obj)); }
+
+function showAchievementPopup(def) {
+  const popup = document.getElementById('achPopup');
+  if (!popup) return;
+  document.getElementById('achPopupIcon').textContent = def.icon;
+  document.getElementById('achPopupTitle').textContent = def.name;
+  document.getElementById('achPopupSub').textContent = 'Достижение разблокировано!';
+  popup.classList.add('show');
+  setTimeout(() => popup.classList.remove('show'), 3500);
+}
+
+function renderAchievements() {
+  const grid = document.getElementById('achievementsGrid');
+  if (!grid) return;
+  const entries = loadEntries();
+  const state = loadAchievements();
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let newUnlocks = [];
+
+  grid.innerHTML = ACH_DEFS.map(def => {
+    const wasUnlocked = state[def.id] === true;
+    const isUnlocked = wasUnlocked || def.check(entries);
+    if (isUnlocked && !wasUnlocked) {
+      state[def.id] = true;
+      newUnlocks.push(def);
+    }
+    const cls = isUnlocked ? 'badge unlocked' : 'badge';
+    return `<div class="${cls}" title="${def.desc}">
+      <span class="badge-icon">${def.icon}</span>
+      <div class="badge-name">${def.name}</div>
+      <div class="badge-desc">${def.desc}</div>
+      <span class="badge-lock">${isUnlocked ? '' : '🔒'}</span>
+    </div>`;
+  }).join('');
+
+  if (newUnlocks.length > 0) {
+    saveAchievements(state);
+    // Показываем попап по одному с задержкой
+    newUnlocks.forEach((def, i) => {
+      setTimeout(() => showAchievementPopup(def), i * 4000);
+    });
+  }
+}
+
+// ─── Печать дневника (Задание 4) ─────────────────────────────────
+document.getElementById('printBtn').addEventListener('click', () => {
+  window.print();
+});
+
+// Регистрация Service Worker для офлайн-режима (PWA)
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(err => {
+      console.warn('SW registration failed:', err);
+    });
+  });
+}
+</script>
+
+<!-- Баннер Push-уведомлений -->
+<div class="push-banner" id="pushBanner">
+  <div class="push-banner-txt">Включить напоминание в 8:00 для утреннего замера КП?</div>
+  <div class="push-banner-btns">
+    <button class="btn" id="pushYesBtn">Да, включить</button>
+    <button class="btn btn-secondary" id="pushNoBtn">Не сейчас</button>
+  </div>
+</div>
+
+<!-- FAB — быстрая запись -->
+<button class="fab-btn" id="fabBtn" aria-label="Быстрая запись">+</button>
+
+<!-- Bottomsheet — быстрая запись -->
+<div class="bs-overlay" id="bsOverlay">
+  <div class="bs-sheet">
+    <h3>Быстрая запись</h3>
+    <div class="bs-conflict" id="bsConflict">
+      Запись на сегодня уже есть.
+      <div class="bs-c-btns">
+        <button class="bs-c-btn sel" id="bsNewBtn">Добавить вторую</button>
+        <button class="bs-c-btn" id="bsMergeBtn">Дополнить существующую</button>
+      </div>
+    </div>
+    <div class="bs-field">
+      <label>КП, сек</label>
+      <input type="number" id="bsKpu" min="0" max="180" placeholder="напр. 22">
+    </div>
+    <div class="bs-field">
+      <label>Тип практики</label>
+      <select id="bsType">
+        <option value="">— не указывать —</option>
+        <option value="1С">1С</option>
+        <option value="2А">2А</option>
+        <option value="2Б">2Б</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+    <div class="bs-field">
+      <label>Минуты практики</label>
+      <input type="number" id="bsMins" min="0" max="240" placeholder="напр. 30">
+    </div>
+    <div class="btn-row" style="margin-top:16px;">
+      <button class="btn" id="bsSaveBtn">Сохранить</button>
+      <button class="btn btn-secondary" id="bsCloseBtn">Отмена</button>
+    </div>
+  </div>
+</div>
+<!-- Попап достижения -->
+<div class="ach-popup" id="achPopup" role="status">
+  <div class="ach-popup-icon" id="achPopupIcon"></div>
+  <div class="ach-popup-title" id="achPopupTitle"></div>
+  <div class="ach-popup-sub" id="achPopupSub"></div>
+</div>
+
+</body>
+</html>

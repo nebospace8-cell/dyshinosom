@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Страница не найдена — Дыши Носом</title>
+<meta name="description" content="Страница не существует. Дневник практики метода К. П. Бутейко — Дыши Носом.">
+<meta name="theme-color" content="#f4f1ea">
+<meta name="robots" content="noindex">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<style>
+  @font-face {
+    font-family: 'Fraunces';
+    src: url('assets/fonts/Fraunces-VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Fraunces';
+    src: url('assets/fonts/Fraunces-Italic-VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900; font-style: italic; font-display: swap;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('assets/fonts/JetBrainsMono-VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('assets/fonts/JetBrainsMono-Italic-VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900; font-style: italic; font-display: swap;
+  }
+</style>
+
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --bg-soft: #ebe6db;
+    --paper: #fdfaf2;
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --ink-faint: #8a8578;
+    --accent: #c4451c;
+    --accent-soft: #e8b4a0;
+    --line: #d4cdb8;
+    --line-strong: #a89f86;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+    background-image: repeating-linear-gradient(
+      0deg, transparent, transparent 31px,
+      var(--line) 31px, var(--line) 32px
+    );
+  }
+
+  .card {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    box-shadow: 6px 6px 0 var(--accent);
+    padding: 40px 36px 36px;
+    max-width: 460px;
+    width: 100%;
+    position: relative;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent) 30%, var(--bg-soft) 30%);
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+
+  .code {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144;
+    font-size: 6rem;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    color: var(--ink);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .message {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin-bottom: 32px;
+  }
+
+  .btn-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    padding: 11px 18px;
+    border: 2px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 3px 3px 0 var(--accent);
+    transition: transform 0.08s, box-shadow 0.08s;
+    white-space: nowrap;
+  }
+
+  .btn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 var(--accent);
+  }
+
+  .btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--accent);
+  }
+
+  .btn-secondary {
+    background: var(--paper);
+    color: var(--ink);
+    box-shadow: 3px 3px 0 var(--line-strong);
+  }
+
+  .btn-secondary:hover {
+    box-shadow: 4px 4px 0 var(--line-strong);
+  }
+
+  .hint {
+    margin-top: 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+
+  @media (max-width: 480px) {
+    .card { padding: 28px 20px 24px; }
+    .code { font-size: 4.5rem; }
+    .btn-row { flex-direction: column; }
+    .btn { text-align: center; }
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Дыши Носом · Страница не найдена</div>
+  <span class="code">404</span>
+  <div class="title">Такой страницы нет</div>
+  <p class="message">Иногда нужно остановиться и выдохнуть.<br>Эта страница не существует — но дневник ждёт вас.</p>
+  <div class="btn-row">
+    <a href="app.html" class="btn">Открыть дневник</a>
+    <a href="index.html" class="btn btn-secondary">На главную</a>
+  </div>
+  <div class="hint">Метод К.&nbsp;П.&nbsp;Бутейко · локальный дневник · без серверов</div>
+</div>
+</body>
+</html>

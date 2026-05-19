@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Дыши Носом — дневник практики Бутейко</title>
+<meta name="description" content="Локальный дневник практики метода К. П. Бутейко. Контрольная пауза, практики, динамика. Без серверов, без подписок, без рекламы.">
+<meta name="theme-color" content="#f4f1ea">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Дыши Носом">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<link rel="canonical" href="https://dyshinosom.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Дыши Носом — дневник практики Бутейко">
+<meta property="og:description" content="Локальный дневник практики метода К. П. Бутейко. Без серверов, без подписок, без рекламы.">
+<meta property="og:image" content="https://dyshinosom.com/assets/og-image.png">
+<meta property="og:url" content="https://dyshinosom.com/">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Дыши Носом — дневник практики Бутейко">
+<meta name="twitter:description" content="Локальный дневник практики метода К. П. Бутейко. Без серверов, без подписок, без рекламы.">
+<meta name="twitter:image" content="https://dyshinosom.com/assets/og-image.png">
+
+<style>
+  /* Локальные шрифты — privacy-first, без обращений к Google Fonts CDN */
+  @font-face {
+    font-family: 'Fraunces';
+    src: url('assets/fonts/Fraunces-VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Fraunces';
+    src: url('assets/fonts/Fraunces-Italic-VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('assets/fonts/JetBrainsMono-VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('assets/fonts/JetBrainsMono-Italic-VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+  }
+</style>
+
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --bg-soft: #ebe6db;
+    --paper: #fdfaf2;
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --ink-faint: #8a8578;
+    --accent: #c4451c;
+    --accent-soft: #e8b4a0;
+    --green: #5d7a4f;
+    --green-soft: #c4d4b8;
+    --line: #d4cdb8;
+    --line-strong: #a89f86;
+    --shadow: rgba(26, 26, 26, 0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Fraunces', Georgia, serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    background-image:
+      radial-gradient(circle at 15% 5%, rgba(196, 69, 28, 0.05) 0%, transparent 45%),
+      radial-gradient(circle at 85% 95%, rgba(93, 122, 79, 0.06) 0%, transparent 45%);
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 28px 24px 80px;
+  }
+
+  /* Топ-бар */
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .brand-mark {
+    width: 36px; height: 36px;
+    border: 2px solid var(--ink);
+    background: var(--paper);
+    display: grid;
+    place-items: center;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--accent);
+  }
+
+  .brand-name {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  .topbar nav {
+    display: flex;
+    gap: 22px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+  }
+
+  .topbar nav a {
+    color: var(--ink-faint);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .topbar nav a:hover { color: var(--accent); }
+
+  /* Hero — Aeon-style: больше воздуха, крупнее заголовок, меньше блоков на первом экране */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-bottom: 140px;
+    min-height: 65vh;
+  }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--ink-faint);
+    margin-bottom: 32px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.8rem, 6.4vw, 5.2rem);
+    line-height: 0.98;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    font-variation-settings: "opsz" 144;
+    margin-bottom: 36px;
+    font-style: italic;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .hero-lead {
+    font-size: 1.2rem;
+    color: var(--ink-soft);
+    max-width: 540px;
+    margin-bottom: 48px;
+    line-height: 1.55;
+    font-style: italic;
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    padding: 16px 28px;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--bg);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+
+  .btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--ink-soft);
+  }
+  .btn-ghost:hover { background: transparent; color: var(--accent); border-color: var(--accent); box-shadow: none; transform: none; }
+
+  /* Hero "скриншот" с КПУ-героем */
+  .hero-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    box-shadow: 8px 8px 0 var(--shadow);
+    padding: 32px;
+    position: relative;
+    aspect-ratio: 4 / 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px; right: -1px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 30%, var(--green) 30%, var(--green) 100%);
+  }
+
+  .hero-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-faint);
+  }
+
+  .hero-card-top .date {
+    color: var(--ink);
+  }
+
+  .hero-kpu {
+    text-align: center;
+  }
+  .hero-kpu .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
+    margin-bottom: 10px;
+  }
+  .hero-kpu .number {
+    font-size: clamp(5rem, 14vw, 8.4rem);
+    font-weight: 500;
+    line-height: 0.9;
+    font-style: italic;
+    color: var(--accent);
+    font-variation-settings: "opsz" 144;
+  }
+  .hero-kpu .number-unit {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.12em;
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+
+  .hero-trend {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px dashed var(--line);
+    padding-top: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+  }
+
+  .hero-trend .delta {
+    color: var(--green);
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  .hero-trend .week {
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.66rem;
+  }
+
+  /* Three-column принципы */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-bottom: 96px;
+  }
+
+  .pillar {
+    border-top: 2px solid var(--ink);
+    padding-top: 22px;
+  }
+
+  .pillar .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.14em;
+    margin-bottom: 10px;
+  }
+
+  .pillar h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 12px;
+    line-height: 1.15;
+  }
+
+  .pillar p {
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+  }
+
+  /* Что записываете */
+  .features {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    box-shadow: 6px 6px 0 var(--shadow);
+    padding: 48px;
+    margin-bottom: 96px;
+    position: relative;
+  }
+  .features::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px; right: -1px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 30%, var(--green) 30%, var(--green) 100%);
+  }
+
+  .features h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .features-lead {
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+    max-width: 600px;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px;
+  }
+
+  .feature-tag {
+    border: 1px dashed var(--line-strong);
+    padding: 14px 16px;
+    background: var(--bg);
+  }
+
+  .feature-tag .abbr {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+
+  .feature-tag .name {
+    font-size: 0.94rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-top: 4px;
+  }
+
+  /* Method note */
+  .method {
+    text-align: center;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 56px 24px;
+    margin-bottom: 80px;
+  }
+
+  /* Школы — где преподают метод */
+  .schools {
+    margin-bottom: 96px;
+  }
+  .schools .schools-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .schools h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 500;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 36px;
+    letter-spacing: -0.01em;
+  }
+  .schools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .school-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 24px 22px;
+    position: relative;
+  }
+  .school-card .school-name {
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .school-card .school-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  .school-card .school-desc {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    font-style: italic;
+  }
+  .schools .footnote {
+    margin-top: 22px;
+    text-align: center;
+    color: var(--ink-faint);
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+  @media (max-width: 760px) {
+    .schools-grid { grid-template-columns: 1fr; gap: 16px; }
+  }
+
+  .method .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--ink-faint);
+    margin-bottom: 16px;
+  }
+
+  .method h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 500;
+    font-style: italic;
+    max-width: 720px;
+    margin: 0 auto 16px;
+    line-height: 1.25;
+  }
+
+  .method p {
+    color: var(--ink-soft);
+    max-width: 560px;
+    margin: 0 auto;
+    font-size: 0.98rem;
+  }
+
+  /* Блок для инструкторов */
+  .instructors-block {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 36px 40px;
+    margin-bottom: 60px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 28px 40px;
+    align-items: center;
+    box-shadow: 4px 4px 0 var(--shadow);
+  }
+  .instructors-block::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px; right: -1px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--green) 0%, var(--green) 30%, var(--accent) 30%, var(--accent) 100%);
+  }
+  .instructors-block .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  .instructors-block h2 {
+    font-size: clamp(1.35rem, 2.8vw, 1.8rem);
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 14px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .instructors-block p {
+    color: var(--ink-soft);
+    font-size: 0.97rem;
+    line-height: 1.6;
+    max-width: 560px;
+  }
+  .instructors-block .inst-cta { flex-shrink: 0; }
+  @media (max-width: 640px) {
+    .instructors-block { grid-template-columns: 1fr; padding: 28px 24px; }
+    .instructors-block .inst-cta { justify-self: start; }
+  }
+
+  /* CTA блок */
+  .cta-final {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  .cta-final h2 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
+  }
+  .cta-final h2 em {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* Accessibility */
+  button:focus-visible, a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--line);
+    padding-top: 32px;
+    text-align: center;
+    color: var(--ink-faint);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  footer .links {
+    margin-top: 14px;
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  footer .links a {
+    color: var(--ink-faint);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--line);
+    padding-bottom: 1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  footer .links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  footer .copy {
+    margin-top: 22px;
+    color: var(--ink-faint);
+    font-size: 0.66rem;
+    text-transform: none;
+    letter-spacing: 0.04em;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+  }
+
+  /* Mobile */
+  @media (max-width: 880px) {
+    .hero { grid-template-columns: 1fr; gap: 40px; }
+    .pillars { grid-template-columns: 1fr; gap: 28px; }
+    .features { padding: 32px 24px; }
+    .topbar nav { gap: 16px; }
+    .topbar nav a:nth-child(3) { display: none; }
+  }
+
+  @media (max-width: 480px) {
+    .container { padding: 22px 18px 56px; }
+    .hero-card { padding: 24px; }
+    .features { padding: 28px 20px; }
+  }
+
+  /* ─── Виджет «Добро пожаловать обратно» ────────────────────────── */
+  .return-widget {
+    display: none;
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--accent);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .return-widget::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--accent) 30%, var(--bg-soft) 30%);
+  }
+  .return-widget.show { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .rw-text { flex: 1; min-width: 160px; }
+  .rw-greeting {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+  .rw-kpu {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .rw-kpu strong {
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .rw-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+  .rw-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    padding: 10px 16px;
+    border: 2px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 3px 3px 0 var(--accent);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .rw-btn:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--accent); display:inline-block; }
+  @media (max-width: 480px) {
+    .return-widget.show { flex-direction: column; align-items: flex-start; }
+    .rw-btn { width: 100%; text-align: center; display: block; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="topbar">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">Д</div>
+      <div class="brand-name">Дыши Носом</div>
+    </a>
+    <nav>
+      <a href="#about">О методе</a>
+      <a href="#schools">Школы</a>
+      <a href="privacy.html">Приватность</a>
+      <a href="app.html">Открыть</a>
+    </nav>
+  </header>
+
+  <!-- Виджет вернувшегося пользователя — показывается только если есть данные в localStorage -->
+  <div class="return-widget" id="returnWidget">
+    <div class="rw-text">
+      <div class="rw-greeting">Добро пожаловать обратно</div>
+      <div class="rw-kpu" id="rwKpu">Ваша КП вчера: <strong id="rwKpuVal">—</strong> сек</div>
+      <div class="rw-sub" id="rwSub">Продолжайте практику</div>
+    </div>
+    <a href="app.html" class="rw-btn">Открыть дневник</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div>
+      <div class="hero-eyebrow">Дневник метода К. П. Бутейко · с&nbsp;1962&nbsp;года</div>
+      <h1>Дыши спокойно.<br>Дыши меньше.<br>Дыши <em>носом</em>.</h1>
+      <p class="hero-lead">Локальный дневник практики на&nbsp;каждый день. Все данные остаются у&nbsp;вас в&nbsp;браузере: без серверов, без подписок, без рекламы.</p>
+      <div class="cta-row">
+        <a href="app.html" class="btn">Открыть дневник</a>
+        <a href="#about" class="btn btn-ghost">О&nbsp;методе</a>
+      </div>
+    </div>
+
+    <div class="hero-card" aria-hidden="true">
+      <div class="hero-card-top">
+        <span>Запись&nbsp;дня</span>
+        <span class="date">Сегодня</span>
+      </div>
+      <div class="hero-kpu">
+        <div class="label">КПУ · контрольная пауза утром</div>
+        <div class="number">28</div>
+        <div class="number-unit">секунд</div>
+      </div>
+      <div class="hero-trend">
+        <span class="delta">+3 за неделю</span>
+        <span class="week">5 практик · ОС 8/10</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Принципы -->
+  <section class="pillars" id="why">
+    <div class="pillar">
+      <div class="num">01</div>
+      <h3>Local-first</h3>
+      <p>Все записи хранятся в вашем браузере. Никаких серверов, никаких облаков. Никто, включая нас, их не видит.</p>
+    </div>
+    <div class="pillar">
+      <div class="num">02</div>
+      <h3>Никаких трекеров</h3>
+      <p>Без аналитики, без рекламы, без подписок. Открываете в инкогнито — и страница не подгружает ни одного стороннего скрипта.</p>
+    </div>
+    <div class="pillar">
+      <div class="num">03</div>
+      <h3>Уважение к&nbsp;методу</h3>
+      <p>Структура дневника — как на доске у инструкторов: КПУ, ЧПУ, практики, ΔКП, РФ, ПП, ПКС, ОС.</p>
+    </div>
+  </section>
+
+  <!-- Что записываете -->
+  <section class="features" id="fields">
+    <h2>Структура одного дня</h2>
+    <p class="features-lead">Дневник повторяет таблицу из методики. Заполнение — за минуту утром и пара заметок вечером.</p>
+    <div class="feature-grid">
+      <div class="feature-tag"><div class="abbr">КПУ</div><div class="name">контрольная пауза утром</div></div>
+      <div class="feature-tag"><div class="abbr">ЧПУ</div><div class="name">частота пульса утром</div></div>
+      <div class="feature-tag"><div class="abbr">ΔКП</div><div class="name">динамика, авторасчёт</div></div>
+      <div class="feature-tag"><div class="abbr">2А · 1С …</div><div class="name">типы практик и&nbsp;время</div></div>
+      <div class="feature-tag"><div class="abbr">РФ</div><div class="name">разделывающие факторы</div></div>
+      <div class="feature-tag"><div class="abbr">ПП</div><div class="name">пассивные практики</div></div>
+      <div class="feature-tag"><div class="abbr">ПКС</div><div class="name">подготовка ко сну</div></div>
+      <div class="feature-tag"><div class="abbr">ОС</div><div class="name">общее состояние, 1–10</div></div>
+    </div>
+  </section>
+
+  <!-- О методе -->
+  <section class="method" id="about">
+    <div class="eyebrow">Метод К. П. Бутейко</div>
+    <h2>«Дыши спокойно. Дыши меньше. Дыши носом.»</h2>
+    <p>Метод нормализации дыхания, разработан в&nbsp;СССР с&nbsp;1962 года. Имеет 35+ клинических исследований. Это приложение — инструмент дневника, не&nbsp;курс и не&nbsp;замена врача или инструктора. Метод имеет противопоказания.</p>
+  </section>
+
+  <!-- Школы и инструкторы -->
+  <section class="schools" id="schools">
+    <div class="schools-eyebrow">Метод преподают</div>
+    <h2>Где обучают практике</h2>
+    <div class="schools-grid">
+      <div class="school-card">
+        <div class="school-name">Клиника Бутейко</div>
+        <div class="school-meta">Москва · с&nbsp;1987</div>
+        <div class="school-desc">Главврач — А.&nbsp;Е.&nbsp;Новожилов, ученик К.&nbsp;П.&nbsp;Бутейко с&nbsp;1989&nbsp;года. Очные приёмы, лекции, авторский курс.</div>
+      </div>
+      <div class="school-card">
+        <div class="school-name">Школа Файзуллина</div>
+        <div class="school-meta">Россия · онлайн&nbsp;и&nbsp;офлайн</div>
+        <div class="school-desc">Сертификация инструкторов, групповые программы. Один из&nbsp;ведущих центров метода в&nbsp;РФ за&nbsp;пределами Москвы.</div>
+      </div>
+      <div class="school-card">
+        <div class="school-name">Buteyko&nbsp;Clinic</div>
+        <div class="school-meta">Patrick&nbsp;McKeown · &#x1F1EE;&#x1F1EA;</div>
+        <div class="school-desc">Международный бренд: книга «Кислородное преимущество», курсы и&nbsp;сертификации. Англоязычная аудитория.</div>
+      </div>
+    </div>
+    <p class="footnote">«Дыши Носом» не&nbsp;аффилирован ни&nbsp;с&nbsp;одной школой. Это независимый инструмент дневника — обучение методу проходите у&nbsp;сертифицированного инструктора.</p>
+  </section>
+
+  <!-- Для инструкторов и школ -->
+  <section class="instructors-block" id="instructors">
+    <div>
+      <div class="eyebrow">Для инструкторов и школ</div>
+      <h2>Предложите дневник своим ученикам</h2>
+      <p>Если вы преподаёте метод Бутейко и хотите предложить дневник своим ученикам — напишите нам. Обсудим интеграцию и совместное развитие проекта.</p>
+    </div>
+    <div class="inst-cta">
+      <a href="mailto:hello@dyshinosom.com" class="btn">Написать нам</a>
+    </div>
+  </section>
+
+  <!-- Финальный CTA -->
+  <section class="cta-final">
+    <h2>Это не приложение —<br>это <em>привычка</em>.</h2>
+    <a href="app.html" class="btn">Открыть дневник</a>
+  </section>
+
+  <footer>
+    Дыши Носом · Локальный дневник практики
+    <div class="links">
+      <a href="app.html">Дневник</a>
+      <a href="privacy.html">Конфиденциальность</a>
+      <a href="about.html">О методе</a>
+      <a href="terms.html">Условия и дисклеймер</a>
+    </div>
+    <div class="copy">© 2026 · сделано с уважением к&nbsp;методу</div>
+  </footer>
+
+</div>
+
+<script>
+  // Service Worker для офлайн-доступа
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').catch(err => console.warn('SW failed:', err));
+    });
+  }
+</script>
+
+<script>
+// ─── Виджет «Добро пожаловать обратно» ─────────────────────────────
+(function() {
+  try {
+    const raw = localStorage.getItem('dyshinosom_diary_v1');
+    if (!raw) return;
+    const entries = JSON.parse(raw);
+    if (!Array.isArray(entries) || entries.length === 0) return;
+
+    // Найти последнюю запись с КПУ
+    const withKpu = entries
+      .filter(e => e.kpu != null && !isNaN(e.kpu))
+      .sort((a, b) => b.date.localeCompare(a.date));
+
+    if (withKpu.length === 0) return;
+
+    const last = withKpu[0];
+    const lastDate = new Date(last.date + 'T12:00:00');
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const yesterday = new Date(today);
+    yesterday.setDate(yesterday.getDate() - 1);
+
+    const kpuVal = last.kpu;
+    const widget = document.getElementById('returnWidget');
+    const kpuEl = document.getElementById('rwKpuVal');
+    const subEl = document.getElementById('rwSub');
+
+    if (!widget || !kpuEl) return;
+
+    kpuEl.textContent = kpuVal;
+
+    // Формулировка в зависимости от того, когда была последняя запись
+    const diff = Math.floor((today - lastDate) / 86400000);
+    let sub = 'Продолжайте практику';
+    let label = 'Ваша последняя КП:';
+
+    if (diff === 0) {
+      label = 'Ваша КП сегодня:';
+      sub = 'Запись уже есть — хорошая работа.';
+    } else if (diff === 1) {
+      label = 'Ваша КП вчера:';
+      sub = 'Продолжайте — дневник ждёт сегодняшнего замера.';
+    } else if (diff <= 3) {
+      label = 'Последняя КП (' + lastDate.toLocaleDateString('ru-RU', {day:'2-digit', month:'long'}) + '):';
+      sub = 'Регулярность — основа метода. Самое время вернуться.';
+    } else {
+      label = 'КП ' + lastDate.toLocaleDateString('ru-RU', {day:'2-digit', month:'long'}) + ':';
+      sub = 'Давно не виделись. Дневник помнит всё — просто продолжайте.';
+    }
+
+    document.getElementById('rwKpu').innerHTML = label + ' <strong id="rwKpuVal">' + kpuVal + '</strong> сек';
+    subEl.textContent = sub;
+    widget.classList.add('show');
+  } catch (e) { /* localStorage недоступен или данные повреждены */ }
+})();
+</script>
+</body>
+</html>

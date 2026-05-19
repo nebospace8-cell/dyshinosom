@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Политика конфиденциальности · Дыши Носом</title>
+<meta name="description" content="Политика конфиденциальности приложения «Дыши Носом». Local-first, без трекеров, без сбора данных.">
+<meta name="theme-color" content="#f4f1ea">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Политика конфиденциальности · Дыши Носом">
+<meta property="og:description" content="Политика конфиденциальности приложения «Дыши Носом». Local-first, без трекеров, без сбора данных.">
+<meta property="og:image" content="https://dyshinosom.com/assets/og-image.png">
+<meta property="og:url" content="https://dyshinosom.com/privacy.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Политика конфиденциальности · Дыши Носом">
+<meta name="twitter:description" content="Local-first, без трекеров, без сбора данных.">
+<meta name="twitter:image" content="https://dyshinosom.com/assets/og-image.png">
+
+<style>
+  /* Локальные шрифты — privacy-first, без обращений к Google Fonts CDN */
+  @font-face {
+    font-family: 'Fraunces';
+    src: url('assets/fonts/Fraunces-VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Fraunces';
+    src: url('assets/fonts/Fraunces-Italic-VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('assets/fonts/JetBrainsMono-VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('assets/fonts/JetBrainsMono-Italic-VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+  }
+</style>
+
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --bg-soft: #ebe6db;
+    --paper: #fdfaf2;
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --ink-faint: #8a8578;
+    --accent: #c4451c;
+    --accent-soft: #e8b4a0;
+    --green: #5d7a4f;
+    --line: #d4cdb8;
+    --line-strong: #a89f86;
+    --shadow: rgba(26, 26, 26, 0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Fraunces', Georgia, serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    background-image:
+      radial-gradient(circle at 15% 5%, rgba(196, 69, 28, 0.04) 0%, transparent 45%),
+      radial-gradient(circle at 85% 95%, rgba(93, 122, 79, 0.05) 0%, transparent 45%);
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 28px 24px 80px;
+  }
+
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+  .brand-mark {
+    width: 36px; height: 36px;
+    border: 2px solid var(--ink);
+    background: var(--paper);
+    display: grid; place-items: center;
+    font-family: 'Fraunces', serif;
+    font-style: italic; font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--accent);
+  }
+  .brand-name {
+    font-family: 'Fraunces', serif;
+    font-style: italic; font-weight: 500;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+  .topbar nav {
+    display: flex; gap: 22px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+  }
+  .topbar nav a {
+    color: var(--ink-faint);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .topbar nav a:hover { color: var(--accent); }
+
+  .doc-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    line-height: 1.05;
+  }
+
+  .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 40px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* Tldr-блок */
+  .summary {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    padding: 22px 26px;
+    margin-bottom: 40px;
+    box-shadow: 4px 4px 0 var(--shadow);
+  }
+  .summary .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .summary p { color: var(--ink-soft); }
+  .summary strong { color: var(--ink); font-weight: 500; }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-style: italic;
+    margin: 40px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--ink);
+    display: inline-block;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 24px 0 8px;
+    color: var(--ink);
+  }
+
+  p {
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+
+  ul, ol {
+    color: var(--ink-soft);
+    margin: 0 0 16px 22px;
+  }
+  li { margin-bottom: 6px; }
+
+  strong { color: var(--ink); font-weight: 500; }
+
+  a.legal-link {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--accent-soft);
+  }
+  a.legal-link:hover { border-bottom-style: solid; }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88em;
+    background: var(--bg-soft);
+    padding: 1px 6px;
+    border: 1px solid var(--line);
+    color: var(--ink);
+  }
+
+  .contact-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 22px 26px;
+    margin: 32px 0;
+  }
+  .contact-card .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ink-faint);
+    margin-bottom: 6px;
+  }
+  .contact-card a {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 1.05rem;
+  }
+
+
+  /* Accessibility */
+  button:focus-visible, a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  footer {
+    margin-top: 80px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    color: var(--ink-faint);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+  footer .links {
+    margin-top: 12px;
+    display: flex; gap: 22px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  footer .links a {
+    color: var(--ink-faint);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--line);
+    transition: color 0.15s, border-color 0.15s;
+  }
+  footer .links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  @media (max-width: 600px) {
+    .container { padding: 22px 18px 60px; }
+    h1 { font-size: 2rem; }
+    .summary, .contact-card { padding: 18px 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="topbar">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">Д</div>
+      <div class="brand-name">Дыши Носом</div>
+    </a>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="app.html">Дневник</a>
+      <a href="terms.html">Условия</a>
+    </nav>
+  </header>
+
+  <div class="doc-eyebrow">Политика конфиденциальности</div>
+  <h1>Ваши данные остаются у&nbsp;вас</h1>
+  <div class="meta">Версия 1.0 · действует с 26 апреля 2026 · 5 минут чтения</div>
+
+  <div class="summary">
+    <div class="label">Коротко</div>
+    <p>«Дыши Носом» — это <strong>local-first приложение</strong>: ваши записи хранятся только в вашем браузере, на вашем устройстве. Мы не отправляем их на серверы, не передаём третьим лицам, не используем сторонних аналитиков и трекеров. Регистрация не нужна. Контактных данных мы у вас не запрашиваем.</p>
+  </div>
+
+  <h2>1. Кто мы</h2>
+  <p>«Дыши Носом» — независимый некоммерческий проект, представляющий собой веб-приложение-дневник для практикующих метод К. П. Бутейко. Приложение распространяется как PWA (Progressive Web App) и не требует установки.</p>
+
+  <h2>2. Какие данные обрабатываются</h2>
+
+  <h3>2.1. Данные, которые вы вводите в дневнике</h3>
+  <p>В дневнике вы можете заполнять следующие поля: КПУ, ЧПУ, ΔКП, типы практик и их продолжительность, разделывающие факторы (РФ), пассивные практики (ПП), подготовку ко сну (ПКС), общее состояние (ОС) и комментарии к нему.</p>
+  <p>Эти данные сохраняются <strong>исключительно в локальном хранилище</strong> вашего браузера (Web Storage API, ключ <code>dyshinosom_diary_v1</code>) и <strong>никогда не покидают ваше устройство</strong>. Мы не имеем технической возможности их прочитать.</p>
+
+  <h3>2.2. Технические данные</h3>
+  <p>Когда страница приложения загружается, ваш браузер обращается к веб-серверу, на котором она размещена. Это стандартная сетевая активность и она не отличается от открытия любого другого сайта. Хостинг-провайдер может фиксировать стандартные данные доступа: IP-адрес, тип браузера, время запроса. Мы не имеем собственной серверной аналитики и не сопоставляем эти данные с вашими записями в дневнике.</p>
+
+  <h3>2.3. Сторонние сервисы</h3>
+  <p>Шрифты Fraunces и JetBrains Mono хранятся в составе самого приложения (<code>assets/fonts/*.woff2</code>) и не загружаются с внешних CDN. При открытии любой страницы ваш браузер обращается только к серверу, на котором размещён сайт «Дыши Носом», — никаких сторонних запросов не происходит.</p>
+  <p>На странице <em>не подключаются</em>: Google Analytics, Yandex Metrika, Facebook Pixel, рекламные сети, чаты поддержки, шрифтовые CDN, любые другие трекеры. В режиме инкогнито вкладка «Сеть» в инструментах разработчика показывает только запросы к домену самого приложения.</p>
+
+  <h2>3. Cookies</h2>
+  <p>Приложение <strong>не использует cookies</strong>. Для хранения дневника применяется <code>localStorage</code> — это другой механизм, доступный только самой странице, которая создала запись, и не передаваемый при сетевых запросах.</p>
+
+  <h2>4. Ваши права</h2>
+  <p>Поскольку данные хранятся на вашем устройстве, вы полностью ими управляете:</p>
+  <ul>
+    <li><strong>Право на доступ:</strong> все записи доступны во вкладке «Журнал» приложения.</li>
+    <li><strong>Право на экспорт (переносимость):</strong> кнопка «Экспорт в CSV» в журнале выгружает все ваши данные в файл, который вы можете открыть в Excel или Google Sheets.</li>
+    <li><strong>Право на удаление:</strong> кнопка «Удалить всё» в журнале немедленно стирает все записи. Удаление окончательное и не требует подтверждения по email — ведь у нас нет вашего email.</li>
+    <li><strong>Право на исправление:</strong> любую запись можно отредактировать, сохранив новую запись на ту же дату.</li>
+  </ul>
+
+  <h2>5. Дети</h2>
+  <p>Метод К. П. Бутейко имеет противопоказания и его применение детьми требует контроля специалиста. Приложение технически не запрашивает возраст пользователя и не предназначено специально для детей. Мы рекомендуем использовать приложение лицам старше 18 лет; для несовершеннолетних — под наблюдением родителя/опекуна и медицинского специалиста.</p>
+
+  <h2>6. Безопасность</h2>
+  <p>Поскольку данные не передаются на сервер, основные риски утечки связаны с самим устройством: чужой доступ к разблокированному устройству, синхронизация браузера на чужом устройстве, расширения браузера. Рекомендуем использовать пароль/биометрию на устройстве и не сохранять данные синхронизации браузера на устройствах, которыми пользуетесь не вы.</p>
+  <p>Сайт обслуживается по протоколу HTTPS, что обеспечивает защищённое соединение между вами и сервером с приложением.</p>
+
+  <h2>7. Применимое право</h2>
+  <p>Настоящая политика составлена с учётом требований Федерального закона РФ от 27.07.2006 № 152-ФЗ «О персональных данных» и Общего регламента ЕС о защите данных (GDPR, Регламент 2016/679). Поскольку обработка персональных данных оператором не производится (данные не покидают устройство пользователя), формальный статус оператора персональных данных к проекту не возникает.</p>
+  <p>Данные о состоянии здоровья относятся к специальной категории персональных данных в обоих регионах. Именно поэтому архитектура приложения изначально построена на принципе local-first: специальная категория данных не должна покидать устройство пользователя.</p>
+
+  <h2>8. Изменения политики</h2>
+  <p>При существенных изменениях этой политики мы обновим версию и дату вверху страницы. Изменения, расширяющие сбор данных, будут сопровождаться явным уведомлением при следующем открытии приложения.</p>
+
+  <h2>9. Контакты</h2>
+  <p>Если у вас есть вопросы по этой политике или вы хотите сообщить о проблеме конфиденциальности — напишите нам:</p>
+  <div class="contact-card">
+    <div class="label">Email для запросов о данных</div>
+    <a href="mailto:privacy@dyshinosom.com">privacy@dyshinosom.com</a>
+  </div>
+  <p>Запросов о ваших персональных данных на наш email мы, как правило, выполнить не сможем — у нас их нет. Но мы поможем со всеми вопросами по работе приложения и архитектуре хранения.</p>
+
+  <footer>
+    Дыши Носом · Локальный дневник практики
+    <div class="links">
+      <a href="index.html">Главная</a>
+      <a href="app.html">Дневник</a>
+      <a href="about.html">О методе</a>
+      <a href="terms.html">Условия и дисклеймер</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

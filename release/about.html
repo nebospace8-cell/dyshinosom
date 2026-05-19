@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>О методе Бутейко — Дыши Носом</title>
+<meta name="description" content="История метода Бутейко, контрольная пауза, ключевые принципы носового дыхания, где обучаться.">
+<meta name="theme-color" content="#f4f1ea">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="О методе Бутейко — Дыши Носом">
+<meta property="og:description" content="История метода, контрольная пауза, принципы носового дыхания и где обучаться.">
+<meta property="og:url" content="https://dyshinosom.com/about.html">
+
+<style>
+  @font-face {
+    font-family: 'Fraunces';
+    src: url('assets/fonts/Fraunces-VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Fraunces';
+    src: url('assets/fonts/Fraunces-Italic-VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900; font-style: italic; font-display: swap;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('assets/fonts/JetBrainsMono-VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('assets/fonts/JetBrainsMono-Italic-VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900; font-style: italic; font-display: swap;
+  }
+</style>
+
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --bg-soft: #ebe6db;
+    --paper: #fdfaf2;
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --ink-faint: #8a8578;
+    --accent: #c4451c;
+    --accent-soft: #e8b4a0;
+    --green: #5d7a4f;
+    --green-soft: #c4d4b8;
+    --line: #d4cdb8;
+    --line-strong: #a89f86;
+    --shadow: rgba(26,26,26,.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 16px;
+    line-height: 1.6;
+    background-image: repeating-linear-gradient(
+      0deg, transparent, transparent 31px,
+      var(--line) 31px, var(--line) 32px
+    );
+  }
+
+  a { color: inherit; }
+
+  /* ── Container ─────────────────────────────────────────── */
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+  }
+
+  /* ── Topbar ────────────────────────────────────────────── */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0 28px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 48px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .brand-mark {
+    width: 34px; height: 34px;
+    background: var(--ink); color: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144;
+    font-size: 1.1rem; font-style: italic; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .brand-name {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144;
+    font-style: italic; font-size: 1rem; font-weight: 600;
+    color: var(--ink);
+  }
+
+  .topbar-cta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .8rem; padding: 9px 16px;
+    border: 2px solid var(--ink); background: var(--ink); color: var(--paper);
+    text-decoration: none;
+    box-shadow: 3px 3px 0 var(--accent);
+    white-space: nowrap;
+  }
+  .topbar-cta:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--accent); display: inline-block; }
+
+  /* ── Page title ────────────────────────────────────────── */
+  .page-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .72rem; color: var(--accent);
+    text-transform: uppercase; letter-spacing: .1em;
+    margin-bottom: 12px;
+  }
+  .page-title {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144;
+    font-style: italic; font-size: 2.2rem; font-weight: 700;
+    color: var(--ink); line-height: 1.2;
+    margin-bottom: 40px;
+  }
+
+  /* ── Section ───────────────────────────────────────────── */
+  .section {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--shadow);
+    padding: 28px 28px 24px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--accent) 30%, var(--bg-soft) 30%);
+  }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .68rem; color: var(--accent);
+    text-transform: uppercase; letter-spacing: .1em;
+    margin-bottom: 8px;
+  }
+  .section h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144;
+    font-style: italic; font-size: 1.35rem; font-weight: 700;
+    color: var(--ink); margin-bottom: 16px; line-height: 1.3;
+  }
+  .section p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .84rem; color: var(--ink-soft);
+    line-height: 1.7; margin-bottom: 12px;
+  }
+  .section p:last-child { margin-bottom: 0; }
+  .section p strong { color: var(--ink); font-weight: 600; }
+
+  /* ── KP zones table ────────────────────────────────────── */
+  .kp-zones {
+    margin-top: 20px;
+    border: 1.5px solid var(--line-strong);
+    overflow: hidden;
+  }
+  .kp-zone {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    border-bottom: 1px solid var(--line);
+    align-items: stretch;
+  }
+  .kp-zone:last-child { border-bottom: none; }
+  .kp-zone-val {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144;
+    font-style: italic; font-size: 1.05rem; font-weight: 700;
+    padding: 10px 14px;
+    border-right: 1.5px solid var(--line);
+    display: flex; align-items: center;
+  }
+  .kp-zone-desc {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .78rem; color: var(--ink-soft);
+    padding: 10px 14px; line-height: 1.5;
+    display: flex; align-items: center;
+  }
+  .kp-zone.z-red   .kp-zone-val { color: #c4451c; background: #fdf0ec; }
+  .kp-zone.z-yellow .kp-zone-val { color: #7a5800; background: #fef9e8; }
+  .kp-zone.z-mid   .kp-zone-val { color: var(--green); background: var(--green-soft); }
+  .kp-zone.z-good  .kp-zone-val { color: #2a4d20; background: #c4d4b8; }
+  .kp-zone.z-best  .kp-zone-val { color: #1a3514; background: #a8c898; }
+
+  /* ── Principles ────────────────────────────────────────── */
+  .principles {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .principle {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+  .principle-num {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144;
+    font-style: italic; font-size: 1.3rem; font-weight: 700;
+    color: var(--accent); line-height: 1.2;
+  }
+  .principle-body {}
+  .principle-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .82rem; font-weight: 600; color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .principle-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .78rem; color: var(--ink-soft); line-height: 1.6;
+    margin: 0 !important;
+  }
+
+  /* ── School cards ──────────────────────────────────────── */
+  .school-grid {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .school-card {
+    border: 1.5px solid var(--line-strong);
+    padding: 16px 18px;
+    background: var(--bg-soft);
+    position: relative;
+  }
+  .school-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--accent);
+  }
+  .school-name {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144;
+    font-style: italic; font-size: 1rem; font-weight: 700;
+    color: var(--ink); margin-bottom: 3px;
+  }
+  .school-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .7rem; color: var(--accent);
+    text-transform: uppercase; letter-spacing: .06em;
+    margin-bottom: 8px;
+  }
+  .school-desc {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .78rem; color: var(--ink-soft); line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  .school-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .75rem; color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid var(--accent-soft);
+  }
+  .school-link:hover { border-bottom-color: var(--accent); }
+
+  /* ── Quote block ───────────────────────────────────────── */
+  .quote-block {
+    border-left: 3px solid var(--accent);
+    padding: 10px 18px;
+    margin: 20px 0 8px;
+    background: var(--bg-soft);
+  }
+  .quote-text {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144;
+    font-style: italic; font-size: 1rem; color: var(--ink-soft);
+    line-height: 1.6; margin: 0 !important;
+  }
+  .quote-attr {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .7rem; color: var(--ink-faint);
+    margin-top: 6px; margin-bottom: 0 !important;
+  }
+
+  /* ── Footer ────────────────────────────────────────────── */
+  footer {
+    margin-top: 48px;
+    border-top: 2px solid var(--ink);
+    padding-top: 22px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .78rem; color: var(--ink-soft);
+  }
+  .footer-links {
+    display: flex; flex-wrap: wrap; gap: 6px 20px;
+    margin-top: 10px;
+  }
+  .footer-links a {
+    color: var(--ink-soft); text-decoration: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .footer-links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .footer-copy {
+    margin-top: 12px; color: var(--ink-faint); font-size: .7rem;
+  }
+
+  @media (max-width: 480px) {
+    .container { padding: 20px 16px 60px; }
+    .page-title { font-size: 1.7rem; }
+    .section { padding: 20px 18px 18px; }
+    .kp-zone { grid-template-columns: 72px 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="topbar">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">Д</div>
+      <div class="brand-name">Дыши Носом</div>
+    </a>
+    <a href="app.html" class="topbar-cta">Открыть дневник</a>
+  </header>
+
+  <div class="page-eyebrow">Справочник · Метод К. П. Бутейко</div>
+  <h1 class="page-title">О методе</h1>
+
+  <!-- 1. История ─────────────────────────────────────────── -->
+  <section class="section" id="history">
+    <div class="section-num">01 · История метода</div>
+    <h2>К. П. Бутейко. Новосибирск, 1952</h2>
+    <p>
+      Константин Павлович Бутейко (1923–2003) — советский физиолог, работавший в Новосибирском
+      Академгородке. В 1952 году, наблюдая за дыхательными паттернами тяжелобольных пациентов,
+      он сформулировал гипотезу: <strong>хронический дефицит углекислого газа (CO₂) в крови является
+      причиной, а не следствием многих хронических болезней</strong>.
+    </p>
+    <p>
+      Ключевое открытие: современный человек систематически <strong>гипервентилирует</strong> — дышит
+      глубже и чаще, чем требует обмен веществ. Это смывает CO₂ из крови, вызывая спазм сосудов,
+      сужение бронхов, нарушение доставки кислорода к тканям (эффект Бора).
+    </p>
+
+    <div class="quote-block">
+      <p class="quote-text">«Глубокое дыхание — это болезнь. Лечение — уменьшение глубины дыхания.»</p>
+      <p class="quote-attr">— К. П. Бутейко</p>
+    </div>
+
+    <p>
+      С 1968 по 1987 год метод прошёл государственные клинические испытания в СССР — бронхиальная
+      астма, гипертония, стенокардия. По итогам Министерство здравоохранения СССР рекомендовало
+      метод к применению. Сегодня существуют десятки независимых исследований, подтверждающих
+      эффективность при бронхоспастических заболеваниях.
+    </p>
+  </section>
+
+  <!-- 2. Контрольная пауза ────────────────────────────────── -->
+  <section class="section" id="cp">
+    <div class="section-num">02 · Контрольная пауза</div>
+    <h2>Главный показатель метода</h2>
+    <p>
+      <strong>Контрольная пауза (КП)</strong> — время в секундах, на которое можно задержать дыхание
+      после <em>спокойного выдоха</em> до первого ощутимого позыва вдохнуть. Измеряется не усилием
+      воли, а именно первым сигналом — лёгкими дискомфортом или тягой к вдоху.
+    </p>
+    <p>
+      Как измерять: лягте или сядьте прямо. Сделайте несколько спокойных вдохов носом. После
+      очередного <strong>естественного выдоха</strong> — без форсированного выдоха — зажмите нос
+      пальцами и запустите таймер. При первом ощущении нехватки воздуха — остановите. Это ваша КП.
+    </p>
+
+    <div class="kp-zones">
+      <div class="kp-zone z-red">
+        <div class="kp-zone-val">&lt;&thinsp;10 сек</div>
+        <div class="kp-zone-desc">Тяжёлое нарушение. Работать только с инструктором, самостоятельная практика опасна.</div>
+      </div>
+      <div class="kp-zone z-yellow">
+        <div class="kp-zone-val">10–19 сек</div>
+        <div class="kp-zone-desc">Нарушенное дыхание. Обычная точка старта — отсюда растут большинство практикующих.</div>
+      </div>
+      <div class="kp-zone z-mid">
+        <div class="kp-zone-val">20–39 сек</div>
+        <div class="kp-zone-desc">Норма по шкале метода. Видна регулярная практика и улучшение CO₂-толерантности.</div>
+      </div>
+      <div class="kp-zone z-good">
+        <div class="kp-zone-val">40–59 сек</div>
+        <div class="kp-zone-desc">«Зона здоровья» по Бутейко. Хроническое воспаление и спазм бронхов обычно уходят.</div>
+      </div>
+      <div class="kp-zone z-best">
+        <div class="kp-zone-val">60+ сек</div>
+        <div class="kp-zone-desc">Целевая зона метода. Удерживать её через ежедневную практику — и есть смысл пути.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Ключевые принципы ─────────────────────────────────── -->
+  <section class="section" id="principles">
+    <div class="section-num">03 · Ключевые принципы</div>
+    <h2>Три опоры практики</h2>
+
+    <div class="principles">
+      <div class="principle">
+        <div class="principle-num">1</div>
+        <div class="principle-body">
+          <div class="principle-title">Только носовое дыхание</div>
+          <p class="principle-text">
+            Рот закрыт в любой ситуации — в покое, при ходьбе, во время сна. Нос согревает,
+            увлажняет, фильтрует воздух и вырабатывает оксид азота, расширяющий сосуды. Дыхание
+            ртом — потеря CO₂ и прямой путь к гипервентиляции. Исключение: речь.
+          </p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">2</div>
+        <div class="principle-body">
+          <div class="principle-title">Уменьшение глубины дыхания</div>
+          <p class="principle-text">
+            Упражнения метода направлены на то, чтобы каждый вдох становился чуть меньше — тише,
+            поверхностнее. Не задержка дыхания из силы воли, а мягкое, поддерживаемое ощущение
+            лёгкой нехватки воздуха. Именно оно сигнализирует о росте CO₂.
+          </p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">3</div>
+        <div class="principle-body">
+          <div class="principle-title">Диафрагмальное дыхание</div>
+          <p class="principle-text">
+            Дыхательное движение должно исходить из живота, а не из груди. Грудное дыхание
+            неэффективно — нижние доли лёгких, где сосредоточена большая часть альвеол, не
+            задействуются. Диафрагма — главная дыхательная мышца — должна работать свободно.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top:20px; font-size:.78rem; color:var(--ink-faint)">
+      Метод имеет противопоказания: острые инфекции, некоторые формы психических расстройств,
+      тяжёлая сердечная патология, беременность. Перед началом практики — консультация врача.
+    </p>
+  </section>
+
+  <!-- 4. Где обучаться ────────────────────────────────────── -->
+  <section class="section" id="learn">
+    <div class="section-num">04 · Где обучаться</div>
+    <h2>Школы и инструкторы</h2>
+    <p>
+      Метод эффективен при работе с опытным инструктором — особенно на первых двух уровнях КП.
+      Самостоятельная практика по дневнику возможна, но не заменяет очной или онлайн-работы.
+    </p>
+
+    <div class="school-grid">
+      <div class="school-card">
+        <div class="school-name">Клиника Бутейко · Москва</div>
+        <div class="school-meta">А.&thinsp;Е.&thinsp;Новожилов · с 1987</div>
+        <div class="school-desc">
+          Главврач — Андрей Евгеньевич Новожилов, ученик К.&thinsp;П.&thinsp;Бутейко с 1989 года.
+          Очные приёмы, авторские лекции, структурированный курс для взрослых и детей.
+          Один из немногих центров, сохранивших прямую преемственность от автора метода.
+        </div>
+        <a href="https://buteyko.ru" target="_blank" rel="noopener" class="school-link">buteyko.ru</a>
+      </div>
+
+      <div class="school-card">
+        <div class="school-name">Школа Дениса Файзуллина</div>
+        <div class="school-meta">Онлайн · Россия</div>
+        <div class="school-desc">
+          Денис Радмирович Файзуллин — сертифицированный инструктор метода, ведёт открытые
+          занятия на YouTube и групповые программы онлайн. Доступный формат, подробные разборы
+          упражнений и типичных ошибок практикующих.
+        </div>
+        <a href="https://youtube.com/@denis.radmirovich" target="_blank" rel="noopener" class="school-link">youtube.com/@denis.radmirovich</a>
+      </div>
+
+      <div class="school-card">
+        <div class="school-name">Buteyko Clinic International</div>
+        <div class="school-meta">Patrick McKeown · Ирландия</div>
+        <div class="school-desc">
+          Патрик Маккеун — автор книги «Oxygen Advantage» и ведущий международный тренер метода.
+          Сертификационные курсы для инструкторов, онлайн-программы, научные публикации.
+          Основная аудитория — англоязычный мир, но материалы доступны всем.
+        </div>
+        <a href="https://buteykoclinic.com" target="_blank" rel="noopener" class="school-link">buteykoclinic.com</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Дыши Носом · Локальный дневник практики
+    <div class="footer-links">
+      <a href="app.html">Дневник</a>
+      <a href="index.html">Главная</a>
+      <a href="about.html">О методе</a>
+      <a href="privacy.html">Конфиденциальность</a>
+      <a href="terms.html">Условия</a>
+    </div>
+    <div class="footer-copy">© 2026 · сделано с уважением к методу</div>
+  </footer>
+
+</div>
+</body>
+</html>
