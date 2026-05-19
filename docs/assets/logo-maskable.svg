@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Дыши Носом — иконка maskable">
+  <title>Дыши Носом</title>
+  <!-- Maskable: безопасная зона 80% (центр 410×410). Содержимое в зоне 96..416 -->
+  <rect width="512" height="512" fill="#f4f1ea"/>
+  <!-- внутренняя «бумажная» карточка в безопасной зоне -->
+  <rect x="120" y="120" width="272" height="272" fill="#fdfaf2" stroke="#1a1a1a" stroke-width="5"/>
+  <!-- акцентная полоса -->
+  <rect x="120" y="120" width="82" height="7" fill="#c4451c"/>
+  <rect x="202" y="120" width="190" height="7" fill="#5d7a4f"/>
+  <!-- дыхательная дуга -->
+  <path d="M 168 308 Q 256 200 344 308" fill="none" stroke="#c4451c" stroke-width="13" stroke-linecap="round"/>
+  <!-- точка паузы -->
+  <circle cx="256" cy="227" r="13" fill="#5d7a4f"/>
+  <!-- сетка журнала -->
+  <line x1="168" y1="350" x2="344" y2="350" stroke="#a89f86" stroke-width="2" stroke-dasharray="3 5"/>
+  <line x1="168" y1="368" x2="344" y2="368" stroke="#a89f86" stroke-width="2" stroke-dasharray="3 5"/>
+</svg>

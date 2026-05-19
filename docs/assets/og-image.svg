@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Дыши Носом — превью для соцсетей">
+  <defs>
+    <radialGradient id="bg1" cx="15%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#c4451c" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#c4451c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bg2" cx="85%" cy="85%" r="50%">
+      <stop offset="0%" stop-color="#5d7a4f" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#5d7a4f" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- фон -->
+  <rect width="1200" height="630" fill="#f4f1ea"/>
+  <rect width="1200" height="630" fill="url(#bg1)"/>
+  <rect width="1200" height="630" fill="url(#bg2)"/>
+
+  <!-- акцентная полоса вверху -->
+  <rect x="0" y="0" width="360" height="8" fill="#c4451c"/>
+  <rect x="360" y="0" width="840" height="8" fill="#5d7a4f"/>
+
+  <!-- левая часть: текст -->
+  <g transform="translate(80, 0)">
+    <text x="0" y="180" font-family="'JetBrains Mono', monospace, 'Courier New'" font-size="20" letter-spacing="4" fill="#8a8578" text-transform="uppercase">МЕТОД К. П. БУТЕЙКО · С 1962 ГОДА</text>
+    <text x="0" y="280" font-family="'Fraunces', Georgia, serif" font-style="italic" font-weight="500" font-size="100" fill="#1a1a1a">Дыши Носом</text>
+    <text x="0" y="370" font-family="'Fraunces', Georgia, serif" font-style="italic" font-weight="400" font-size="38" fill="#4a4a4a">Веди дневник Бутейко</text>
+    <text x="0" y="416" font-family="'Fraunces', Georgia, serif" font-style="italic" font-weight="400" font-size="38" fill="#4a4a4a">за 60 секунд в день.</text>
+
+    <!-- три бэйджа -->
+    <g transform="translate(0, 470)" font-family="'JetBrains Mono', monospace, 'Courier New'" font-size="18" letter-spacing="2" fill="#1a1a1a">
+      <g>
+        <rect x="0" y="0" width="180" height="44" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+        <text x="20" y="29">БЕЗ РЕКЛАМЫ</text>
+      </g>
+      <g transform="translate(196, 0)">
+        <rect x="0" y="0" width="200" height="44" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+        <text x="20" y="29">БЕЗ ПОДПИСОК</text>
+      </g>
+      <g transform="translate(412, 0)">
+        <rect x="0" y="0" width="220" height="44" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+        <text x="20" y="29">LOCAL-FIRST</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- правая часть: «карточка» с КПУ -->
+  <g transform="translate(820, 130)">
+    <!-- тень -->
+    <rect x="8" y="8" width="280" height="360" fill="#1a1a1a" opacity="0.08"/>
+    <!-- карта -->
+    <rect x="0" y="0" width="280" height="360" fill="#fdfaf2" stroke="#d4cdb8" stroke-width="1"/>
+    <!-- полоса -->
+    <rect x="0" y="0" width="84" height="6" fill="#c4451c"/>
+    <rect x="84" y="0" width="196" height="6" fill="#5d7a4f"/>
+
+    <!-- лейбл -->
+    <text x="32" y="56" font-family="'JetBrains Mono', monospace, 'Courier New'" font-size="13" letter-spacing="3" fill="#8a8578">ЗАПИСЬ ДНЯ · СЕГОДНЯ</text>
+    <text x="32" y="116" font-family="'JetBrains Mono', monospace, 'Courier New'" font-size="12" letter-spacing="3" fill="#8a8578">КПУ · СЕКУНДЫ</text>
+
+    <!-- большая цифра -->
+    <text x="140" y="244" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-style="italic" font-weight="500" font-size="160" fill="#c4451c">28</text>
+
+    <!-- разделитель -->
+    <line x1="32" y1="290" x2="248" y2="290" stroke="#d4cdb8" stroke-width="1" stroke-dasharray="3 4"/>
+
+    <!-- дельта -->
+    <text x="32" y="324" font-family="'JetBrains Mono', monospace, 'Courier New'" font-size="20" font-weight="600" fill="#5d7a4f">+3 за неделю</text>
+    <text x="32" y="346" font-family="'JetBrains Mono', monospace, 'Courier New'" font-size="12" letter-spacing="2" fill="#8a8578">ОС 8/10 · 5 ПРАКТИК</text>
+  </g>
+
+  <!-- футер: домен -->
+  <text x="80" y="588" font-family="'JetBrains Mono', monospace, 'Courier New'" font-size="18" letter-spacing="3" fill="#8a8578">DYSHINOSOM.COM</text>
+  <text x="1120" y="588" text-anchor="end" font-family="'Fraunces', Georgia, serif" font-style="italic" font-size="20" fill="#8a8578">Дыши спокойно. Дыши меньше. Дыши носом.</text>
+</svg>

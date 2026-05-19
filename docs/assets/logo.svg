@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Дыши Носом — логотип">
+  <title>Дыши Носом</title>
+  <!-- фоновая «бумажная» карточка -->
+  <rect width="512" height="512" fill="#f4f1ea"/>
+  <rect x="56" y="56" width="400" height="400" fill="#fdfaf2" stroke="#1a1a1a" stroke-width="6"/>
+  <!-- акцентная градиентная полоса сверху карточки -->
+  <rect x="56" y="56" width="120" height="10" fill="#c4451c"/>
+  <rect x="176" y="56" width="280" height="10" fill="#5d7a4f"/>
+  <!-- дыхательная дуга — выдох (терракотовая) -->
+  <path d="M 130 326 Q 256 168 382 326" fill="none" stroke="#c4451c" stroke-width="16" stroke-linecap="round"/>
+  <!-- точка паузы (зелёная) — апогей контрольной паузы -->
+  <circle cx="256" cy="200" r="16" fill="#5d7a4f"/>
+  <!-- сетка лабораторного журнала -->
+  <line x1="130" y1="384" x2="382" y2="384" stroke="#a89f86" stroke-width="2" stroke-dasharray="4 6"/>
+  <line x1="130" y1="406" x2="382" y2="406" stroke="#a89f86" stroke-width="2" stroke-dasharray="4 6"/>
+</svg>
