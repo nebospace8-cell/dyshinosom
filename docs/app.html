@@ -2244,12 +2244,48 @@ html[data-theme="dark"] {
   }
 }
 /* Тёмная тема: background tints приглушаем */
-html[data-theme="dark"] body,
-@media (prefers-color-scheme:dark) { :root:not([data-theme]) body {
+/* Исправление: два отдельных правила — нельзя смешивать селектор и @media через запятую */
+html[data-theme="dark"] body {
   background-image:
     radial-gradient(circle at 20% 10%, rgba(224,90,43,0.06) 0%, transparent 50%),
     radial-gradient(circle at 80% 90%, rgba(122,158,106,0.06) 0%, transparent 50%);
-}}
+}
+@media (prefers-color-scheme:dark) {
+  :root:not([data-theme]) body {
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(224,90,43,0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 90%, rgba(122,158,106,0.06) 0%, transparent 50%);
+  }
+}
+
+/* Тёмная тема: coming-soon карточки — читаемость при opacity */
+html[data-theme="dark"] .coming-soon-card,
+@media (prefers-color-scheme:dark) {
+  :root:not([data-theme]) .coming-soon-card { opacity: 0.75; }
+}
+html[data-theme="dark"] .coming-soon-card { opacity: 0.75; }
+
+/* Тёмная тема: wizard overlay — явный фон чтобы перекрывать контент */
+html[data-theme="dark"] .wizard-overlay,
+html[data-theme="dark"] .panic-overlay {
+  background: var(--bg);
+}
+
+/* Тёмная тема: wizard-manual-row input фон */
+html[data-theme="dark"] .wizard-manual-row input {
+  background: var(--bg-soft);
+  border-color: var(--line-strong);
+}
+
+/* Тёмная тема: share-preview-wrap полоса сверху */
+html[data-theme="dark"] .share-preview-wrap::before {
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 30%, var(--green) 30%, var(--green) 100%);
+}
+
+/* Тёмная тема: stg-btn активное состояние — box-shadow акцентом */
+html[data-theme="dark"] .stg-btn.active {
+  box-shadow: 2px 2px 0 var(--accent);
+}
 
 /* ─── Печать ────────────────────────────────────────────────────────── */
 @media print {
