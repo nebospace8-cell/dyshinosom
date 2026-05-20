@@ -2,7 +2,7 @@
 // Стратегия: cache-first для статики/шрифтов, network-first для HTML.
 // При обновлении версии CACHE_VERSION — старый кэш чистится.
 
-const CACHE_VERSION = 'dyshinosom-v3';
+const CACHE_VERSION = 'dyshinosom-v4';
 const CORE_ASSETS = [
   './',
   './index.html',
