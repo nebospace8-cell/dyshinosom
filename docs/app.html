@@ -2287,6 +2287,146 @@ html[data-theme="dark"] .stg-btn.active {
   box-shadow: 2px 2px 0 var(--accent);
 }
 
+/* ═══ Этап 11 · Материалы курса ════════════════════════════════════════
+   Картинки яркие/мультяшные — держим в нейтральном белом контейнере
+   в обеих темах. Когда появятся свои иллюстрации — заменить.          */
+
+/* Карточка-техника (крупные) */
+.course-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px; margin-bottom: 28px;
+}
+.course-tech-card {
+  background: #fff; border: 1px solid var(--line);
+  padding: 10px; cursor: pointer;
+  transition: box-shadow var(--dur-base);
+  box-shadow: var(--elev-1);
+}
+.course-tech-card:hover { box-shadow: var(--elev-3); }
+.course-tech-card img { display: block; width: 100%; height: auto; }
+
+/* Галерея-миниатюры */
+.course-section-eyebrow {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent);
+  margin: 24px 0 14px; padding-bottom: 7px; border-bottom: 1px solid var(--line);
+}
+.course-gallery-group { margin-bottom: 20px; }
+.course-group-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.64rem;
+  text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-soft);
+  margin-bottom: 10px; display: flex; align-items: center; gap: 10px;
+}
+.course-group-label::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+.course-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+.course-img-card {
+  background: #fff; border: 1px solid var(--line); padding: 6px;
+  cursor: pointer; transition: box-shadow var(--dur-base);
+  display: flex; flex-direction: column;
+}
+.course-img-card:hover { box-shadow: var(--elev-2); }
+.course-img-card img { display: block; width: 100%; height: auto; flex: 1; }
+.course-img-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+  text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--ink-faint); text-align: center;
+  margin-top: 6px; padding-bottom: 2px;
+}
+
+/* Лайтбокс */
+dialog.course-lightbox {
+  position: fixed; inset: 0; width: 100%; max-width: 100%;
+  height: 100%; max-height: 100%; margin: 0; padding: 16px;
+  border: none; background: rgba(0,0,0,0.92);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 3000;
+}
+dialog.course-lightbox::backdrop { background: rgba(0,0,0,0.92); }
+dialog.course-lightbox:not([open]) { display: none; }
+.lightbox-inner {
+  position: relative; max-width: min(960px, 95vw);
+  display: flex; flex-direction: column; align-items: center;
+}
+.lightbox-inner img {
+  display: block; max-width: 100%; max-height: 78vh;
+  object-fit: contain; background: #fff;
+}
+.lightbox-caption {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+  color: rgba(255,255,255,0.5); text-transform: uppercase;
+  letter-spacing: 0.12em; margin-top: 10px; text-align: center;
+}
+.lightbox-close {
+  position: absolute; top: -44px; right: 0;
+  background: none; border: none;
+  color: rgba(255,255,255,0.65); font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em;
+  cursor: pointer; min-height: 44px; padding: 0 4px;
+}
+.lightbox-close:hover { color: #fff; }
+
+/* ── Task B · Карточка позы ──────────────────────────────────────────── */
+.pose-reminder {
+  background: var(--paper); border: 1px solid var(--line);
+  border-left: 3px solid var(--green);
+  padding: 12px 14px; margin-bottom: 16px;
+  display: flex; gap: 12px; align-items: flex-start;
+  animation: fadeIn 0.25s ease;
+}
+.pose-reminder.hidden { display: none; }
+.pose-reminder-img {
+  background: #fff; border: 1px solid var(--line);
+  width: 68px; flex-shrink: 0;
+}
+.pose-reminder-img img { display: block; width: 100%; height: auto; }
+.pose-reminder-body { flex: 1; min-width: 0; }
+.pose-reminder-title {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.63rem;
+  text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--green); margin-bottom: 4px;
+}
+.pose-reminder-text {
+  font-size: 0.86rem; font-style: italic;
+  color: var(--ink-soft); line-height: 1.5; margin-bottom: 8px;
+}
+.pose-reminder-dismiss {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.58rem;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-faint);
+  background: none; border: none; cursor: pointer; padding: 0; min-height: 32px;
+}
+.pose-reminder-dismiss:hover { color: var(--accent); }
+
+/* ── Task C · Привычки дня ───────────────────────────────────────────── */
+.habits-sub-title {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.64rem;
+  text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent);
+  margin: 16px 0 8px; display: flex; justify-content: space-between; align-items: center;
+}
+.habits-sub-title:first-of-type { margin-top: 0; }
+.habits-sub-score {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 0.95rem; color: var(--green); font-variation-settings: "opsz" 9;
+}
+.habits-checks { display: flex; flex-direction: column; gap: 8px; }
+.habit-row { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+.habit-row input[type="checkbox"] {
+  margin-top: 2px; accent-color: var(--green);
+  width: 16px; height: 16px; flex-shrink: 0; cursor: pointer;
+}
+.habit-row span { font-size: 0.875rem; color: var(--ink-soft); font-style: italic; line-height: 1.4; }
+.habits-total-row {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+  text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-faint);
+  border-top: 1px dashed var(--line); padding-top: 10px; margin-top: 14px;
+  display: flex; justify-content: space-between;
+}
+.habits-total-val { color: var(--green); font-weight: 600; }
+
 /* ─── Печать ────────────────────────────────────────────────────────── */
 @media print {
   @page { margin: 18mm 16mm; }
@@ -2511,9 +2651,63 @@ html[data-theme="dark"] .stg-btn.active {
       </div>
     </div>
 
+    <!-- ── Этап 11С · Привычки дня ──────────────────────────────────── -->
     <div class="field-group">
       <div class="group-title">
-        <span class="num">05</span>
+        <span class="num">05б</span>
+        <span class="name">Привычки дня</span>
+        <span class="hint">баллы по блокам курса</span>
+      </div>
+      <div>
+        <div class="habits-sub-title">Сон <span class="habits-sub-score" id="habSleepScore">0 / 3</span></div>
+        <div class="habits-checks">
+          <label class="habit-row"><input type="checkbox" id="habSleep1"><span>Сон более 7 часов</span></label>
+          <label class="habit-row"><input type="checkbox" id="habSleep2"><span>Отбой до 23:00</span></label>
+          <label class="habit-row"><input type="checkbox" id="habSleep3"><span>Меньше двух пробуждений</span></label>
+        </div>
+        <div class="habits-sub-title">Питание <span class="habits-sub-score" id="habFoodScore">0 / 3</span></div>
+        <div class="habits-checks">
+          <label class="habit-row"><input type="checkbox" id="habFood1"><span>Клетчатка более 25 г</span></label>
+          <label class="habit-row"><input type="checkbox" id="habFood2"><span>Без сахара и муки</span></label>
+          <label class="habit-row"><input type="checkbox" id="habFood3"><span>Животный белок менее 1 г на кг веса</span></label>
+        </div>
+        <div class="habits-sub-title">Активность <span class="habits-sub-score" id="habActScore">0 / 3</span></div>
+        <div class="habits-checks">
+          <label class="habit-row"><input type="checkbox" id="habAct1"><span>40 минут до пота</span></label>
+          <label class="habit-row"><input type="checkbox" id="habAct2"><span>Суставная гимнастика 25 минут</span></label>
+          <label class="habit-row"><input type="checkbox" id="habAct3"><span>5000 шагов</span></label>
+        </div>
+        <div class="habits-sub-title">Очистка <span class="habits-sub-score" id="habCleanScore">0 / 3</span></div>
+        <div class="habits-checks">
+          <label class="habit-row"><input type="checkbox" id="habClean1"><span>Тёплая вода утром натощак</span></label>
+          <label class="habit-row"><input type="checkbox" id="habClean2"><span>Без искусственного, алкоголя, кофе</span></label>
+          <label class="habit-row"><input type="checkbox" id="habClean3"><span>Клетчатка более 30 г</span></label>
+        </div>
+        <div class="habits-total-row">
+          <span>Итого привычки</span>
+          <span class="habits-total-val" id="habTotalScore">0 / 12</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="group-title">
+        <span class="num">06</span>
+        <span class="name">Практики дня</span>
+        <span class="hint">ежедневные практики курса</span>
+      </div>
+      <div class="habits-checks">
+        <label class="habit-row"><input type="checkbox" id="pdWater"><span>Вода натощак</span></label>
+        <label class="habit-row"><input type="checkbox" id="pdActivation"><span>Практика включения</span></label>
+        <label class="habit-row"><input type="checkbox" id="pdMirror"><span>Зеркальные нейроны</span></label>
+        <label class="habit-row"><input type="checkbox" id="pdGratitude"><span>Практика благодарения</span></label>
+        <label class="habit-row"><input type="checkbox" id="pdRelax"><span>Практика расслабления</span></label>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="group-title">
+        <span class="num">07</span>
         <span class="name">Общее состояние</span>
         <span class="hint">ОС</span>
       </div>
@@ -2668,7 +2862,130 @@ html[data-theme="dark"] .stg-btn.active {
       </div>
     </div>
   </div>
+
+  <!-- ── Этап 11А · Упражнения курса ──────────────────────────────── -->
+  <div class="form-card" style="margin-top:20px">
+    <h2 class="section-title">Упражнения</h2>
+    <p class="section-desc">Иллюстрации из курса Дениса Файзуллина. Только носовое дыхание.</p>
+
+    <div class="course-section-eyebrow">Техника выполнения</div>
+    <div class="course-tech-grid">
+      <div class="course-tech-card" onclick="courseLightbox('assets/course/71.jpeg','Правило правой руки — поза для практики')">
+        <img src="assets/course/71.jpeg" alt="Правило правой руки — поза" loading="lazy">
+        <div class="course-img-label">Правило правой руки · поза</div>
+      </div>
+      <div class="course-tech-card" onclick="courseLightbox('assets/course/8.jpeg','Правило левой руки — уменьшение глубины дыхания')">
+        <img src="assets/course/8.jpeg" alt="Правило левой руки" loading="lazy">
+        <div class="course-img-label">Правило левой руки · принцип</div>
+      </div>
+      <div class="course-tech-card" onclick="courseLightbox('assets/course/238.jpeg','Ключи к методу Бутейко — как понять что выполняю правильно')">
+        <img src="assets/course/238.jpeg" alt="Ключи к методу Бутейко" loading="lazy">
+        <div class="course-img-label">Ключи к методу</div>
+      </div>
+    </div>
+
+    <div class="course-section-eyebrow">Галерея упражнений</div>
+
+    <div class="course-gallery-group">
+      <div class="course-group-label">Серия 1 · Паузы (1А / 1В / 1С)</div>
+      <div class="course-gallery">
+        <div class="course-img-card" onclick="courseLightbox('assets/course/427.jpeg','1А — пауза после выдоха до лёгкой нехватки воздуха, сидя')">
+          <img src="assets/course/427.jpeg" alt="Упражнение 1А" loading="lazy">
+          <div class="course-img-label">1А</div>
+        </div>
+        <div class="course-img-card" onclick="courseLightbox('assets/course/274.jpeg','1В — пауза при ходьбе до лёгкой нехватки воздуха')">
+          <img src="assets/course/274.jpeg" alt="Упражнение 1В" loading="lazy">
+          <div class="course-img-label">1В</div>
+        </div>
+        <div class="course-img-card" onclick="courseLightbox('assets/course/271.jpeg','1С — пауза при беге до лёгкой нехватки воздуха')">
+          <img src="assets/course/271.jpeg" alt="Упражнение 1С" loading="lazy">
+          <div class="course-img-label">1С</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-gallery-group">
+      <div class="course-group-label">Серия 2 · Уменьшение дыхания (2А / 2В / 2С)</div>
+      <div class="course-gallery">
+        <div class="course-img-card" onclick="courseLightbox('assets/course/225.jpeg','2А — уменьшение дыхания сидя, средняя амплитуда')">
+          <img src="assets/course/225.jpeg" alt="Упражнение 2А" loading="lazy">
+          <div class="course-img-label">2А</div>
+        </div>
+        <div class="course-img-card" onclick="courseLightbox('assets/course/145.jpeg','2В — уменьшение дыхания сидя, меньшая амплитуда')">
+          <img src="assets/course/145.jpeg" alt="Упражнение 2В" loading="lazy">
+          <div class="course-img-label">2В</div>
+        </div>
+        <div class="course-img-card" onclick="courseLightbox('assets/course/250.jpeg','2С — уменьшение дыхания при ходьбе')">
+          <img src="assets/course/250.jpeg" alt="Упражнение 2С" loading="lazy">
+          <div class="course-img-label">2С</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-gallery-group">
+      <div class="course-group-label">Серия 3 · Расслабление (3А / 3В / 3С)</div>
+      <div class="course-gallery">
+        <div class="course-img-card" onclick="courseLightbox('assets/course/131-2.jpeg','3А — стоя, расслабление и уменьшение дыхания')">
+          <img src="assets/course/131-2.jpeg" alt="Упражнение 3А" loading="lazy">
+          <div class="course-img-label">3А</div>
+        </div>
+        <div class="course-img-card" onclick="courseLightbox('assets/course/350.jpeg','3В — ходьба, расслабление')">
+          <img src="assets/course/350.jpeg" alt="Упражнение 3В" loading="lazy">
+          <div class="course-img-label">3В</div>
+        </div>
+        <div class="course-img-card" onclick="courseLightbox('assets/course/192.jpeg','3С — стоя, минимальное дыхание')">
+          <img src="assets/course/192.jpeg" alt="Упражнение 3С" loading="lazy">
+          <div class="course-img-label">3С</div>
+        </div>
+        <div class="course-img-card" onclick="courseLightbox('assets/course/246.jpeg','3С — зоны расслабления: плечи, шея, лоб, ребра, живот')">
+          <img src="assets/course/246.jpeg" alt="3С — зоны расслабления" loading="lazy">
+          <div class="course-img-label">3С · зоны</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-section-eyebrow">Сочетание упражнений</div>
+    <div class="course-gallery" style="margin-bottom:28px">
+      <div class="course-img-card" onclick="courseLightbox('assets/course/164.jpeg','Сочетание упражнений — схема')">
+        <img src="assets/course/164.jpeg" alt="Сочетание упражнений — схема" loading="lazy">
+        <div class="course-img-label">Схема</div>
+      </div>
+      <div class="course-img-card" onclick="courseLightbox('assets/course/456.jpeg','Сочетание упражнений: 2А+ходьба, 3А+3С, 2А+3С, 3А+(3С+2А)')">
+        <img src="assets/course/456.jpeg" alt="Сочетание упражнений — список" loading="lazy">
+        <div class="course-img-label">Список</div>
+      </div>
+      <div class="course-img-card" onclick="courseLightbox('assets/course/295.jpeg','Все 9 упражнений — сводная таблица')">
+        <img src="assets/course/295.jpeg" alt="Все 9 упражнений" loading="lazy">
+        <div class="course-img-label">Сводная</div>
+      </div>
+      <div class="course-img-card" onclick="courseLightbox('assets/course/172-2.jpeg','Блок 4×1: осанка · уменьшение дыхания · бег · расслабление')">
+        <img src="assets/course/172-2.jpeg" alt="Блок 4×1" loading="lazy">
+        <div class="course-img-label">Блок 4×1</div>
+      </div>
+    </div>
+
+    <div class="course-section-eyebrow">Дополнительно</div>
+    <div class="course-gallery">
+      <div class="course-img-card" onclick="courseLightbox('assets/course/145-2.jpeg','Пассивные практики и раздышивающие факторы')">
+        <img src="assets/course/145-2.jpeg" alt="Пассивные практики" loading="lazy">
+        <div class="course-img-label">Пассивные практики</div>
+      </div>
+      <div class="course-img-card" onclick="courseLightbox('assets/course/385-2.jpeg','Реакции саногенеза — когда КП растёт слишком быстро')">
+        <img src="assets/course/385-2.jpeg" alt="Реакции саногенеза" loading="lazy">
+        <div class="course-img-label">Саногенез</div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<!-- ── Лайтбокс для галереи курса ──────────────────────────────────── -->
+<dialog class="course-lightbox" id="courseLightbox" aria-modal="true" aria-label="Просмотр иллюстрации">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Закрыть">✕ Закрыть</button>
+    <img id="lightboxImg" src="" alt="" loading="lazy">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+</dialog>
 
 <section class="section" id="soon">
   <div class="coming-soon-intro">
@@ -3000,6 +3317,18 @@ html[data-theme="dark"] .stg-btn.active {
     <button type="button" class="wizard-close-btn" id="wizardCloseBtn">✕ Выйти без сохранения</button>
   </div>
 
+  <!-- Карточка позы — Task B -->
+  <div class="pose-reminder" id="poseCardWizard" style="width:100%;max-width:520px;margin:8px 0 0">
+    <div class="pose-reminder-img">
+      <img src="assets/course/71.jpeg" alt="Правило правой руки — поза" loading="lazy">
+    </div>
+    <div class="pose-reminder-body">
+      <div class="pose-reminder-title">Правило правой руки · поза</div>
+      <div class="pose-reminder-text">Сесть удобно · Расслабиться · Спина прямая · Глаза вверх · Губы сомкнуты</div>
+      <button class="pose-reminder-dismiss" data-pose-dismiss="wizard">Не показывать снова</button>
+    </div>
+  </div>
+
   <!-- Шаг 1 — КП до -->
   <div class="wizard-step" id="wzStep1">
     <div class="wizard-eyebrow">Шаг 1 / 5 · Тренировка</div>
@@ -3120,6 +3449,17 @@ html[data-theme="dark"] .stg-btn.active {
 
 <!-- Smart-таймер для измерения КП -->
 <div class="kp-timer-overlay" id="kpTimer" role="dialog" aria-modal="true" aria-labelledby="kpTimerHint">
+  <!-- Карточка позы — Task B -->
+  <div class="pose-reminder" id="poseCardTimer">
+    <div class="pose-reminder-img">
+      <img src="assets/course/71.jpeg" alt="Правило правой руки — поза" loading="lazy">
+    </div>
+    <div class="pose-reminder-body">
+      <div class="pose-reminder-title">Правило правой руки · поза</div>
+      <div class="pose-reminder-text">Сесть удобно · Расслабиться · Спина прямая · Глаза вверх · Челюсть расслаблена, губы сомкнуты</div>
+      <button class="pose-reminder-dismiss" data-pose-dismiss="timer">Не показывать снова</button>
+    </div>
+  </div>
   <p class="kp-timer-instructions">
     Лёжа на спине, после обычного выдоха. Тапните по кругу — начнётся отсчёт. Тапните повторно при <em>первом ощутимом позыве</em> вдохнуть, без усилия.
   </p>
@@ -3253,6 +3593,17 @@ document.getElementById('saveBtn').addEventListener('click', () => {
 
   const osActive = scaleOS.querySelector('.scale-btn.active');
 
+  // Привычки дня (Task C)
+  const habIds = ['habSleep1','habSleep2','habSleep3','habFood1','habFood2','habFood3',
+                  'habAct1','habAct2','habAct3','habClean1','habClean2','habClean3'];
+  const habits = {};
+  habIds.forEach(id => { const el = document.getElementById(id); habits[id] = el ? el.checked : false; });
+
+  // Практики дня (Task C)
+  const pdIds = ['pdWater','pdActivation','pdMirror','pdGratitude','pdRelax'];
+  const practiceDays = {};
+  pdIds.forEach(id => { const el = document.getElementById(id); practiceDays[id] = el ? el.checked : false; });
+
   const entry = {
     id: Date.now(),
     date,
@@ -3272,6 +3623,8 @@ document.getElementById('saveBtn').addEventListener('click', () => {
       tape:    document.getElementById('sleepTape').checked,
       snore:   document.getElementById('sleepSnore').checked,
     },
+    habits,       // null в старых записях — обратная совместимость
+    practiceDays, // null в старых записях
   };
 
   const priorEntries = loadEntries()
@@ -3308,7 +3661,11 @@ document.getElementById('saveBtn').addEventListener('click', () => {
 
 function clearForm() {
   ['kpu','chpu','rf','pp','pks','os_note','sleepHours','sleepQuality','sleepWakeups'].forEach(id => { const el=document.getElementById(id); if(el) el.value=''; });
-  ['sleepNasal','sleepTape','sleepSnore'].forEach(id => { const el=document.getElementById(id); if(el) el.checked=false; });
+  ['sleepNasal','sleepTape','sleepSnore',
+   'habSleep1','habSleep2','habSleep3','habFood1','habFood2','habFood3',
+   'habAct1','habAct2','habAct3','habClean1','habClean2','habClean3',
+   'pdWater','pdActivation','pdMirror','pdGratitude','pdRelax'].forEach(id => { const el=document.getElementById(id); if(el) el.checked=false; });
+  updateHabitsScores();
   scaleOS.querySelectorAll('.scale-btn.active').forEach(b => b.classList.remove('active'));
   practiceList.innerHTML = '';
   addPracticeRow();
@@ -5358,6 +5715,68 @@ function renderProfile() {
     saveProfile(p);
   });
 });
+
+// ═══ Этап 11 · Материалы курса ══════════════════════════════════════
+
+// ── Task A · Лайтбокс галереи ────────────────────────────────────────
+window.courseLightbox = function(src, caption) {
+  const dlg = document.getElementById('courseLightbox');
+  if (!dlg) return;
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightboxImg').alt = caption;
+  document.getElementById('lightboxCaption').textContent = caption;
+  dlg.showModal();
+};
+(function() {
+  const dlg = document.getElementById('courseLightbox');
+  if (!dlg) return;
+  document.getElementById('lightboxClose').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+})();
+
+// ── Task B · Карточка позы ───────────────────────────────────────────
+const POSE_KEY = 'dyshinosom_pose_dismissed_v1';
+function initPoseCard(cardId, storageKey) {
+  const card = document.getElementById(cardId);
+  if (!card) return;
+  // Скрыть если пользователь уже отклонил
+  if (localStorage.getItem(storageKey)) card.classList.add('hidden');
+  // Кнопка «Не показывать снова»
+  const btn = card.querySelector('[data-pose-dismiss]');
+  if (btn) btn.addEventListener('click', () => {
+    localStorage.setItem(storageKey, '1');
+    card.classList.add('hidden');
+  });
+}
+initPoseCard('poseCardTimer',  POSE_KEY + '_timer');
+initPoseCard('poseCardWizard', POSE_KEY + '_wizard');
+
+// ── Task C · Счётчики привычек дня ──────────────────────────────────
+function updateHabitsScores() {
+  const groups = [
+    { ids: ['habSleep1','habSleep2','habSleep3'], scoreId: 'habSleepScore' },
+    { ids: ['habFood1','habFood2','habFood3'],    scoreId: 'habFoodScore'  },
+    { ids: ['habAct1','habAct2','habAct3'],       scoreId: 'habActScore'   },
+    { ids: ['habClean1','habClean2','habClean3'], scoreId: 'habCleanScore' },
+  ];
+  let total = 0;
+  groups.forEach(g => {
+    const score = g.ids.filter(id => { const el = document.getElementById(id); return el && el.checked; }).length;
+    total += score;
+    const el = document.getElementById(g.scoreId);
+    if (el) el.textContent = score + ' / ' + g.ids.length;
+  });
+  const totEl = document.getElementById('habTotalScore');
+  if (totEl) totEl.textContent = total + ' / 12';
+}
+// Слушаем все чекбоксы привычек
+['habSleep1','habSleep2','habSleep3','habFood1','habFood2','habFood3',
+ 'habAct1','habAct2','habAct3','habClean1','habClean2','habClean3'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('change', updateHabitsScores);
+});
+updateHabitsScores();
+
 </script>
 
 <!-- Баннер Push-уведомлений -->
