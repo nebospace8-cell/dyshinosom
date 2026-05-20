@@ -726,6 +726,12 @@
 
   footer .links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
+  @media (max-width: 480px) {
+    footer { font-size: 0.78rem; padding-top: 16px; margin-top: 40px; }
+    footer .links { flex-direction: column; align-items: center; gap: 0; }
+    footer .links a { min-height: 44px; display: flex; align-items: center; }
+  }
+
   .brand-link { text-decoration: none; color: inherit; display: inline-block; }
   .brand-link:hover h1 { color: var(--accent); transition: color var(--dur-base); }
 
