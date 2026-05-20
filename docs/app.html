@@ -72,6 +72,17 @@
     --line: #d4cdb8;
     --line-strong: #a89f86;
     --shadow: rgba(26, 26, 26, 0.08);
+    /* ── Spacing scale */
+    --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px;
+    --space-6:24px; --space-8:32px; --space-12:48px;
+    /* ── Radii */
+    --radius-0:0; --radius-pill:999px; --radius-circle:50%;
+    /* ── Elevation (hard offset, paper style) */
+    --elev-1:4px 4px 0 var(--shadow); --elev-2:6px 6px 0 var(--shadow);
+    --elev-3:8px 8px 0 var(--shadow); --elev-accent:4px 4px 0 var(--ink);
+    /* ── Motion */
+    --dur-fast:120ms; --dur-base:200ms; --dur-slow:320ms;
+    --ease:cubic-bezier(.2,.7,.3,1);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -166,7 +177,7 @@
     cursor: pointer;
     border-bottom: 2px solid transparent;
     margin-bottom: -1px;
-    transition: all 0.2s;
+    transition: all var(--dur-base);
     white-space: nowrap;
     font-weight: 500;
   }
@@ -187,7 +198,7 @@
     border: 1px solid var(--line);
     padding: 32px;
     margin-bottom: 24px;
-    box-shadow: 4px 4px 0 var(--shadow);
+    box-shadow: var(--elev-1);
     position: relative;
   }
 
@@ -297,7 +308,7 @@
     border: 1px solid var(--line);
     background: var(--bg);
     color: var(--ink);
-    transition: all 0.2s;
+    transition: all var(--dur-base);
     font-feature-settings: "tnum";
     width: 100%;
   }
@@ -430,7 +441,7 @@
     background: var(--ink);
     color: var(--bg);
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all var(--dur-base);
     font-weight: 500;
   }
 
@@ -438,7 +449,7 @@
     background: var(--accent);
     border-color: var(--accent);
     transform: translate(-2px, -2px);
-    box-shadow: 4px 4px 0 var(--ink);
+    box-shadow: var(--elev-accent);
   }
 
   .btn-secondary { background: transparent; color: var(--ink); }
@@ -716,7 +727,7 @@
   footer .links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
   .brand-link { text-decoration: none; color: inherit; display: inline-block; }
-  .brand-link:hover h1 { color: var(--accent); transition: color 0.2s; }
+  .brand-link:hover h1 { color: var(--accent); transition: color var(--dur-base); }
 
   /* Медицинский дисклеймер при первом входе */
   .modal-backdrop {
@@ -735,7 +746,7 @@
     max-width: 520px;
     width: 100%;
     padding: 32px;
-    box-shadow: 6px 6px 0 var(--shadow);
+    box-shadow: var(--elev-2);
     position: relative;
   }
   .modal::before {
@@ -780,7 +791,7 @@
     grid-template-columns: auto 1fr;
     gap: 28px;
     align-items: center;
-    box-shadow: 4px 4px 0 var(--shadow);
+    box-shadow: var(--elev-1);
     position: relative;
   }
   .daily-score::before {
@@ -943,16 +954,16 @@
     border-radius: 50%;
     display: grid; place-items: center;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all var(--dur-base);
     user-select: none;
     background: var(--paper);
-    box-shadow: 6px 6px 0 var(--shadow);
+    box-shadow: var(--elev-2);
   }
   .kp-timer-circle.running { border-color: var(--accent); background: var(--accent-soft); animation: pulse 2s ease-in-out infinite; }
   .kp-timer-circle:active { transform: scale(0.97); }
   @keyframes pulse {
-    0%, 100% { box-shadow: 6px 6px 0 var(--shadow); }
-    50% { box-shadow: 8px 8px 0 var(--shadow); }
+    0%, 100% { box-shadow: var(--elev-2); }
+    50% { box-shadow: var(--elev-3); }
   }
   .kp-timer-value {
     font-family: 'Fraunces', serif;
@@ -1115,7 +1126,7 @@
     transition: background 1.5s ease, border-color 1.5s ease;
     cursor: pointer;
     user-select: none;
-    box-shadow: 6px 6px 0 var(--shadow);
+    box-shadow: var(--elev-2);
   }
   .panic-circle.holding {
     background: var(--accent-soft);
@@ -1355,7 +1366,7 @@
     padding: 24px 28px;
     margin-bottom: 24px;
     position: relative;
-    box-shadow: 4px 4px 0 var(--shadow);
+    box-shadow: var(--elev-1);
   }
   .ob-visual::before {
     content: '';
@@ -1481,12 +1492,12 @@
     background: var(--green);
     color: var(--bg);
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all var(--dur-base);
     font-weight: 500;
   }
   .btn-wizard-open:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 4px 4px 0 var(--ink);
+    box-shadow: var(--elev-accent);
     background: var(--ink);
     border-color: var(--ink);
   }
@@ -1595,7 +1606,7 @@
     cursor: pointer;
     user-select: none;
     background: var(--paper);
-    box-shadow: 6px 6px 0 var(--shadow);
+    box-shadow: var(--elev-2);
     transition: background 0.3s, border-color 0.3s;
   }
   .wizard-kp-circle.wz-running {
@@ -1715,8 +1726,8 @@
     cursor: pointer;
     user-select: none;
     background: var(--paper);
-    box-shadow: 6px 6px 0 var(--shadow);
-    transition: all 0.2s;
+    box-shadow: var(--elev-2);
+    transition: all var(--dur-base);
   }
   .wizard-ex-circle.wz-running { border-color: var(--green); background: var(--green-soft); animation: pulse 3s ease-in-out infinite; }
   .wizard-ex-circle.wz-done { border-color: var(--green); background: var(--green-soft); }
@@ -1844,7 +1855,7 @@
     padding: 24px;
     margin-bottom: 24px;
     display: none;
-    box-shadow: 4px 4px 0 var(--shadow);
+    box-shadow: var(--elev-1);
     position: relative;
   }
   .share-preview-wrap::before {
@@ -1895,7 +1906,7 @@
     border: 1px solid var(--line);
     padding: 22px;
     cursor: pointer;
-    transition: opacity 0.2s;
+    transition: opacity var(--dur-base);
     position: relative;
     opacity: 0.55;
   }
@@ -1932,7 +1943,7 @@
     color: var(--ink-faint);
     text-transform: uppercase;
   }
-  .cs-popup.show { display: block; animation: fadeIn 0.2s ease; }
+  .cs-popup.show { display: block; animation: fadeIn var(--dur-base) ease; }
 
 /* ─── Настройки ──────────────────────────────────────────────────── */
 .settings-group { margin-bottom: 28px; }
@@ -2078,6 +2089,134 @@
   font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--ink-soft);
 }
 
+
+/* ─── Lucide inline icons ───────────────────────────────────────── */
+.icon {
+  display: inline-block; vertical-align: middle;
+  width: 20px; height: 20px; stroke: currentColor; fill: none;
+  stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round;
+  flex-shrink: 0;
+}
+/* ─── Мобильная навигация (нижний таб-бар) ──────────────────────── */
+@media (max-width:640px) {
+  .tabs {
+    position: fixed; bottom: 0; left: 0; right: 0; top: auto;
+    display: flex; justify-content: space-around; align-items: stretch;
+    background: var(--paper); border-top: 2px solid var(--ink);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    z-index: 200; margin: 0; gap: 0;
+    box-shadow: 0 -2px 0 var(--line);
+  }
+  .tab {
+    flex: 1; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 3px;
+    padding: 6px 2px env(safe-area-inset-bottom, 6px);
+    min-height: 54px; border: none; border-right: 1px solid var(--line);
+    background: transparent; color: var(--ink-faint); cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem; letter-spacing: 0.04em; text-transform: uppercase;
+    border-radius: var(--radius-0);
+  }
+  .tab:last-child { border-right: none; }
+  .tab.active { color: var(--accent); background: var(--bg-soft); }
+  .tab .icon { width: 18px; height: 18px; stroke-width: 1.75; }
+  .tab-label { display: block; }
+  /* content bottom padding so nav doesn't cover it */
+  .container {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+  }
+}
+@media (min-width:641px) {
+  .tab-label { display: none; }
+}
+/* ─── Чипы-подсказки ────────────────────────────────────────────── */
+.chip-row {
+  display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: var(--space-2);
+}
+.chip {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+  padding: 3px 9px; border: 1.5px solid var(--line-strong);
+  background: var(--bg-soft); color: var(--ink-soft); cursor: pointer;
+  transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
+  user-select: none; line-height: 1.6;
+  border-radius: var(--radius-0);
+}
+.chip.active {
+  background: var(--ink); color: var(--paper); border-color: var(--ink);
+}
+.chip:hover:not(.active) {
+  border-color: var(--ink-soft); background: var(--bg);
+}
+/* ─── Голосовой ввод в текстовые поля ──────────────────────────── */
+.voice-field-wrap { position: relative; }
+.voice-field-wrap textarea { width: 100%; }
+.voice-field-btn {
+  position: absolute; right: 6px; top: 6px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+  color: var(--ink-faint); line-height: 0;
+  transition: color var(--dur-fast);
+  border-radius: var(--radius-0);
+}
+.voice-field-btn:hover { color: var(--accent); }
+.voice-field-btn.listening {
+  color: var(--accent);
+  animation: voicePulse var(--dur-slow) infinite alternate;
+}
+/* ─── Настройка осей Fraunces (Этап 10) ─────────────────────────── */
+/* Крупные акцентные заголовки — оптический максимум + мягкость + характер */
+.section-title,
+.wizard-title,
+.panic-title,
+h1, .hero-title {
+  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 0.6;
+}
+/* Числа и значения КП — оптическая чёткость */
+.wizard-kp-value,
+.kp-number,
+.score-kp-val,
+.panic-counter {
+  font-variation-settings: "opsz" 9, "SOFT" 0, "WONK" 0;
+}
+/* Инструкции и длинный основной текст — читабельный средний размер */
+.wizard-instructions,
+.panic-instructions,
+.form-card > p,
+.section-desc {
+  font-variation-settings: "opsz" 18, "SOFT" 30;
+}
+/* Акцентные подписи (daily score, badge names) — подчёркнутый характер */
+.daily-meta,
+.badge-name,
+.rec-text {
+  font-variation-settings: "opsz" 72, "SOFT" 50, "WONK" 0.4;
+}
+/* ─── Тёмная тема ──────────────────────────────────────────────────── */
+html[data-theme="dark"] {
+  --bg:#1a1714; --bg-soft:#221e1a; --paper:#272320;
+  --ink:#f0ece3; --ink-soft:#c4bdb0; --ink-faint:#8f877a;
+  --accent:#e05a2b; --accent-soft:#6b2a10;
+  --green:#7a9e6a; --green-soft:#2a3d22;
+  --line:#3a342c; --line-strong:#544c40;
+  --shadow:rgba(0,0,0,0.4);
+}
+@media (prefers-color-scheme:dark) {
+  :root:not([data-theme]) {
+    --bg:#1a1714; --bg-soft:#221e1a; --paper:#272320;
+    --ink:#f0ece3; --ink-soft:#c4bdb0; --ink-faint:#8f877a;
+    --accent:#e05a2b; --accent-soft:#6b2a10;
+    --green:#7a9e6a; --green-soft:#2a3d22;
+    --line:#3a342c; --line-strong:#544c40;
+    --shadow:rgba(0,0,0,0.4);
+  }
+}
+/* Тёмная тема: background tints приглушаем */
+html[data-theme="dark"] body,
+@media (prefers-color-scheme:dark) { :root:not([data-theme]) body {
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(224,90,43,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 80% 90%, rgba(122,158,106,0.06) 0%, transparent 50%);
+}}
+
 /* ─── Печать ────────────────────────────────────────────────────────── */
 @media print {
   @page { margin: 18mm 16mm; }
@@ -2133,19 +2272,24 @@
       Сегодня
       <span class="big" id="todayDate">—</span>
       <div class="streak-badge" id="streakBadge"></div>
-      <button type="button" class="theme-btn" id="themeToggleBtn" aria-label="Переключить тему" title="Тёмная / светлая тема">☀</button>
+      <button type="button" class="theme-btn" id="themeToggleBtn" aria-label="Переключить тему">
+        <svg class="icon" id="themeIconSun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="icon" id="themeIconMoon" viewBox="0 0 24 24" style="display:none"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      </button>
       <button type="button" class="panic-trigger" id="panicOpenBtn" aria-label="Открыть упражнение 1А — снять тревогу">Снять тревогу · 1А</button>
     </div>
   </div>
 </header>
 
 <div class="tabs">
-  <button class="tab active" data-section="entry">Новая запись</button>
-  <button class="tab" data-section="history">Журнал</button>
-  <button class="tab" data-section="trends">Динамика</button>
-  <button class="tab" data-section="info">Справка</button>
-  <button class="tab" data-section="soon">Скоро</button>
-  <button class="tab" data-section="settings">⚙</button>
+  <button class="tab active" data-section="entry"><svg class="icon" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg><span class="tab-label">Запись</span></button>
+  <button class="tab" data-section="history"><svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg><span class="tab-label">Журнал</span></button>
+  <button class="tab" data-section="trends"><svg class="icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><span class="tab-label">Динамика</span></button>
+  <button class="tab" data-section="info"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span class="tab-label">Справка</span></button>
+  <button class="tab" data-section="soon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="tab-label">Скоро</span></button>
+  <button class="tab" data-section="settings" aria-label="Настройки">
+    <svg class="icon" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg><span class="tab-label">Ещё</span>
+  </button>
 </div>
 
 <section class="section active" id="entry">
@@ -2192,7 +2336,7 @@
           <label>КПУ <span class="full">контр. пауза утром, сек</span></label>
           <input type="number" id="kpu" min="0" max="180" placeholder="напр. 16">
           <button type="button" class="kpu-voice-btn" id="kpuVoiceBtn" aria-label="Голосовой ввод КПУ">
-            <span class="mic-icon">🎙</span><span id="kpuVoiceBtnLabel">Назвать число вслух</span>
+            <svg class="icon mic-icon" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg><span id="kpuVoiceBtnLabel">Назвать число вслух</span>
           </button>
           <button type="button" class="kp-timer-trigger" id="kpTimerOpenBtn">⏱ Измерить КП в приложении</button>
         </div>
@@ -2227,16 +2371,73 @@
       <div class="grid">
         <div class="field field-full">
           <label>РФ <span class="full">разделывающие факторы</span></label>
-          <textarea id="rf" placeholder="что мешало или сбивало с режима: стресс, переедание, простуда, перегрев..."></textarea>
+<div class="chip-row" data-chips-for="rf">
+            <button type="button" class="chip" data-value="стресс">стресс</button>
+            <button type="button" class="chip" data-value="переедание">переедание</button>
+            <button type="button" class="chip" data-value="недосып">недосып</button>
+            <button type="button" class="chip" data-value="простуда">простуда</button>
+            <button type="button" class="chip" data-value="перегрев">перегрев</button>
+            <button type="button" class="chip" data-value="алкоголь">алкоголь</button>
+            <button type="button" class="chip" data-value="гиподинамия">гиподинамия</button>
+          </div>
+                    <div class="voice-field-wrap">
+            <textarea id="rf" placeholder="что мешало или сбивало с режима: стресс, переедание, простуда, перегрев..."></textarea>
+            <button type="button" class="voice-field-btn" data-voice-for="rf" style="display:none" aria-label="Диктовка"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg></button>
+          </div>
         </div>
         <div class="field field-full">
           <label>ПП <span class="full">пассивные практики</span></label>
-          <textarea id="pp" placeholder="прогулки, осанка, носовое дыхание в течение дня, контроль рта во сне..."></textarea>
+<div class="chip-row" data-chips-for="pp">
+            <button type="button" class="chip" data-value="носовое дыхание днём">носовое дыхание днём</button>
+            <button type="button" class="chip" data-value="осанка">осанка</button>
+            <button type="button" class="chip" data-value="прогулка">прогулка</button>
+            <button type="button" class="chip" data-value="заклеивание рта на ночь">заклеивание рта</button>
+          </div>
+                    <div class="voice-field-wrap">
+            <textarea id="pp" placeholder="прогулки, осанка, носовое дыхание в течение дня, контроль рта во сне..."></textarea>
+            <button type="button" class="voice-field-btn" data-voice-for="pp" style="display:none" aria-label="Диктовка"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg></button>
+          </div>
         </div>
         <div class="field field-full">
           <label>ПКС <span class="full">подготовка ко сну</span></label>
-          <textarea id="pks" placeholder="время отбоя, режим, гигиена сна, дыхание перед сном..."></textarea>
+<div class="chip-row" data-chips-for="pks">
+            <button type="button" class="chip" data-value="ранний отбой">ранний отбой</button>
+            <button type="button" class="chip" data-value="без гаджетов">без гаджетов</button>
+            <button type="button" class="chip" data-value="проветривание">проветривание</button>
+            <button type="button" class="chip" data-value="лёгкий ужин">лёгкий ужин</button>
+          </div>
+                    <div class="voice-field-wrap">
+            <textarea id="pks" placeholder="время отбоя, режим, гигиена сна, дыхание перед сном..."></textarea>
+            <button type="button" class="voice-field-btn" data-voice-for="pks" style="display:none" aria-label="Диктовка"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg></button>
+          </div>
         </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="group-title">
+        <span class="num">04б</span>
+        <span class="name">Сон</span>
+        <span class="hint">качество и структура ночного сна</span>
+      </div>
+      <div class="grid">
+        <div class="field">
+          <label>Часов сна</label>
+          <input type="number" id="sleepHours" class="number-input" min="0" max="24" step="0.5" placeholder="7">
+        </div>
+        <div class="field">
+          <label>Качество <span class="unit">1–10</span></label>
+          <input type="number" id="sleepQuality" class="number-input" min="1" max="10" step="1" placeholder="7">
+        </div>
+        <div class="field">
+          <label>Пробуждений</label>
+          <input type="number" id="sleepWakeups" class="number-input" min="0" max="20" step="1" placeholder="0">
+        </div>
+      </div>
+      <div class="sleep-row" style="margin-top:var(--space-2)">
+        <label class="sleep-check"><input type="checkbox" id="sleepNasal"> Носовое дыхание ночью</label>
+        <label class="sleep-check"><input type="checkbox" id="sleepTape"> Заклеивание рта</label>
+        <label class="sleep-check"><input type="checkbox" id="sleepSnore"> Храп</label>
       </div>
     </div>
 
@@ -2253,7 +2454,10 @@
         </div>
         <div class="field field-full">
           <label>Комментарий к ОС <span class="full">симптомы, ощущения, реакции</span></label>
-          <textarea id="os_note" placeholder="напр. лёгкая голова, носовое дыхание комфортно, к вечеру одышка..."></textarea>
+          <div class="voice-field-wrap">
+            <textarea id="os_note" placeholder="напр. лёгкая голова, носовое дыхание комфортно, к вечеру одышка..."></textarea>
+            <button type="button" class="voice-field-btn" data-voice-for="os_note" style="display:none" aria-label="Диктовка"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg></button>
+          </div>
         </div>
       </div>
     </div>
@@ -2333,7 +2537,12 @@
     <div class="cal-grid" id="calGrid"></div>
     <div class="cal-aggs" id="calAggs"></div>
   </div>
-  <div class="achievements-section" id="achievementsSection">
+  <div class="chart-block" id="sleepChartBlock" style="margin-top:var(--space-8)">
+    <h3 class="chart-title" style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-soft);margin-bottom:var(--space-3)">Качество сна (последние 30 дней)</h3>
+    <canvas id="sleepChart" height="120" style="width:100%"></canvas>
+  </div>
+
+    <div class="achievements-section" id="achievementsSection">
     <div class="achievements-eyebrow">Достижения</div>
     <div class="achievements-grid" id="achievementsGrid">
       <!-- заполняется из JS -->
@@ -2659,6 +2868,7 @@
       <div class="settings-data-btns">
         <button class="btn btn-secondary" id="settingsExportCsv">Экспорт CSV</button>
         <button class="btn btn-secondary" id="settingsExportJson">Экспорт JSON</button>
+        <button class="btn btn-secondary" id="settingsExportMd">Экспорт MD</button>
         <button class="btn btn-secondary" id="settingsImportJson">Импорт JSON</button>
         <input type="file" id="settingsJsonInput" accept=".json" style="display:none">
         <button class="btn btn-secondary" id="settingsDeleteAll" style="border-color:var(--accent);color:var(--accent)">Удалить все данные</button>
@@ -2675,6 +2885,35 @@
           <a href="terms.html" class="settings-link">Условия использования</a>
         </div>
         <div class="settings-tagline">Локальный дневник · без серверов · без подписок · без рекламы</div>
+      </div>
+    </div>
+
+    <div class="settings-group">
+      <div class="settings-group-title">Стартовое состояние</div>
+      <p style="font-family:'Fraunces',serif;font-variation-settings:'opsz' 18;font-style:italic;font-size:0.85rem;color:var(--ink-soft);margin-bottom:var(--space-3);line-height:1.55">
+        Это не самодиагностика — только личные отметки для сравнения «было → стало».
+        <a href="terms.html" class="settings-link" style="display:inline">Противопоказания →</a>
+      </p>
+      <div style="display:flex;flex-direction:column;gap:var(--space-2);margin-bottom:var(--space-4)">
+        <label class="sleep-check"><input type="checkbox" id="profAsthma"> Бронхиальная астма</label>
+        <label class="sleep-check"><input type="checkbox" id="profHyper"> Гипертония</label>
+        <label class="sleep-check"><input type="checkbox" id="profGerd"> ГЭРБ / рефлюкс</label>
+        <label class="sleep-check"><input type="checkbox" id="profAnx"> Тревожность / панические атаки</label>
+        <label class="sleep-check"><input type="checkbox" id="profAllergy"> Аллергии / ринит</label>
+        <label class="sleep-check"><input type="checkbox" id="profSleep"> Нарушения сна</label>
+        <label class="sleep-check"><input type="checkbox" id="profFatigue"> Хроническая усталость</label>
+      </div>
+      <div class="settings-row">
+        <label class="settings-label" for="profStartKp">Стартовая КП (сек)</label>
+        <input type="number" id="profStartKp" class="settings-input" min="0" max="300" placeholder="0">
+      </div>
+      <div class="settings-row">
+        <label class="settings-label" for="profStartDate">Дата начала практики</label>
+        <input type="date" id="profStartDate" class="settings-input">
+      </div>
+      <div class="settings-row">
+        <label class="settings-label" for="profOther">Прочее</label>
+        <input type="text" id="profOther" class="settings-input" placeholder="Свободный текст">
       </div>
     </div>
   </div>
@@ -2845,9 +3084,9 @@ document.querySelectorAll('.tab').forEach(tab => {
     tab.classList.add('active');
     document.getElementById(tab.dataset.section).classList.add('active');
     if (tab.dataset.section === 'entry') { renderDailyScore(); renderRecommendation(); }
-    if (tab.dataset.section === 'settings') renderSettings();
+    if (tab.dataset.section === 'settings') { renderSettings(); renderProfile(); }
     if (tab.dataset.section === 'history') renderHistory();
-    if (tab.dataset.section === 'trends') { renderTrends(); renderInsights(); renderAchievements(); }
+    if (tab.dataset.section === 'trends') { renderTrends(); renderInsights(); renderAchievements(); renderSleepChart(); }
   });
 });
 
@@ -2954,7 +3193,15 @@ document.getElementById('saveBtn').addEventListener('click', () => {
     pp: document.getElementById('pp').value.trim() || null,
     pks: document.getElementById('pks').value.trim() || null,
     os: osActive ? parseInt(osActive.dataset.value) : null,
-    os_note: document.getElementById('os_note').value.trim() || null
+    os_note: document.getElementById('os_note').value.trim() || null,
+    sleep: {
+      hours:   parseFloat(document.getElementById('sleepHours').value) || null,
+      quality: parseInt(document.getElementById('sleepQuality').value) || null,
+      wakeups: document.getElementById('sleepWakeups').value !== '' ? parseInt(document.getElementById('sleepWakeups').value) : null,
+      nasal:   document.getElementById('sleepNasal').checked,
+      tape:    document.getElementById('sleepTape').checked,
+      snore:   document.getElementById('sleepSnore').checked,
+    },
   };
 
   const priorEntries = loadEntries()
@@ -2990,7 +3237,8 @@ document.getElementById('saveBtn').addEventListener('click', () => {
 });
 
 function clearForm() {
-  ['kpu','chpu','rf','pp','pks','os_note'].forEach(id => document.getElementById(id).value = '');
+  ['kpu','chpu','rf','pp','pks','os_note','sleepHours','sleepQuality','sleepWakeups'].forEach(id => { const el=document.getElementById(id); if(el) el.value=''; });
+  ['sleepNasal','sleepTape','sleepSnore'].forEach(id => { const el=document.getElementById(id); if(el) el.checked=false; });
   scaleOS.querySelectorAll('.scale-btn.active').forEach(b => b.classList.remove('active'));
   practiceList.innerHTML = '';
   addPracticeRow();
@@ -3014,7 +3262,7 @@ function renderHistory() {
 
   if (entries.length === 0) {
     wrap.innerHTML = `<div class="empty-state">
-      <span class="empty-state-glyph">—</span>
+      <span class="empty-state-glyph"><svg class="icon" style="width:32px;height:32px;stroke-width:1.25" viewBox="0 0 24 24"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></span>
       <div class="empty-state-text">Первая запись — самая важная. Начните с утреннего замера КП.</div>
       <span class="empty-state-sub">после пробуждения · лёжа · только нос</span>
       <button class="btn" onclick="document.querySelector('[data-section=entry]').click()">Сделать запись</button>
@@ -3142,7 +3390,7 @@ function renderTrends() {
   if (entries.length === 0) {
     stats.innerHTML = '';
     document.getElementById('insights').innerHTML = `<div class="empty-state">
-      <span class="empty-state-glyph">○</span>
+      <span class="empty-state-glyph"><svg class="icon" style="width:32px;height:32px;stroke-width:1.25" viewBox="0 0 24 24"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></span>
       <div class="empty-state-text">Графики появятся после трёх записей — это минимум для отслеживания тенденции.</div>
       <span class="empty-state-sub">Бутейко — про месяцы, не про мгновение</span>
     </div>`;
@@ -4341,9 +4589,19 @@ document.querySelectorAll('.coming-soon-card').forEach(card => {
   const btn = document.getElementById('themeToggleBtn');
   if (!btn) return;
   function applyTheme(t) {
-    if (t === 'dark') { document.documentElement.setAttribute('data-theme','dark'); btn.textContent = '☾'; }
-    else if (t === 'light') { document.documentElement.setAttribute('data-theme','light'); btn.textContent = '☀'; }
-    else { document.documentElement.removeAttribute('data-theme'); btn.textContent = window.matchMedia('(prefers-color-scheme:dark)').matches ? '☾' : '☀'; }
+    const tcMeta = document.querySelector('meta[name="theme-color"]');
+    if (t === 'dark') {
+      document.documentElement.setAttribute('data-theme','dark'); const _is=document.getElementById('themeIconSun'),_im=document.getElementById('themeIconMoon'); if(_is)_is.style.display='none'; if(_im)_im.style.display='';
+      if (tcMeta) tcMeta.setAttribute('content','#1a1714');
+    } else if (t === 'light') {
+      document.documentElement.setAttribute('data-theme','light'); const _is2=document.getElementById('themeIconSun'),_im2=document.getElementById('themeIconMoon'); if(_is2)_is2.style.display=''; if(_im2)_im2.style.display='none';
+      if (tcMeta) tcMeta.setAttribute('content','#f4f1ea');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      const sysDark = window.matchMedia('(prefers-color-scheme:dark)').matches;
+      const _is3=document.getElementById('themeIconSun'),_im3=document.getElementById('themeIconMoon'); if(_is3)_is3.style.display=sysDark?'none':''; if(_im3)_im3.style.display=sysDark?'':'none'; btn.setAttribute('aria-label', sysDark?'Переключить на светлую':'Переключить на тёмную');
+      if (tcMeta) tcMeta.setAttribute('content', sysDark ? '#1a1714' : '#f4f1ea');
+    }
   }
   applyTheme(localStorage.getItem(THEME_KEY) || 'auto');
   btn.addEventListener('click', () => {
@@ -4699,13 +4957,15 @@ function renderSettings() {
     const themeBtn = document.getElementById('themeToggleBtn');
     if (val === 'dark') {
       document.documentElement.setAttribute('data-theme','dark');
-      if (themeBtn) themeBtn.textContent = '☾';
+      if (themeBtn) { const _s=document.getElementById('themeIconSun'),_m=document.getElementById('themeIconMoon'); if(_s)_s.style.display='none'; if(_m)_m.style.display=''; }
     } else if (val === 'light') {
       document.documentElement.setAttribute('data-theme','light');
-      if (themeBtn) themeBtn.textContent = '☀';
+      if (themeBtn) { const _s2=document.getElementById('themeIconSun'),_m2=document.getElementById('themeIconMoon'); if(_s2)_s2.style.display=''; if(_m2)_m2.style.display='none'; }
     } else {
       document.documentElement.removeAttribute('data-theme');
       if (themeBtn) themeBtn.textContent = window.matchMedia('(prefers-color-scheme:dark)').matches ? '☾' : '☀';
+      const _tcm = document.querySelector('meta[name="theme-color"]');
+      if (_tcm) _tcm.setAttribute('content', window.matchMedia('(prefers-color-scheme:dark)').matches ? '#1a1714' : '#f4f1ea');
     }
     renderSettings();
   }));
@@ -4845,6 +5105,179 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
+
+// ─── Чипы-подсказки для РФ/ПП/ПКС (Этап 5) ──────────────────────
+document.querySelectorAll('.chip-row').forEach(row => {
+  const targetId = row.dataset.chipsFor;
+  const textarea = targetId ? document.getElementById(targetId) : null;
+  if (!textarea) return;
+  row.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const val = chip.dataset.value;
+      if (chip.classList.contains('active')) {
+        chip.classList.remove('active');
+        const parts = textarea.value.split(/[,\s]+/).map(s => s.trim()).filter(Boolean);
+        textarea.value = parts.filter(p => p !== val).join(', ');
+      } else {
+        chip.classList.add('active');
+        const cur = textarea.value.trim();
+        textarea.value = cur ? cur + ', ' + val : val;
+      }
+      textarea.dispatchEvent(new Event('input'));
+    });
+  });
+});
+
+// ─── Голосовой ввод в текстовые поля (Этап 6) ────────────────────
+(function() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) return; // graceful — buttons stay hidden
+  const fields = ['os_note','rf','pp','pks'];
+  fields.forEach(id => {
+    const btn = document.querySelector('[data-voice-for="' + id + '"]');
+    const ta  = document.getElementById(id);
+    if (!btn || !ta) return;
+    btn.style.display = '';
+    let rec = null;
+    btn.addEventListener('click', () => {
+      if (rec) { rec.stop(); return; }
+      rec = new SR();
+      rec.lang = 'ru-RU';
+      rec.interimResults = true;
+      rec.continuous = false;
+      const base = ta.value.trim();
+      btn.classList.add('listening');
+      rec.onresult = (e) => {
+        const t = Array.from(e.results).map(r => r[0].transcript).join('');
+        ta.value = base ? base + ' ' + t : t;
+        ta.dispatchEvent(new Event('input'));
+      };
+      rec.onend = () => { btn.classList.remove('listening'); rec = null; };
+      rec.onerror = () => { btn.classList.remove('listening'); rec = null; };
+      rec.start();
+    });
+  });
+})();
+
+// ─── Экспорт Markdown (Этап 7) ────────────────────────────────────
+document.getElementById('settingsExportMd').addEventListener('click', () => {
+  const entries = loadEntries();
+  if (!entries.length) { alert('Нет данных для экспорта'); return; }
+  const sorted = [...entries].sort((a,b) => a.date.localeCompare(b.date));
+  const lines = [
+    '---',
+    'title: Дневник практики Бутейко — Дыши Носом',
+    'exported: ' + new Date().toISOString().split('T')[0],
+    'entries: ' + sorted.length,
+    '---', ''
+  ];
+  sorted.forEach(e => {
+    lines.push('## ' + e.date, '');
+    if (e.kpu  != null) lines.push('- **КП до:** ' + e.kpu + ' сек');
+    if (e.chpu != null) lines.push('- **КП после:** ' + e.chpu + ' сек');
+    if (e.kpu != null && e.chpu != null) {
+      const d = e.chpu - e.kpu;
+      lines.push('- **ΔКП:** ' + (d > 0 ? '+' : '') + d + ' сек');
+    }
+    if (e.practices && e.practices.length) {
+      const pr = e.practices.map(p => (p.type||'') + (p.min ? ' (' + p.min + ' мин)' : '')).join(', ');
+      lines.push('- **Практики:** ' + pr);
+    }
+    if (e.rf)      lines.push('- **Риск-факторы:** ' + e.rf);
+    if (e.pp)      lines.push('- **Пассивные практики:** ' + e.pp);
+    if (e.pks)     lines.push('- **ПКС:** ' + e.pks);
+    if (e.os != null) lines.push('- **Общее состояние:** ' + e.os + '/10');
+    if (e.os_note) lines.push('- **Комментарий:** ' + e.os_note);
+    lines.push('');
+  });
+  const md = lines.join('\n');
+  const blob = new Blob([md], {type:'text/markdown;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'dyshinosom_' + new Date().toISOString().split('T')[0] + '.md';
+  a.click(); URL.revokeObjectURL(url);
+});
+
+// ─── График качества сна (Этап 8) ────────────────────────────────
+function renderSleepChart() {
+  const canvas = document.getElementById('sleepChart');
+  if (!canvas) return;
+  const entries = loadEntries()
+    .filter(e => e.sleep && e.sleep.quality != null)
+    .sort((a,b) => a.date.localeCompare(b.date))
+    .slice(-30);
+  const W = canvas.offsetWidth || 600, H = canvas.height || 120;
+  canvas.width = W;
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0,0,W,H);
+  const cs = getComputedStyle(document.documentElement);
+  const ink = cs.getPropertyValue('--ink').trim();
+  const green = cs.getPropertyValue('--green').trim();
+  const linePx = cs.getPropertyValue('--line').trim();
+  const faint = cs.getPropertyValue('--ink-faint').trim();
+  if (!entries.length) {
+    ctx.fillStyle = faint; ctx.font='12px JetBrains Mono,monospace';
+    ctx.textAlign='center'; ctx.fillText('Нет данных о сне', W/2, H/2);
+    return;
+  }
+  const P = {t:10,r:10,b:24,l:28};
+  const cw = W-P.l-P.r, ch = H-P.t-P.b;
+  ctx.strokeStyle = linePx; ctx.lineWidth = 1;
+  [2,4,6,8,10].forEach(v => {
+    const y = P.t + ch - (v/10)*ch;
+    ctx.beginPath(); ctx.moveTo(P.l,y); ctx.lineTo(P.l+cw,y); ctx.stroke();
+    ctx.fillStyle = faint; ctx.font='9px JetBrains Mono,monospace';
+    ctx.textAlign='right'; ctx.fillText(v, P.l-3, y+3);
+  });
+  ctx.strokeStyle = green; ctx.lineWidth = 2; ctx.lineJoin='round';
+  ctx.beginPath();
+  entries.forEach((e,i) => {
+    const x = P.l + (entries.length>1 ? (i/(entries.length-1))*cw : cw/2);
+    const y = P.t + ch - (e.sleep.quality/10)*ch;
+    i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  });
+  ctx.stroke();
+  entries.forEach((e,i) => {
+    const x = P.l + (entries.length>1 ? (i/(entries.length-1))*cw : cw/2);
+    const y = P.t + ch - (e.sleep.quality/10)*ch;
+    ctx.beginPath(); ctx.arc(x,y,3,0,Math.PI*2);
+    ctx.fillStyle = green; ctx.fill();
+  });
+}
+
+// ─── Стартовое состояние здоровья (Этап 9) ───────────────────────
+const PROFILE_KEY = 'dyshinosom_profile_v1';
+function loadProfile() {
+  try { return JSON.parse(localStorage.getItem(PROFILE_KEY)) || {}; } catch(e) { return {}; }
+}
+function saveProfile(obj) { localStorage.setItem(PROFILE_KEY, JSON.stringify(obj)); }
+function renderProfile() {
+  const p = loadProfile();
+  ['profAsthma','profHyper','profGerd','profAnx','profAllergy','profSleep','profFatigue'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.checked = p[id] || false;
+  });
+  if (p.startKp)   { const el = document.getElementById('profStartKp');   if (el) el.value = p.startKp; }
+  if (p.startDate) { const el = document.getElementById('profStartDate'); if (el) el.value = p.startDate; }
+  if (p.other)     { const el = document.getElementById('profOther');     if (el) el.value = p.other; }
+}
+['profAsthma','profHyper','profGerd','profAnx','profAllergy','profSleep','profFatigue'].forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('change', () => { const p = loadProfile(); p[id] = el.checked; saveProfile(p); });
+});
+['profStartKp','profStartDate','profOther'].forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('change', () => {
+    const p = loadProfile();
+    if (id === 'profStartKp')   p.startKp   = el.value;
+    else if (id === 'profStartDate') p.startDate = el.value;
+    else                        p.other     = el.value;
+    saveProfile(p);
+  });
+});
 </script>
 
 <!-- Баннер Push-уведомлений -->
