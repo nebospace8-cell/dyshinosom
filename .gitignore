@@ -1,0 +1,16 @@
+# Внутренние планы, контекст и стратегия — НЕ публиковать.
+# Файлы остаются локально в папке проекта: Claude Code и Cowork читают их
+# прямо с диска (git тут ни при чём), но в публичный репозиторий они не попадут.
+/CLAUDE.md
+/WORK_ORDER.md
+/DEV_BACKLOG.md
+/DESIGN_PLAN.md
+/DEPLOY.md
+/PRELAUNCH_CHECKLIST.md
+/MATERIALS_PLAN.md
+/WIKI_PLAN.md
+/.cursor/
+/.qa/
+
+# Системное
+.DS_Store
