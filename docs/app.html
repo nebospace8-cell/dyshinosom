@@ -1843,6 +1843,40 @@
   }
   .wizard-s-val { font-feature-settings: "tnum"; font-size: 0.94rem; text-align: right; font-weight: 500; }
 
+  /* ─── Wizard — мобильные правки (375px) ─────────────────────────── */
+  @media (max-width: 480px) {
+    /* Отступы шага — контент не касается краёв */
+    .wizard-step { padding: 0 20px; }
+
+    /* Минимальные tap-зоны 44px */
+    .btn-wizard-open { min-height: 44px; }
+    .wizard-close-btn { min-height: 44px; padding: 10px 16px; font-size: 0.72rem; }
+    .wizard-wb-btn   { min-height: 44px; }
+    .wizard-ex-btn   { min-height: 44px; }
+
+    /* Выбор упражнения — wrap при узком экране */
+    .wizard-ex-choices { flex-wrap: wrap; }
+    .wizard-ex-btn { min-width: 130px; }
+
+    /* Шрифты — подтягиваем мелкие метки к читаемому минимуму */
+    .wizard-launcher-hint { font-size: 0.72rem; }
+    .wizard-eyebrow       { font-size: 0.75rem; }
+    .wizard-timer-hint    { font-size: 0.78rem; }
+    .wizard-manual-row label { font-size: 0.72rem; }
+    .wizard-wb-q          { font-size: 0.78rem; }
+    .wizard-ex-desc       { font-size: 0.82rem; }
+    .wizard-delta-label   { font-size: 0.72rem; }
+    .wizard-delta-unit    { font-size: 0.78rem; }
+    .wizard-s-label       { font-size: 0.72rem; }
+
+    /* Summary table — полная ширина */
+    .wizard-summary-table { max-width: 100%; }
+
+    /* Nav кнопки — полная ширина на самых маленьких экранах */
+    .wizard-nav { gap: 8px; }
+    .wizard-nav .btn { flex: 1; min-width: 120px; }
+  }
+
   /* ─── Карточка прогресса для шаринга ──────────────────────────── */
   .share-bar {
     display: flex;
