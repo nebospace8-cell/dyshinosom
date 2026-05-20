@@ -4538,9 +4538,19 @@ document.querySelectorAll('.coming-soon-card').forEach(card => {
       alert('Добавьте хотя бы одну запись с КПУ, чтобы сгенерировать карточку.');
       return;
     }
-    renderCard();
-    previewWrap.classList.add('show');
-    previewWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Ждём загрузки веб-шрифтов перед отрисовкой Canvas.
+    // Без этого Canvas использует системный fallback-шрифт.
+    shareBtn.disabled = true;
+    shareBtn.textContent = '⏳ Генерация…';
+    (document.fonts ? document.fonts.ready : Promise.resolve())
+      .then(() => renderCard())
+      .catch(() => renderCard()) // если fonts API недоступен — рисуем как есть
+      .finally(() => {
+        shareBtn.disabled = false;
+        shareBtn.textContent = '↗ Поделиться прогрессом';
+        previewWrap.classList.add('show');
+        previewWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
   });
 
   downloadBtn.addEventListener('click', () => {
