@@ -2427,6 +2427,30 @@ dialog.course-lightbox:not([open]) { display: none; }
 }
 .habits-total-val { color: var(--green); font-weight: 600; }
 
+/* ─── Popup напоминания ───────────────────────────────────────────── */
+.reminder-popup {
+  border: 2px solid var(--ink); border-radius: 0; padding: 0;
+  max-width: 360px; width: calc(100% - 32px);
+  box-shadow: 4px 4px 0 var(--ink);
+  background: var(--paper); color: var(--ink);
+}
+.reminder-popup::backdrop { background: rgba(0,0,0,.45); }
+.reminder-popup-inner { padding: 24px 24px 20px; }
+.reminder-popup-title {
+  font-family: var(--font-serif); font-size: 1.05rem; font-weight: 700;
+  margin-bottom: 8px;
+}
+.reminder-popup-desc {
+  font-size: .85rem; opacity: .7; margin-bottom: 20px; line-height: 1.5;
+}
+.reminder-time-row {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+}
+.reminder-time-row label { font-size: .875rem; font-weight: 600; white-space: nowrap; }
+.reminder-time-row input { max-width: 130px; }
+.reminder-popup-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.reminder-status { font-size: .78rem; color: var(--green); font-weight: 600; margin-top: 3px; min-height: 1em; }
+
 /* ─── Печать ────────────────────────────────────────────────────────── */
 @media print {
   @page { margin: 18mm 16mm; }
@@ -2435,7 +2459,7 @@ dialog.course-lightbox:not([open]) { display: none; }
   header, footer, .tabs, .section:not(#history),
   .history-controls, .rec-card, .wizard-launcher,
   .notice, .panic-overlay, .wizard-overlay, .onboarding-overlay,
-  .welcome-overlay, .kp-timer-overlay, .push-banner,
+  .welcome-overlay, .kp-timer-overlay, .reminder-popup,
   .fab-btn, .bs-overlay, .ach-popup { display:none !important; }
 
   body { background:none !important; background-image:none !important; font-size:11pt; color:#000; }
@@ -3222,8 +3246,11 @@ dialog.course-lightbox:not([open]) { display: none; }
     <div class="settings-group">
       <div class="settings-group-title">Напоминания</div>
       <div class="settings-row">
-        <span class="settings-label">Время утреннего замера</span>
-        <input type="time" id="settingReminderTime" class="settings-input" value="08:00">
+        <div>
+          <span class="settings-label">Утренний замер КП</span>
+          <div class="reminder-status" id="reminderStatus"></div>
+        </div>
+        <button class="btn btn-small" id="reminderSetupBtn">Настроить</button>
       </div>
     </div>
 
@@ -5229,39 +5256,84 @@ document.getElementById('pwbContinue').addEventListener('click', () => {
   }
 });
 
-// ─── Push-уведомления (Задание 11) ────────────────────────────────
+// ─── Push-уведомления ────────────────────────────────────────────────
 (function() {
   const PUSH_KEY = 'dyshinosom_push_v1';
-  const banner = document.getElementById('pushBanner');
-  if (!banner || !('Notification' in window)) return;
-  if (localStorage.getItem(PUSH_KEY)) return;
-  const onboarded = localStorage.getItem('dyshinosom_onboarding_v1');
-  if (!onboarded) return;
-  setTimeout(()=>{
-    if (Notification.permission!=='denied' && !localStorage.getItem(PUSH_KEY))
-      banner.classList.add('show');
-  }, 4000);
+  const popup = document.getElementById('reminderPopup');
+  if (!popup) return;
+
+  function getChosenTime() {
+    const el = document.getElementById('settingReminderTime');
+    return el ? el.value : (loadSettings().reminderTime || '08:00');
+  }
+
   function scheduleNotif() {
+    const [h, m] = getChosenTime().split(':').map(Number);
     const now = new Date(), t = new Date();
-    t.setHours(8,0,0,0);
-    if (t <= now) t.setDate(t.getDate()+1);
-    setTimeout(()=>{
-      if (Notification.permission==='granted')
-        new Notification('Дыши Носом',{body:'Доброе утро. Время замерить КП — это займёт минуту.',icon:'assets/icons/icon-192.png',tag:'morning-kp'});
+    t.setHours(h, m, 0, 0);
+    if (t <= now) t.setDate(t.getDate() + 1);
+    setTimeout(() => {
+      if (Notification.permission === 'granted')
+        new Notification('Дыши Носом', {
+          body: 'Доброе утро. Время замерить КП — это займёт минуту.',
+          icon: 'assets/icons/icon-192.png',
+          tag: 'morning-kp'
+        });
       scheduleNotif();
     }, t - now);
   }
-  document.getElementById('pushYesBtn').addEventListener('click', async ()=>{
-    banner.classList.remove('show');
-    localStorage.setItem(PUSH_KEY,'yes');
+
+  function isEnabled() {
+    return Notification.permission === 'granted' && localStorage.getItem(PUSH_KEY) === 'yes';
+  }
+
+  function updateStatus() {
+    const statusEl = document.getElementById('reminderStatus');
+    if (statusEl) statusEl.textContent = isEnabled() ? ('Включено в ' + getChosenTime()) : '';
+    const disableBtn = document.getElementById('reminderDisableBtn');
+    const enableBtn  = document.getElementById('reminderEnableBtn');
+    if (disableBtn) disableBtn.style.display = isEnabled() ? '' : 'none';
+    if (enableBtn)  enableBtn.textContent = isEnabled() ? 'Сохранить' : 'Включить';
+  }
+
+  // Открыть попап
+  const setupBtn = document.getElementById('reminderSetupBtn');
+  if (setupBtn) setupBtn.addEventListener('click', () => { updateStatus(); popup.showModal(); });
+
+  // Закрыть по клику на backdrop
+  popup.addEventListener('click', e => { if (e.target === popup) popup.close(); });
+
+  // Отмена
+  const cancelBtn = document.getElementById('reminderCancelBtn');
+  if (cancelBtn) cancelBtn.addEventListener('click', () => popup.close());
+
+  // Включить / сохранить
+  const enableBtn = document.getElementById('reminderEnableBtn');
+  if (enableBtn) enableBtn.addEventListener('click', async () => {
+    const s = loadSettings();
+    s.reminderTime = getChosenTime();
+    saveSettings(s);
+    if (!('Notification' in window)) { popup.close(); return; }
     const p = await Notification.requestPermission();
-    if (p==='granted') scheduleNotif();
+    if (p === 'granted') {
+      localStorage.setItem(PUSH_KEY, 'yes');
+      scheduleNotif();
+    }
+    updateStatus();
+    popup.close();
   });
-  document.getElementById('pushNoBtn').addEventListener('click', ()=>{
-    banner.classList.remove('show');
-    localStorage.setItem(PUSH_KEY,'no');
+
+  // Отключить
+  const disableBtn = document.getElementById('reminderDisableBtn');
+  if (disableBtn) disableBtn.addEventListener('click', () => {
+    localStorage.setItem(PUSH_KEY, 'no');
+    updateStatus();
+    popup.close();
   });
-  if (Notification.permission==='granted' && localStorage.getItem(PUSH_KEY)==='yes') scheduleNotif();
+
+  // При загрузке: восстановить расписание если уже включено
+  if (isEnabled()) scheduleNotif();
+  updateStatus();
 })();
 
 // ─── JSON Экспорт / Импорт (Задание 12) ──────────────────────────
@@ -5779,14 +5851,22 @@ updateHabitsScores();
 
 </script>
 
-<!-- Баннер Push-уведомлений -->
-<div class="push-banner" id="pushBanner">
-  <div class="push-banner-txt">Включить напоминание в 8:00 для утреннего замера КП?</div>
-  <div class="push-banner-btns">
-    <button class="btn" id="pushYesBtn">Да, включить</button>
-    <button class="btn btn-secondary" id="pushNoBtn">Не сейчас</button>
+<!-- Popup настройки напоминания -->
+<dialog class="reminder-popup" id="reminderPopup">
+  <div class="reminder-popup-inner">
+    <div class="reminder-popup-title">Напоминание о практике</div>
+    <div class="reminder-popup-desc">Уведомление придёт в выбранное время — напомнит замерить КП и провести практику. Работает, пока приложение открыто.</div>
+    <div class="reminder-time-row">
+      <label for="settingReminderTime">Время</label>
+      <input type="time" id="settingReminderTime" class="settings-input" value="08:00">
+    </div>
+    <div class="reminder-popup-actions">
+      <button class="btn" id="reminderEnableBtn">Включить</button>
+      <button class="btn btn-secondary" id="reminderDisableBtn" style="display:none">Отключить</button>
+      <button class="btn btn-secondary" id="reminderCancelBtn">Отмена</button>
+    </div>
   </div>
-</div>
+</dialog>
 
 <!-- FAB — быстрая запись -->
 <button class="fab-btn" id="fabBtn" aria-label="Быстрая запись">+</button>
