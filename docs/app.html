@@ -2601,6 +2601,20 @@ header {
 .tab.active .icon { stroke: #fff; }
 .section.active { animation: none; }
 
+.section-desc,
+.field small,
+.info-card p,
+.coming-soon-intro p,
+.coming-soon-card p,
+.settings-tagline,
+.settings-link,
+.habit-row span,
+.sleep-check,
+.chart-empty,
+.computed .hint {
+  color: var(--ink-soft);
+}
+
 #entry.active {
   display: grid;
   grid-template-columns: minmax(280px, .72fr) minmax(320px, 1fr) minmax(280px, .72fr);
@@ -2933,6 +2947,7 @@ header {
 .notice {
   background: #fff8ef;
   border-color: #eed4b6;
+  color: var(--ink);
 }
 
 .computed,
@@ -2996,7 +3011,116 @@ table.diary td:last-child {
 }
 
 .stat-card .value { color: var(--green); }
-.coming-soon-card { background: #fff; }
+.coming-soon-card {
+  background: #fff;
+  color: var(--ink);
+}
+
+.coming-soon-intro {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: #fffefa;
+  padding: 18px;
+  box-shadow: var(--elev-1);
+}
+
+.coming-soon-card p {
+  color: var(--ink-soft);
+}
+
+.cs-badge {
+  color: #8d3218;
+  background: #fff0e8;
+  border-color: #efb49c;
+}
+
+.settings-group {
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.settings-group-title {
+  color: var(--green);
+  letter-spacing: 0;
+}
+
+.settings-row {
+  align-items: center;
+}
+
+.settings-data-btns {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+#settingsDeleteAll {
+  grid-column: 1 / -1;
+  justify-content: center;
+  background: #fff6f1;
+}
+
+.settings-about {
+  display: grid;
+  grid-template-columns: minmax(180px, .8fr) minmax(220px, 1fr);
+  gap: 16px;
+}
+
+.settings-version {
+  color: var(--ink);
+}
+
+.settings-links {
+  gap: 8px;
+}
+
+.settings-link {
+  width: fit-content;
+  color: var(--green);
+  border-bottom: 1px solid color-mix(in srgb, var(--green) 45%, transparent);
+  text-decoration: none;
+}
+
+.settings-tagline {
+  grid-column: 1 / -1;
+}
+
+footer {
+  margin-top: 28px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--ink);
+  color: #f7fbf8;
+  text-align: left;
+  box-shadow: var(--elev-2);
+  letter-spacing: 0;
+}
+
+footer .links {
+  margin-top: 16px;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+footer .links a {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: var(--radius-card);
+  color: #f7fbf8;
+  background: rgba(255,255,255,.08);
+  text-decoration: none;
+  letter-spacing: 0;
+}
+
+footer .links a:hover {
+  color: #fff;
+  border-color: rgba(255,255,255,.5);
+  background: rgba(255,255,255,.14);
+}
 
 .panic-overlay,
 .wizard-overlay,
@@ -3077,6 +3201,84 @@ html[data-theme="dark"] table.diary td {
   background: color-mix(in srgb, var(--paper) 94%, black);
 }
 
+html[data-theme="dark"] .v2-command {
+  background:
+    linear-gradient(90deg, rgba(76,192,163,.13), transparent 34%),
+    linear-gradient(135deg, rgba(240,121,77,.1), rgba(29,39,35,.94) 46%, rgba(22,31,28,.98));
+}
+
+html[data-theme="dark"] .v2-kicker,
+html[data-theme="dark"] .v2-state,
+html[data-theme="dark"] .v2-protocol div,
+html[data-theme="dark"] .coming-soon-intro,
+html[data-theme="dark"] .settings-group {
+  background: color-mix(in srgb, var(--paper) 92%, black);
+}
+
+html[data-theme="dark"] .notice {
+  background: #2b231b;
+  border-color: #6d5037;
+}
+
+html[data-theme="dark"] .cs-badge {
+  color: #ffd7c7;
+  background: #4a241a;
+  border-color: #8f4d37;
+}
+
+html[data-theme="dark"] footer {
+  background: #eff7f2;
+  color: #14211d;
+}
+
+html[data-theme="dark"] footer .links a {
+  color: #14211d;
+  border-color: rgba(20,33,29,.2);
+  background: rgba(20,33,29,.06);
+}
+
+html[data-theme="dark"] footer .links a:hover {
+  border-color: rgba(20,33,29,.45);
+  background: rgba(20,33,29,.1);
+}
+
+@media (prefers-color-scheme:dark) {
+  :root:not([data-theme]) .v2-command {
+    background:
+      linear-gradient(90deg, rgba(76,192,163,.13), transparent 34%),
+      linear-gradient(135deg, rgba(240,121,77,.1), rgba(29,39,35,.94) 46%, rgba(22,31,28,.98));
+  }
+  :root:not([data-theme]) .v2-kicker,
+  :root:not([data-theme]) .v2-state,
+  :root:not([data-theme]) .v2-protocol div,
+  :root:not([data-theme]) .coming-soon-intro,
+  :root:not([data-theme]) .settings-group {
+    background: color-mix(in srgb, var(--paper) 92%, black);
+  }
+  :root:not([data-theme]) .notice {
+    background: #2b231b;
+    border-color: #6d5037;
+  }
+  :root:not([data-theme]) .cs-badge {
+    color: #ffd7c7;
+    background: #4a241a;
+    border-color: #8f4d37;
+  }
+  :root:not([data-theme]) footer {
+    background: #eff7f2;
+    color: #14211d;
+  }
+  :root:not([data-theme]) footer .links a {
+    color: #14211d;
+    border-color: rgba(20,33,29,.2);
+    background: rgba(20,33,29,.06);
+  }
+  :root:not([data-theme]) footer .links a:hover {
+    border-color: rgba(20,33,29,.45);
+    background: rgba(20,33,29,.1);
+  }
+}
+
 @media (min-width: 1100px) {
   .container { padding-left: 156px; }
   .tabs {
@@ -3125,6 +3327,12 @@ html[data-theme="dark"] table.diary td {
     grid-row: auto;
   }
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .settings-data-btns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .settings-about {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 640px) {
@@ -3171,6 +3379,31 @@ html[data-theme="dark"] table.diary td {
   .form-card,
   .field-group { padding: 18px; }
   .stats { grid-template-columns: 1fr; }
+  .settings-row {
+    align-items: stretch;
+  }
+  .settings-toggle-group,
+  .settings-data-btns {
+    grid-template-columns: 1fr;
+  }
+  .settings-toggle-group {
+    display: grid;
+  }
+  .settings-data-btns {
+    display: grid;
+  }
+  footer {
+    margin-bottom: 10px;
+    padding: 18px;
+    text-align: left;
+  }
+  footer .links {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  footer .links a {
+    justify-content: center;
+  }
 }
 
 /* ─── Popup напоминания ───────────────────────────────────────────── */
@@ -3833,16 +4066,6 @@ html[data-theme="dark"] table.diary td {
   </div>
 </section>
 
-<footer>
-  Дыши Носом · Данные хранятся только в вашем браузере
-  <div class="links">
-    <a href="index.html">Главная</a>
-    <a href="about.html">О методе</a>
-    <a href="privacy.html">Конфиденциальность</a>
-    <a href="terms.html">Условия и дисклеймер</a>
-  </div>
-</footer>
-
 <!-- Welcome — экран самого первого входа -->
 <div class="welcome-overlay" id="welcomeOverlay" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
   <div class="welcome-content">
@@ -4103,6 +4326,16 @@ html[data-theme="dark"] table.diary td {
     </div>
   </div>
 </section>
+
+<footer>
+  Дыши Носом · Данные хранятся только в вашем браузере
+  <div class="links">
+    <a href="index.html">Главная</a>
+    <a href="about.html">О методе</a>
+    <a href="privacy.html">Конфиденциальность</a>
+    <a href="terms.html">Условия и дисклеймер</a>
+  </div>
+</footer>
 
 <!-- ─── Мастер тренировки — 5 шагов ─────────────────────────────── -->
 <div class="wizard-overlay" id="wizardOverlay" role="dialog" aria-modal="true" aria-labelledby="wzTitle1">
