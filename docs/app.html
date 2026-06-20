@@ -3612,6 +3612,7 @@ function saveEntries(entries) {
 function isWorkoutEntry(entry) {
   if (entry.entry_type === 'workout') return true;
   if (entry.entry_type === 'daily') return false;
+  if (entry.entry_type === 'quick') return false;
 
   const hasDailyFields =
     entry.chpu != null || entry.rf || entry.pp || entry.pks || entry.os != null ||
@@ -3624,6 +3625,8 @@ function isWorkoutEntry(entry) {
 }
 
 function isDailyEntry(entry) {
+  if (entry.entry_type === 'daily') return true;
+  if (entry.entry_type === 'workout' || entry.entry_type === 'quick') return false;
   return !isWorkoutEntry(entry);
 }
 
@@ -3718,7 +3721,7 @@ document.getElementById('saveBtn').addEventListener('click', () => {
   const entries = loadEntries();
   const existingIdx = entries.findIndex(e => e.date === entry.date && isDailyEntry(e));
   if (existingIdx >= 0) {
-    if (!confirm('На эту дату уже есть запись. Заменить?')) return;
+    if (!confirm('На эту дату уже есть дневная запись. Заменить её?')) return;
     entries[existingIdx] = entry;
   } else {
     entries.push(entry);
@@ -3746,6 +3749,7 @@ function clearForm() {
    'pdWater','pdActivation','pdMirror','pdGratitude','pdRelax'].forEach(id => { const el=document.getElementById(id); if(el) el.checked=false; });
   updateHabitsScores();
   scaleOS.querySelectorAll('.scale-btn.active').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.chip.active').forEach(chip => chip.classList.remove('active'));
   practiceList.innerHTML = '';
   addPracticeRow();
   document.getElementById('entryDate').value = new Date().toISOString().split('T')[0];
@@ -5436,7 +5440,7 @@ document.getElementById('jsonImportInput').addEventListener('change', (ev)=>{
   let bsMerge = false;
   fab.addEventListener('click', ()=>{
     const today = new Date().toISOString().split('T')[0];
-    const has = loadEntries().some(e=>e.date===today);
+    const has = loadEntries().some(e=>e.date===today && isDailyEntry(e));
     const conflict = document.getElementById('bsConflict');
     if (has) conflict.classList.add('show'); else conflict.classList.remove('show');
     bsMerge = false;
@@ -5468,13 +5472,13 @@ document.getElementById('jsonImportInput').addEventListener('change', (ev)=>{
     if (kpu==null) { alert('Введите значение КП (секунды)'); return; }
     const today = new Date().toISOString().split('T')[0];
     const entries = loadEntries();
-    const idx = entries.findIndex(e=>e.date===today);
+    const idx = entries.findIndex(e=>e.date===today && isDailyEntry(e));
     if (idx>=0 && bsMerge) {
       if (kpu!=null) entries[idx].kpu=kpu;
       if (type && mins>0) { entries[idx].practices=entries[idx].practices||[]; entries[idx].practices.push({type,min:mins}); }
       entries[idx]=entries[idx];
     } else {
-      entries.push({id:Date.now(),date:today,kpu,chpu:null,practices:(type&&mins>0)?[{type,min:mins}]:[],rf:null,pp:null,pks:null,os:null,os_note:null,dkp:null});
+      entries.push({id:Date.now(),entry_type:'quick',date:today,kpu,chpu:null,practices:(type&&mins>0)?[{type,min:mins}]:[],rf:null,pp:null,pks:null,os:null,os_note:null,dkp:null});
     }
     saveEntries(entries);
     closeBS(); renderDailyScore(); renderRecommendation();
@@ -5687,14 +5691,13 @@ document.querySelectorAll('.chip-row').forEach(row => {
   row.querySelectorAll('.chip').forEach(chip => {
     chip.addEventListener('click', () => {
       const val = chip.dataset.value;
+      const parts = textarea.value.split(',').map(s => s.trim()).filter(Boolean);
       if (chip.classList.contains('active')) {
         chip.classList.remove('active');
-        const parts = textarea.value.split(/[,\s]+/).map(s => s.trim()).filter(Boolean);
         textarea.value = parts.filter(p => p !== val).join(', ');
       } else {
         chip.classList.add('active');
-        const cur = textarea.value.trim();
-        textarea.value = cur ? cur + ', ' + val : val;
+        textarea.value = parts.includes(val) ? parts.join(', ') : [...parts, val].join(', ');
       }
       textarea.dispatchEvent(new Event('input'));
     });
