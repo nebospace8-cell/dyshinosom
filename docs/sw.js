@@ -1,9 +1,9 @@
 // Service Worker для «Дыши Носом»
-// Стратегия: cache-first для оболочки приложения и статики.
-// HTML обновляется в фоне, чтобы дневник открывался даже при плохой сети.
+// Стратегия: network-first для HTML и cache-first для статики.
+// Дневник открывается офлайн из кэша, но при наличии сети быстро получает обновления.
 // При обновлении версии CACHE_VERSION старый кэш чистится.
 
-const CACHE_VERSION = 'dyshinosom-v6';
+const CACHE_VERSION = 'dyshinosom-v7';
 
 const CORE_ASSETS = [
   './',
@@ -93,18 +93,15 @@ self.addEventListener('fetch', (event) => {
 
   if (isHTML) {
     event.respondWith(
-      caches.match(request).then((cached) => {
-        const fresh = cacheFreshResponse(request).catch(() => null);
-
-        if (cached) {
-          event.waitUntil(fresh);
-          return cached;
-        }
-
-        return fresh.then((response) => {
-          if (response) return response;
-          return caches.match('./app.html')
-            .then((fallback) => fallback || caches.match('./index.html'));
+      cacheFreshResponse(request).catch(() =>
+        caches.match(request, { ignoreSearch: true })
+          .then((fallback) => fallback || caches.match('./app.html'))
+          .then((fallback) => fallback || caches.match('./index.html'))
+      ).then((response) => {
+        if (response) return response;
+        return new Response('Приложение недоступно офлайн: откройте его один раз с интернетом.', {
+          status: 503,
+          headers: { 'Content-Type': 'text/plain; charset=utf-8' }
         });
       })
     );

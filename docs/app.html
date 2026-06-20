@@ -3803,6 +3803,13 @@ function isDailyEntry(entry) {
 
 const kpuInput = document.getElementById('kpu');
 const dkpValue = document.getElementById('dkp_value');
+let editingEntryId = null;
+
+function setEditingEntryId(id) {
+  editingEntryId = id;
+  const saveBtn = document.getElementById('saveBtn');
+  saveBtn.textContent = id == null ? 'Сохранить запись' : 'Сохранить изменения';
+}
 
 function updateDKP() {
   const dateStr = document.getElementById('entryDate').value;
@@ -3857,7 +3864,7 @@ document.getElementById('saveBtn').addEventListener('click', () => {
   pdIds.forEach(id => { const el = document.getElementById(id); practiceDays[id] = el ? el.checked : false; });
 
   const entry = {
-    id: Date.now(),
+    id: editingEntryId || Date.now(),
     entry_type: 'daily',
     date,
     kpu: kpuInput.value ? parseFloat(kpuInput.value) : null,
@@ -3890,10 +3897,14 @@ document.getElementById('saveBtn').addEventListener('click', () => {
   if (!hasData) { alert('Заполните хотя бы одно поле'); return; }
 
   const entries = loadEntries();
-  const existingIdx = entries.findIndex(e => e.date === entry.date && isDailyEntry(e));
-  if (existingIdx >= 0) {
-    if (!confirm('На эту дату уже есть дневная запись. Заменить её?')) return;
-    entries[existingIdx] = entry;
+  if (editingEntryId != null) {
+    const editingIdx = entries.findIndex(e => e.id === editingEntryId);
+    if (editingIdx >= 0) {
+      entries[editingIdx] = entry;
+    } else {
+      entries.push(entry);
+    }
+    setEditingEntryId(null);
   } else {
     entries.push(entry);
   }
@@ -3913,6 +3924,7 @@ document.getElementById('saveBtn').addEventListener('click', () => {
 });
 
 function clearForm() {
+  setEditingEntryId(null);
   ['kpu','chpu','rf','pp','pks','os_note','sleepHours','sleepQuality','sleepWakeups'].forEach(id => { const el=document.getElementById(id); if(el) el.value=''; });
   ['sleepNasal','sleepTape','sleepSnore',
    'habSleep1','habSleep2','habSleep3','habFood1','habFood2','habFood3',
@@ -4014,7 +4026,10 @@ function renderHistory() {
       <td>${e.pp ? `<div class="text-cell">${escapeHtml(e.pp)}</div>` : '<span class="delta-zero">—</span>'}</td>
       <td>${e.pks ? `<div class="text-cell">${escapeHtml(e.pks)}</div>` : '<span class="delta-zero">—</span>'}</td>
       <td>${osHtml}</td>
-      <td><div class="row-actions"><button class="btn-icon" onclick="deleteEntry(${e.id})">Удал.</button></div></td>
+      <td><div class="row-actions">
+        ${isDailyEntry(e) ? `<button class="btn-icon" onclick="editEntry(${e.id})">Ред.</button>` : ''}
+        <button class="btn-icon" onclick="deleteEntry(${e.id})">Удал.</button>
+      </div></td>
     </tr>`;
   });
 
@@ -4026,6 +4041,55 @@ window.deleteEntry = function(id) {
   if (!confirm('Удалить запись?')) return;
   saveEntries(loadEntries().filter(e => e.id !== id));
   renderHistory();
+};
+
+window.editEntry = function(id) {
+  const entry = loadEntries().find(e => e.id === id);
+  if (!entry || !isDailyEntry(entry)) return;
+
+  clearForm();
+  setEditingEntryId(id);
+  document.getElementById('entryDate').value = entry.date || new Date().toISOString().split('T')[0];
+  kpuInput.value = entry.kpu != null ? entry.kpu : '';
+  document.getElementById('chpu').value = entry.chpu != null ? entry.chpu : '';
+  document.getElementById('rf').value = entry.rf || '';
+  document.getElementById('pp').value = entry.pp || '';
+  document.getElementById('pks').value = entry.pks || '';
+  document.getElementById('os_note').value = entry.os_note || '';
+
+  if (entry.os != null) {
+    const osBtn = scaleOS.querySelector(`[data-value="${entry.os}"]`);
+    if (osBtn) osBtn.classList.add('active');
+  }
+
+  practiceList.innerHTML = '';
+  (entry.practices || []).forEach(p => addPracticeRow(p.type || '', p.min != null ? p.min : ''));
+  if (!practiceList.querySelector('.practice-row')) addPracticeRow();
+
+  const sleep = entry.sleep || {};
+  document.getElementById('sleepHours').value = sleep.hours != null ? sleep.hours : '';
+  document.getElementById('sleepQuality').value = sleep.quality != null ? sleep.quality : '';
+  document.getElementById('sleepWakeups').value = sleep.wakeups != null ? sleep.wakeups : '';
+  document.getElementById('sleepNasal').checked = !!sleep.nasal;
+  document.getElementById('sleepTape').checked = !!sleep.tape;
+  document.getElementById('sleepSnore').checked = !!sleep.snore;
+
+  const habits = entry.habits || {};
+  Object.keys(habits).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.checked = !!habits[id];
+  });
+
+  const practiceDays = entry.practiceDays || {};
+  Object.keys(practiceDays).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.checked = !!practiceDays[id];
+  });
+
+  updateHabitsScores();
+  updateDKP();
+  document.querySelector('[data-section=entry]').click();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
 document.getElementById('clearAllBtn').addEventListener('click', () => {
