@@ -2490,19 +2490,31 @@ dialog.course-lightbox:not([open]) { display: none; }
   right: 22px;
   bottom: 86px;
   z-index: 1250;
-  width: 58px;
-  height: 58px;
+  min-width: 220px;
+  min-height: 58px;
   border: 2px solid var(--ink);
   border-radius: 0;
   background: var(--accent);
   color: var(--paper);
   box-shadow: 4px 4px 0 var(--ink);
   font-family: 'JetBrains Mono', monospace;
-  font-size: 1.45rem;
-  line-height: 1;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.25;
+  text-transform: uppercase;
   cursor: pointer;
-  display: grid;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 18px;
+  text-align: center;
+}
+.fab-btn::before {
+  content: '+';
+  font-size: 1.2rem;
+  line-height: 1;
 }
 .fab-btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--ink); }
 .fab-btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
@@ -2628,8 +2640,12 @@ dialog.course-lightbox:not([open]) { display: none; }
   .fab-btn {
     right: 16px;
     bottom: 76px;
-    width: 54px;
-    height: 54px;
+    min-width: 0;
+    width: calc(100vw - 32px);
+    max-width: 360px;
+    min-height: 54px;
+    padding: 10px 14px;
+    font-size: 0.68rem;
   }
   .bs-overlay { padding: 0; }
   .bs-sheet {
@@ -6115,7 +6131,7 @@ updateHabitsScores();
 </dialog>
 
 <!-- FAB — быстрая запись -->
-<button class="fab-btn" id="fabBtn" aria-label="Быстрая запись">+</button>
+<button class="fab-btn" id="fabBtn" aria-label="Новая запись в дневник">Новая запись в дневник</button>
 
 <!-- Bottomsheet — быстрая запись -->
 <div class="bs-overlay" id="bsOverlay" role="dialog" aria-modal="true" aria-labelledby="bsTitle">
