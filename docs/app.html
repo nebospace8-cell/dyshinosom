@@ -726,6 +726,12 @@
 
   footer .links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
+  @media (max-width: 480px) {
+    footer { font-size: 0.78rem; padding-top: 16px; margin-top: 40px; }
+    footer .links { flex-direction: column; align-items: center; gap: 0; }
+    footer .links a { min-height: 44px; display: flex; align-items: center; }
+  }
+
   .brand-link { text-decoration: none; color: inherit; display: inline-block; }
   .brand-link:hover h1 { color: var(--accent); transition: color var(--dur-base); }
 
@@ -737,6 +743,8 @@
     align-items: center; justify-content: center;
     z-index: 1000;
     padding: 20px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
   .modal-backdrop.show { display: flex; animation: fadeIn 0.25s ease; }
 
@@ -748,6 +756,10 @@
     padding: 32px;
     box-shadow: var(--elev-2);
     position: relative;
+    max-height: calc(100vh - 40px);
+    max-height: calc(100dvh - 40px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .modal::before {
     content: '';
@@ -779,6 +791,28 @@
     gap: 12px;
     margin-top: 24px;
     flex-wrap: wrap;
+  }
+
+  @media (max-width: 480px), (max-height: 640px) {
+    .modal-backdrop {
+      align-items: flex-start;
+      padding: 12px;
+    }
+    .modal {
+      padding: 24px 20px;
+      max-height: calc(100vh - 24px);
+      max-height: calc(100dvh - 24px);
+    }
+    .modal .modal-actions {
+      position: sticky;
+      bottom: -1px;
+      background: var(--paper);
+      padding-top: 12px;
+      margin-top: 16px;
+    }
+    .modal .modal-actions .btn {
+      width: 100%;
+    }
   }
 
   /* ─── Daily Score (Oura-style КПУ-герой) ─────────────────────────── */
@@ -2227,19 +2261,19 @@ h1, .hero-title {
 /* ─── Тёмная тема ──────────────────────────────────────────────────── */
 html[data-theme="dark"] {
   --bg:#1a1714; --bg-soft:#221e1a; --paper:#272320;
-  --ink:#f0ece3; --ink-soft:#c4bdb0; --ink-faint:#8f877a;
+  --ink:#f0ece3; --ink-soft:#c4bdb0; --ink-faint:#968e81;
   --accent:#e05a2b; --accent-soft:#6b2a10;
   --green:#7a9e6a; --green-soft:#2a3d22;
-  --line:#3a342c; --line-strong:#544c40;
+  --line:#746c62; --line-strong:#827a70;
   --shadow:rgba(0,0,0,0.4);
 }
 @media (prefers-color-scheme:dark) {
   :root:not([data-theme]) {
     --bg:#1a1714; --bg-soft:#221e1a; --paper:#272320;
-    --ink:#f0ece3; --ink-soft:#c4bdb0; --ink-faint:#8f877a;
+    --ink:#f0ece3; --ink-soft:#c4bdb0; --ink-faint:#968e81;
     --accent:#e05a2b; --accent-soft:#6b2a10;
     --green:#7a9e6a; --green-soft:#2a3d22;
-    --line:#3a342c; --line-strong:#544c40;
+    --line:#746c62; --line-strong:#827a70;
     --shadow:rgba(0,0,0,0.4);
   }
 }
@@ -2259,11 +2293,10 @@ html[data-theme="dark"] body {
 }
 
 /* Тёмная тема: coming-soon карточки — читаемость при opacity */
-html[data-theme="dark"] .coming-soon-card,
+html[data-theme="dark"] .coming-soon-card { opacity: 0.75; }
 @media (prefers-color-scheme:dark) {
   :root:not([data-theme]) .coming-soon-card { opacity: 0.75; }
 }
-html[data-theme="dark"] .coming-soon-card { opacity: 0.75; }
 
 /* Тёмная тема: wizard overlay — явный фон чтобы перекрывать контент */
 html[data-theme="dark"] .wizard-overlay,
@@ -3576,6 +3609,24 @@ function saveEntries(entries) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
 }
 
+function isWorkoutEntry(entry) {
+  if (entry.entry_type === 'workout') return true;
+  if (entry.entry_type === 'daily') return false;
+
+  const hasDailyFields =
+    entry.chpu != null || entry.rf || entry.pp || entry.pks || entry.os != null ||
+    entry.sleep || entry.habits || entry.practiceDays;
+  const note = entry.os_note || '';
+
+  return !hasDailyFields && typeof note === 'string' &&
+    (note.includes('КП после:') || note.includes('Дыхание:') ||
+     note.includes('Голова:') || note.includes('Состояние:'));
+}
+
+function isDailyEntry(entry) {
+  return !isWorkoutEntry(entry);
+}
+
 const kpuInput = document.getElementById('kpu');
 const dkpValue = document.getElementById('dkp_value');
 
@@ -3633,6 +3684,7 @@ document.getElementById('saveBtn').addEventListener('click', () => {
 
   const entry = {
     id: Date.now(),
+    entry_type: 'daily',
     date,
     kpu: kpuInput.value ? parseFloat(kpuInput.value) : null,
     chpu: document.getElementById('chpu').value ? parseFloat(document.getElementById('chpu').value) : null,
@@ -3664,7 +3716,7 @@ document.getElementById('saveBtn').addEventListener('click', () => {
   if (!hasData) { alert('Заполните хотя бы одно поле'); return; }
 
   const entries = loadEntries();
-  const existingIdx = entries.findIndex(e => e.date === entry.date);
+  const existingIdx = entries.findIndex(e => e.date === entry.date && isDailyEntry(e));
   if (existingIdx >= 0) {
     if (!confirm('На эту дату уже есть запись. Заменить?')) return;
     entries[existingIdx] = entry;
@@ -4681,6 +4733,7 @@ disclaimerAcceptBtn.addEventListener('click', () => {
 
     const entry = {
       id: Date.now(),
+      entry_type: 'workout',
       date: today,
       kpu: before,
       chpu: null,
@@ -4704,13 +4757,7 @@ disclaimerAcceptBtn.addEventListener('click', () => {
     }
 
     const entries = loadEntries();
-    const existingIdx = entries.findIndex(e => e.date === today);
-    if (existingIdx >= 0) {
-      if (!confirm('На сегодня уже есть запись. Заменить?')) return;
-      entries[existingIdx] = entry;
-    } else {
-      entries.push(entry);
-    }
+    entries.push(entry);
     saveEntries(entries);
 
     const btn = document.getElementById('wzSaveBtn');
@@ -5052,18 +5099,29 @@ document.querySelectorAll('.coming-soon-card').forEach(card => {
   const THEME_KEY = 'dyshinosom_theme_v1';
   const btn = document.getElementById('themeToggleBtn');
   if (!btn) return;
+  function setThemeIcons(isDark) {
+    const sun = document.getElementById('themeIconSun');
+    const moon = document.getElementById('themeIconMoon');
+    if (sun) sun.style.display = isDark ? 'none' : '';
+    if (moon) moon.style.display = isDark ? '' : 'none';
+  }
   function applyTheme(t) {
     const tcMeta = document.querySelector('meta[name="theme-color"]');
     if (t === 'dark') {
-      document.documentElement.setAttribute('data-theme','dark'); const _is=document.getElementById('themeIconSun'),_im=document.getElementById('themeIconMoon'); if(_is)_is.style.display='none'; if(_im)_im.style.display='';
+      document.documentElement.setAttribute('data-theme','dark');
+      setThemeIcons(true);
+      btn.setAttribute('aria-label', 'Переключить на светлую');
       if (tcMeta) tcMeta.setAttribute('content','#1a1714');
     } else if (t === 'light') {
-      document.documentElement.setAttribute('data-theme','light'); const _is2=document.getElementById('themeIconSun'),_im2=document.getElementById('themeIconMoon'); if(_is2)_is2.style.display=''; if(_im2)_im2.style.display='none';
+      document.documentElement.setAttribute('data-theme','light');
+      setThemeIcons(false);
+      btn.setAttribute('aria-label', 'Переключить на тёмную');
       if (tcMeta) tcMeta.setAttribute('content','#f4f1ea');
     } else {
       document.documentElement.removeAttribute('data-theme');
       const sysDark = window.matchMedia('(prefers-color-scheme:dark)').matches;
-      const _is3=document.getElementById('themeIconSun'),_im3=document.getElementById('themeIconMoon'); if(_is3)_is3.style.display=sysDark?'none':''; if(_im3)_im3.style.display=sysDark?'':'none'; btn.setAttribute('aria-label', sysDark?'Переключить на светлую':'Переключить на тёмную');
+      setThemeIcons(sysDark);
+      btn.setAttribute('aria-label', sysDark?'Переключить на светлую':'Переключить на тёмную');
       if (tcMeta) tcMeta.setAttribute('content', sysDark ? '#1a1714' : '#f4f1ea');
     }
   }
@@ -5276,7 +5334,7 @@ document.getElementById('pwbContinue').addEventListener('click', () => {
       if (Notification.permission === 'granted')
         new Notification('Дыши Носом', {
           body: 'Доброе утро. Время замерить КП — это займёт минуту.',
-          icon: 'assets/icons/icon-192.png',
+          icon: 'assets/icon-192.png',
           tag: 'morning-kp'
         });
       scheduleNotif();
@@ -5472,7 +5530,13 @@ function renderSettings() {
       if (themeBtn) { const _s2=document.getElementById('themeIconSun'),_m2=document.getElementById('themeIconMoon'); if(_s2)_s2.style.display=''; if(_m2)_m2.style.display='none'; }
     } else {
       document.documentElement.removeAttribute('data-theme');
-      if (themeBtn) themeBtn.textContent = window.matchMedia('(prefers-color-scheme:dark)').matches ? '☾' : '☀';
+      if (themeBtn) {
+        const sysDark = window.matchMedia('(prefers-color-scheme:dark)').matches;
+        const sun = document.getElementById('themeIconSun');
+        const moon = document.getElementById('themeIconMoon');
+        if (sun) sun.style.display = sysDark ? 'none' : '';
+        if (moon) moon.style.display = sysDark ? '' : 'none';
+      }
       const _tcm = document.querySelector('meta[name="theme-color"]');
       if (_tcm) _tcm.setAttribute('content', window.matchMedia('(prefers-color-scheme:dark)').matches ? '#1a1714' : '#f4f1ea');
     }

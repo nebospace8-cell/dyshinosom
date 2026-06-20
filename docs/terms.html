@@ -256,6 +256,12 @@
   }
   footer .links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
+  @media (max-width: 480px) {
+    footer { font-size: 0.78rem; padding-top: 16px; }
+    footer .links { flex-direction: column; align-items: center; gap: 0; }
+    footer .links a { min-height: 44px; display: flex; align-items: center; }
+  }
+
   @media (max-width: 600px) {
     .container { padding: 22px 18px 60px; }
     h1 { font-size: 2rem; }
