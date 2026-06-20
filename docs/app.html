@@ -2484,6 +2484,177 @@ dialog.course-lightbox:not([open]) { display: none; }
 .reminder-popup-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 .reminder-status { font-size: .78rem; color: var(--green); font-weight: 600; margin-top: 3px; min-height: 1em; }
 
+/* ─── Быстрая запись ──────────────────────────────────────────────── */
+.fab-btn {
+  position: fixed;
+  right: 22px;
+  bottom: 86px;
+  z-index: 1250;
+  width: 58px;
+  height: 58px;
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  background: var(--accent);
+  color: var(--paper);
+  box-shadow: 4px 4px 0 var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.45rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.fab-btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--ink); }
+.fab-btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+
+.bs-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(26, 26, 26, 0.52);
+  padding: 16px;
+}
+.bs-overlay.show { display: flex; animation: fadeIn 0.18s ease; }
+
+.bs-sheet {
+  width: min(560px, 100%);
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  padding: 24px;
+}
+.bs-sheet h3 {
+  font-size: 1.35rem;
+  font-weight: 500;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+.bs-desc {
+  font-family: 'Fraunces', serif;
+  font-size: 0.92rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+.bs-conflict {
+  display: none;
+  border: 1px dashed var(--line-strong);
+  background: var(--bg-soft);
+  padding: 12px;
+  margin-bottom: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.bs-conflict.show { display: block; }
+.bs-c-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+}
+.bs-c-btn {
+  border: 2px solid var(--line-strong);
+  background: var(--paper);
+  color: var(--ink-soft);
+  min-height: 44px;
+  padding: 9px 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+.bs-c-btn.sel {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+  box-shadow: 2px 2px 0 var(--accent);
+}
+.bs-c-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.bs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.bs-field label {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--ink-faint);
+  margin-bottom: 7px;
+}
+.bs-field input,
+.bs-field select {
+  width: 100%;
+  min-height: 46px;
+  border: 2px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+  padding: 9px 11px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+}
+.bs-field input:focus,
+.bs-field select:focus {
+  outline: none;
+  border-color: var(--ink);
+}
+.bs-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+.bs-actions .btn { flex: 1 1 180px; }
+
+@media (max-width: 640px) {
+  .fab-btn {
+    right: 16px;
+    bottom: 76px;
+    width: 54px;
+    height: 54px;
+  }
+  .bs-overlay { padding: 0; }
+  .bs-sheet {
+    width: 100%;
+    max-height: calc(100vh - 18px);
+    max-height: calc(100dvh - 18px);
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    box-shadow: 0 -2px 0 var(--ink);
+    padding: 22px 18px 18px;
+  }
+  .bs-c-btns,
+  .bs-grid {
+    grid-template-columns: 1fr;
+  }
+  .bs-actions {
+    position: sticky;
+    bottom: -18px;
+    background: var(--paper);
+    padding-top: 12px;
+    padding-bottom: 18px;
+  }
+}
+
 /* ─── Печать ────────────────────────────────────────────────────────── */
 @media print {
   @page { margin: 18mm 16mm; }
@@ -5432,62 +5603,6 @@ document.getElementById('jsonImportInput').addEventListener('change', (ev)=>{
   reader.readAsText(file);
 });
 
-// ─── FAB + Быстрая запись (Задание 17) ───────────────────────────
-(function() {
-  const fab = document.getElementById('fabBtn');
-  const bsOverlay = document.getElementById('bsOverlay');
-  if (!fab) return;
-  let bsMerge = false;
-  fab.addEventListener('click', ()=>{
-    const today = new Date().toISOString().split('T')[0];
-    const has = loadEntries().some(e=>e.date===today && isDailyEntry(e));
-    const conflict = document.getElementById('bsConflict');
-    if (has) conflict.classList.add('show'); else conflict.classList.remove('show');
-    bsMerge = false;
-    document.getElementById('bsNewBtn').classList.add('sel');
-    document.getElementById('bsMergeBtn').classList.remove('sel');
-    document.getElementById('bsKpu').value='';
-    document.getElementById('bsMins').value='';
-    bsOverlay.classList.add('show');
-  });
-  document.getElementById('bsMergeBtn').addEventListener('click',()=>{
-    bsMerge=true;
-    document.getElementById('bsMergeBtn').classList.add('sel');
-    document.getElementById('bsNewBtn').classList.remove('sel');
-  });
-  document.getElementById('bsNewBtn').addEventListener('click',()=>{
-    bsMerge=false;
-    document.getElementById('bsNewBtn').classList.add('sel');
-    document.getElementById('bsMergeBtn').classList.remove('sel');
-  });
-  function closeBS(){bsOverlay.classList.remove('show');}
-  document.getElementById('bsCloseBtn').addEventListener('click',closeBS);
-  bsOverlay.addEventListener('click',e=>{if(e.target===bsOverlay)closeBS();});
-  document.getElementById('bsSaveBtn').addEventListener('click',()=>{
-    const kpuVal = document.getElementById('bsKpu').value;
-    const kpu = kpuVal!=='' ? parseFloat(kpuVal) : null;
-    const minsVal = document.getElementById('bsMins').value;
-    const mins = minsVal!=='' ? parseFloat(minsVal) : null;
-    const type = document.getElementById('bsType').value;
-    if (kpu==null) { alert('Введите значение КП (секунды)'); return; }
-    const today = new Date().toISOString().split('T')[0];
-    const entries = loadEntries();
-    const idx = entries.findIndex(e=>e.date===today && isDailyEntry(e));
-    if (idx>=0 && bsMerge) {
-      if (kpu!=null) entries[idx].kpu=kpu;
-      if (type && mins>0) { entries[idx].practices=entries[idx].practices||[]; entries[idx].practices.push({type,min:mins}); }
-      entries[idx]=entries[idx];
-    } else {
-      entries.push({id:Date.now(),entry_type:'quick',date:today,kpu,chpu:null,practices:(type&&mins>0)?[{type,min:mins}]:[],rf:null,pp:null,pks:null,os:null,os_note:null,dkp:null});
-    }
-    saveEntries(entries);
-    closeBS(); renderDailyScore(); renderRecommendation();
-    if (document.getElementById('history').classList.contains('active')) renderHistory();
-    if (document.getElementById('trends').classList.contains('active')) { renderTrends(); renderInsights(); }
-  });
-})();
-
-
 // ─── Настройки (Задание 19) ───────────────────────────────────────
 const SETTINGS_KEY = 'dyshinosom_settings_v1';
 function loadSettings() {
@@ -5939,42 +6054,153 @@ updateHabitsScores();
 <button class="fab-btn" id="fabBtn" aria-label="Быстрая запись">+</button>
 
 <!-- Bottomsheet — быстрая запись -->
-<div class="bs-overlay" id="bsOverlay">
+<div class="bs-overlay" id="bsOverlay" role="dialog" aria-modal="true" aria-labelledby="bsTitle">
   <div class="bs-sheet">
-    <h3>Быстрая запись</h3>
+    <h3 id="bsTitle">Быстрая запись</h3>
+    <p class="bs-desc" id="bsDesc">Короткая отметка в течение дня: КП и практика. Полную дневную запись лучше вести один раз.</p>
     <div class="bs-conflict" id="bsConflict">
-      Запись на сегодня уже есть.
-      <div class="bs-c-btns">
-        <button class="bs-c-btn sel" id="bsNewBtn">Добавить вторую</button>
-        <button class="bs-c-btn" id="bsMergeBtn">Дополнить существующую</button>
+      На сегодня уже есть дневная запись.
+      <div class="bs-c-btns" role="group" aria-label="Режим быстрой записи">
+        <button type="button" class="bs-c-btn sel" id="bsNewBtn" aria-pressed="true">Новая быстрая</button>
+        <button type="button" class="bs-c-btn" id="bsMergeBtn" aria-pressed="false">Дополнить дневную</button>
       </div>
     </div>
-    <div class="bs-field">
-      <label>КП, сек</label>
-      <input type="number" id="bsKpu" min="0" max="180" placeholder="напр. 22">
+    <div class="bs-grid">
+      <div class="bs-field">
+        <label for="bsKpu">КП, сек</label>
+        <input type="number" id="bsKpu" min="0" max="180" placeholder="напр. 22">
+      </div>
+      <div class="bs-field">
+        <label for="bsMins">Минуты практики</label>
+        <input type="number" id="bsMins" min="0" max="240" placeholder="напр. 30">
+      </div>
+      <div class="bs-field">
+        <label for="bsType">Тип практики</label>
+        <select id="bsType">
+          <option value="">— не указывать —</option>
+          <option value="1С">1С</option>
+          <option value="2А">2А</option>
+          <option value="2Б">2Б</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
     </div>
-    <div class="bs-field">
-      <label>Тип практики</label>
-      <select id="bsType">
-        <option value="">— не указывать —</option>
-        <option value="1С">1С</option>
-        <option value="2А">2А</option>
-        <option value="2Б">2Б</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-    </div>
-    <div class="bs-field">
-      <label>Минуты практики</label>
-      <input type="number" id="bsMins" min="0" max="240" placeholder="напр. 30">
-    </div>
-    <div class="btn-row" style="margin-top:16px;">
-      <button class="btn" id="bsSaveBtn">Сохранить</button>
-      <button class="btn btn-secondary" id="bsCloseBtn">Отмена</button>
+    <div class="bs-actions">
+      <button type="button" class="btn" id="bsSaveBtn">Сохранить</button>
+      <button type="button" class="btn btn-secondary" id="bsCloseBtn">Отмена</button>
     </div>
   </div>
 </div>
+<script>
+// ─── FAB + Быстрая запись ────────────────────────────────────────
+(function() {
+  const fab = document.getElementById('fabBtn');
+  const bsOverlay = document.getElementById('bsOverlay');
+  const bsNewBtn = document.getElementById('bsNewBtn');
+  const bsMergeBtn = document.getElementById('bsMergeBtn');
+  const bsConflict = document.getElementById('bsConflict');
+  const bsDesc = document.getElementById('bsDesc');
+  const bsKpu = document.getElementById('bsKpu');
+  const bsMins = document.getElementById('bsMins');
+  const bsType = document.getElementById('bsType');
+  const bsSaveBtn = document.getElementById('bsSaveBtn');
+  const bsCloseBtn = document.getElementById('bsCloseBtn');
+  if (!fab || !bsOverlay || !bsSaveBtn) return;
+  fab.dataset.ready = '1';
+
+  let bsMerge = false;
+
+  function todayStr() {
+    return new Date().toISOString().split('T')[0];
+  }
+
+  function todayDailyIndex(entries) {
+    const today = todayStr();
+    return entries.findIndex(e => e.date === today && isDailyEntry(e));
+  }
+
+  function setMode(merge) {
+    bsMerge = !!merge && !bsMergeBtn.disabled;
+    bsNewBtn.classList.toggle('sel', !bsMerge);
+    bsMergeBtn.classList.toggle('sel', bsMerge);
+    bsNewBtn.setAttribute('aria-pressed', String(!bsMerge));
+    bsMergeBtn.setAttribute('aria-pressed', String(bsMerge));
+    bsDesc.textContent = bsMerge
+      ? 'Данные добавятся в дневную запись сегодняшнего дня.'
+      : 'Создастся отдельная короткая отметка за сегодня.';
+  }
+
+  function openBS() {
+    const entries = loadEntries();
+    const hasDaily = todayDailyIndex(entries) >= 0;
+    bsConflict.classList.toggle('show', hasDaily);
+    bsMergeBtn.disabled = !hasDaily;
+    bsKpu.value = '';
+    bsMins.value = '';
+    bsType.value = '';
+    setMode(false);
+    bsOverlay.classList.add('show');
+    setTimeout(() => bsKpu.focus(), 0);
+  }
+
+  function closeBS() {
+    bsOverlay.classList.remove('show');
+  }
+
+  fab.addEventListener('click', openBS);
+  bsNewBtn.addEventListener('click', () => setMode(false));
+  bsMergeBtn.addEventListener('click', () => setMode(true));
+  bsCloseBtn.addEventListener('click', closeBS);
+  bsOverlay.addEventListener('click', e => { if (e.target === bsOverlay) closeBS(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && bsOverlay.classList.contains('show')) closeBS();
+  });
+
+  bsSaveBtn.addEventListener('click', () => {
+    const kpu = bsKpu.value !== '' ? parseFloat(bsKpu.value) : null;
+    const mins = bsMins.value !== '' ? parseFloat(bsMins.value) : null;
+    const type = bsType.value;
+    if (kpu == null && !(type && mins > 0)) {
+      alert('Введите КП или практику с минутами');
+      return;
+    }
+
+    const entries = loadEntries();
+    const idx = todayDailyIndex(entries);
+    if (bsMerge && idx >= 0) {
+      if (kpu != null) entries[idx].kpu = kpu;
+      if (type && mins > 0) {
+        entries[idx].practices = entries[idx].practices || [];
+        entries[idx].practices.push({ type, min: mins });
+      }
+    } else {
+      entries.push({
+        id: Date.now(),
+        entry_type: 'quick',
+        date: todayStr(),
+        kpu,
+        chpu: null,
+        practices: (type && mins > 0) ? [{ type, min: mins }] : [],
+        rf: null,
+        pp: null,
+        pks: null,
+        os: null,
+        os_note: null,
+        dkp: null
+      });
+    }
+
+    saveEntries(entries);
+    closeBS();
+    renderDailyScore();
+    renderRecommendation();
+    if (document.getElementById('history').classList.contains('active')) renderHistory();
+    if (document.getElementById('trends').classList.contains('active')) { renderTrends(); renderInsights(); }
+  });
+})();
+</script>
 <!-- Попап достижения -->
 <div class="ach-popup" id="achPopup" role="status">
   <div class="ach-popup-icon" id="achPopupIcon"></div>
