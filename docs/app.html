@@ -2484,190 +2484,78 @@ dialog.course-lightbox:not([open]) { display: none; }
 .reminder-popup-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 .reminder-status { font-size: .78rem; color: var(--green); font-weight: 600; margin-top: 3px; min-height: 1em; }
 
-/* ─── Быстрая запись ──────────────────────────────────────────────── */
-.fab-btn {
+/* ─── Быстрые действия ─────────────────────────────────────────────── */
+.quick-action-dock {
   position: fixed;
   right: 22px;
   bottom: 86px;
   z-index: 1250;
-  min-width: 220px;
-  min-height: 58px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: min(520px, calc(100vw - 44px));
+  padding: 10px;
   border: 2px solid var(--ink);
-  border-radius: 0;
-  background: var(--accent);
-  color: var(--paper);
+  background: var(--paper);
   box-shadow: 4px 4px 0 var(--ink);
+}
+.quick-action-btn {
+  min-height: 56px;
+  border: 2px solid var(--ink);
+  background: var(--bg);
+  color: var(--ink);
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   line-height: 1.25;
   text-transform: uppercase;
   cursor: pointer;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 12px 18px;
-  text-align: center;
-}
-.fab-btn::before {
-  content: '+';
-  font-size: 1.2rem;
-  line-height: 1;
-}
-.fab-btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--ink); }
-.fab-btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
-
-.bs-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1300;
-  display: none;
-  align-items: flex-end;
-  justify-content: center;
-  background: rgba(26, 26, 26, 0.52);
-  padding: 16px;
-}
-.bs-overlay.show { display: flex; animation: fadeIn 0.18s ease; }
-
-.bs-sheet {
-  width: min(560px, 100%);
-  max-height: calc(100vh - 32px);
-  max-height: calc(100dvh - 32px);
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  background: var(--paper);
-  border: 2px solid var(--ink);
-  box-shadow: 6px 6px 0 var(--ink);
-  padding: 24px;
-}
-.bs-sheet h3 {
-  font-size: 1.35rem;
-  font-weight: 500;
-  font-style: italic;
-  margin-bottom: 8px;
-}
-.bs-desc {
-  font-family: 'Fraunces', serif;
-  font-size: 0.92rem;
-  font-style: italic;
-  line-height: 1.5;
-  color: var(--ink-soft);
-  margin-bottom: 18px;
-}
-.bs-conflict {
-  display: none;
-  border: 1px dashed var(--line-strong);
-  background: var(--bg-soft);
-  padding: 12px;
-  margin-bottom: 16px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.68rem;
-  color: var(--ink-faint);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-.bs-conflict.show { display: block; }
-.bs-c-btns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 8px;
-  margin-top: 10px;
+  padding: 10px 12px;
+  text-align: center;
+  transition: transform var(--dur-fast), box-shadow var(--dur-fast), background var(--dur-fast), color var(--dur-fast);
 }
-.bs-c-btn {
-  border: 2px solid var(--line-strong);
-  background: var(--paper);
-  color: var(--ink-soft);
-  min-height: 44px;
-  padding: 9px 10px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.66rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  cursor: pointer;
+.quick-action-btn .qa-icon {
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: 0;
 }
-.bs-c-btn.sel {
-  background: var(--ink);
-  border-color: var(--ink);
+.quick-action-btn.primary {
+  background: var(--accent);
   color: var(--paper);
-  box-shadow: 2px 2px 0 var(--accent);
+  border-color: var(--accent);
 }
-.bs-c-btn:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-  box-shadow: none;
+.quick-action-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
 }
-.bs-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
+.quick-action-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--ink);
 }
-.bs-field label {
-  display: block;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.13em;
-  color: var(--ink-faint);
-  margin-bottom: 7px;
-}
-.bs-field input,
-.bs-field select {
-  width: 100%;
-  min-height: 46px;
-  border: 2px solid var(--line);
-  background: var(--bg);
-  color: var(--ink);
-  padding: 9px 11px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.9rem;
-}
-.bs-field input:focus,
-.bs-field select:focus {
-  outline: none;
-  border-color: var(--ink);
-}
-.bs-actions {
-  display: flex;
-  gap: 10px;
-  margin-top: 18px;
-  flex-wrap: wrap;
-}
-.bs-actions .btn { flex: 1 1 180px; }
 
 @media (max-width: 640px) {
-  .fab-btn {
+  .quick-action-dock {
     right: 16px;
     bottom: 76px;
-    min-width: 0;
     width: calc(100vw - 32px);
-    max-width: 360px;
-    min-height: 54px;
-    padding: 10px 14px;
-    font-size: 0.68rem;
+    max-width: none;
+    gap: 8px;
+    padding: 8px;
   }
-  .bs-overlay { padding: 0; }
-  .bs-sheet {
-    width: 100%;
-    max-height: calc(100vh - 18px);
-    max-height: calc(100dvh - 18px);
-    border-left: none;
-    border-right: none;
-    border-bottom: none;
-    box-shadow: 0 -2px 0 var(--ink);
-    padding: 22px 18px 18px;
+  .quick-action-btn {
+    min-height: 52px;
+    padding: 9px 8px;
+    font-size: 0.62rem;
   }
-  .bs-c-btns,
-  .bs-grid {
+}
+@media (max-width: 360px) {
+  .quick-action-dock {
     grid-template-columns: 1fr;
-  }
-  .bs-actions {
-    position: sticky;
-    bottom: -18px;
-    background: var(--paper);
-    padding-top: 12px;
-    padding-bottom: 18px;
   }
 }
 
@@ -2680,7 +2568,7 @@ dialog.course-lightbox:not([open]) { display: none; }
   .history-controls, .rec-card, .wizard-launcher,
   .notice, .panic-overlay, .wizard-overlay, .onboarding-overlay,
   .welcome-overlay, .kp-timer-overlay, .reminder-popup,
-  .fab-btn, .bs-overlay, .ach-popup { display:none !important; }
+  .quick-action-dock, .ach-popup { display:none !important; }
 
   body { background:none !important; background-image:none !important; font-size:11pt; color:#000; }
   .container { padding:0 !important; max-width:100%; }
@@ -3685,9 +3573,10 @@ dialog.course-lightbox:not([open]) { display: none; }
     <p class="wizard-result-phrase" id="wzResultPhrase"></p>
 
     <div class="wizard-summary-table" id="wzSummaryTable"></div>
+    <p class="wizard-instructions">Можно записать тренировку отдельной строкой в дневник или закрыть результат без сохранения.</p>
 
     <div class="wizard-nav">
-      <button class="btn" id="wzSaveBtn">Сохранить запись</button>
+      <button class="btn" id="wzSaveBtn">Записать тренировку в дневник</button>
       <button class="btn btn-secondary" id="wzDiscardBtn">Закрыть без сохранения</button>
     </div>
   </div>
@@ -3715,7 +3604,7 @@ dialog.course-lightbox:not([open]) { display: none; }
   </div>
   <p class="kp-timer-hint" id="kpTimerHint">Тапните, чтобы начать отсчёт</p>
   <div class="kp-timer-actions">
-    <button class="btn" id="kpTimerSaveBtn">Сохранить в дневник</button>
+    <button class="btn" id="kpTimerSaveBtn">Внести КП в запись дня</button>
     <button class="btn btn-secondary" id="kpTimerCancelBtn">Отмена</button>
   </div>
 </div>
@@ -4373,7 +4262,7 @@ kpTimerCircle.addEventListener('click', () => {
     kpTimerState = 'done';
     if (kpTimerInterval) { clearInterval(kpTimerInterval); kpTimerInterval = null; }
     kpTimerCircle.classList.remove('running');
-    kpTimerHint.textContent = `Записано: ${kpTimerSeconds} сек. Тап «Сохранить» — внесёт в КПУ.`;
+    kpTimerHint.textContent = `Измерено: ${kpTimerSeconds} сек. Можно внести КП в запись дня.`;
   }
 });
 document.getElementById('kpTimerSaveBtn').addEventListener('click', () => {
@@ -6130,155 +6019,23 @@ updateHabitsScores();
   </div>
 </dialog>
 
-<!-- FAB — быстрая запись -->
-<button class="fab-btn" id="fabBtn" aria-label="Новая запись в дневник">Новая запись в дневник</button>
-
-<!-- Bottomsheet — быстрая запись -->
-<div class="bs-overlay" id="bsOverlay" role="dialog" aria-modal="true" aria-labelledby="bsTitle">
-  <div class="bs-sheet">
-    <h3 id="bsTitle">Быстрая запись</h3>
-    <p class="bs-desc" id="bsDesc">Короткая отметка в течение дня: КП и практика. Полную дневную запись лучше вести один раз.</p>
-    <div class="bs-conflict" id="bsConflict">
-      На сегодня уже есть дневная запись.
-      <div class="bs-c-btns" role="group" aria-label="Режим быстрой записи">
-        <button type="button" class="bs-c-btn sel" id="bsNewBtn" aria-pressed="true">Новая быстрая</button>
-        <button type="button" class="bs-c-btn" id="bsMergeBtn" aria-pressed="false">Дополнить дневную</button>
-      </div>
-    </div>
-    <div class="bs-grid">
-      <div class="bs-field">
-        <label for="bsKpu">КП, сек</label>
-        <input type="number" id="bsKpu" min="0" max="180" placeholder="напр. 22">
-      </div>
-      <div class="bs-field">
-        <label for="bsMins">Минуты практики</label>
-        <input type="number" id="bsMins" min="0" max="240" placeholder="напр. 30">
-      </div>
-      <div class="bs-field">
-        <label for="bsType">Тип практики</label>
-        <select id="bsType">
-          <option value="">— не указывать —</option>
-          <option value="1С">1С</option>
-          <option value="2А">2А</option>
-          <option value="2Б">2Б</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      </div>
-    </div>
-    <div class="bs-actions">
-      <button type="button" class="btn" id="bsSaveBtn">Сохранить</button>
-      <button type="button" class="btn btn-secondary" id="bsCloseBtn">Отмена</button>
-    </div>
-  </div>
+<!-- Быстрые действия -->
+<div class="quick-action-dock" aria-label="Быстрые действия дневника">
+  <button type="button" class="quick-action-btn" id="quickKpBtn">
+    <span class="qa-icon">⏱</span>
+    <span>Измерить КП</span>
+  </button>
+  <button type="button" class="quick-action-btn primary" id="quickWorkoutBtn">
+    <span class="qa-icon">▸</span>
+    <span>Провести тренировку</span>
+  </button>
 </div>
 <script>
-// ─── FAB + Быстрая запись ────────────────────────────────────────
 (function() {
-  const fab = document.getElementById('fabBtn');
-  const bsOverlay = document.getElementById('bsOverlay');
-  const bsNewBtn = document.getElementById('bsNewBtn');
-  const bsMergeBtn = document.getElementById('bsMergeBtn');
-  const bsConflict = document.getElementById('bsConflict');
-  const bsDesc = document.getElementById('bsDesc');
-  const bsKpu = document.getElementById('bsKpu');
-  const bsMins = document.getElementById('bsMins');
-  const bsType = document.getElementById('bsType');
-  const bsSaveBtn = document.getElementById('bsSaveBtn');
-  const bsCloseBtn = document.getElementById('bsCloseBtn');
-  if (!fab || !bsOverlay || !bsSaveBtn) return;
-  fab.dataset.ready = '1';
-
-  let bsMerge = false;
-
-  function todayStr() {
-    return new Date().toISOString().split('T')[0];
-  }
-
-  function todayDailyIndex(entries) {
-    const today = todayStr();
-    return entries.findIndex(e => e.date === today && isDailyEntry(e));
-  }
-
-  function setMode(merge) {
-    bsMerge = !!merge && !bsMergeBtn.disabled;
-    bsNewBtn.classList.toggle('sel', !bsMerge);
-    bsMergeBtn.classList.toggle('sel', bsMerge);
-    bsNewBtn.setAttribute('aria-pressed', String(!bsMerge));
-    bsMergeBtn.setAttribute('aria-pressed', String(bsMerge));
-    bsDesc.textContent = bsMerge
-      ? 'Данные добавятся в дневную запись сегодняшнего дня.'
-      : 'Создастся отдельная короткая отметка за сегодня.';
-  }
-
-  function openBS() {
-    const entries = loadEntries();
-    const hasDaily = todayDailyIndex(entries) >= 0;
-    bsConflict.classList.toggle('show', hasDaily);
-    bsMergeBtn.disabled = !hasDaily;
-    bsKpu.value = '';
-    bsMins.value = '';
-    bsType.value = '';
-    setMode(false);
-    bsOverlay.classList.add('show');
-    setTimeout(() => bsKpu.focus(), 0);
-  }
-
-  function closeBS() {
-    bsOverlay.classList.remove('show');
-  }
-
-  fab.addEventListener('click', openBS);
-  bsNewBtn.addEventListener('click', () => setMode(false));
-  bsMergeBtn.addEventListener('click', () => setMode(true));
-  bsCloseBtn.addEventListener('click', closeBS);
-  bsOverlay.addEventListener('click', e => { if (e.target === bsOverlay) closeBS(); });
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && bsOverlay.classList.contains('show')) closeBS();
-  });
-
-  bsSaveBtn.addEventListener('click', () => {
-    const kpu = bsKpu.value !== '' ? parseFloat(bsKpu.value) : null;
-    const mins = bsMins.value !== '' ? parseFloat(bsMins.value) : null;
-    const type = bsType.value;
-    if (kpu == null && !(type && mins > 0)) {
-      alert('Введите КП или практику с минутами');
-      return;
-    }
-
-    const entries = loadEntries();
-    const idx = todayDailyIndex(entries);
-    if (bsMerge && idx >= 0) {
-      if (kpu != null) entries[idx].kpu = kpu;
-      if (type && mins > 0) {
-        entries[idx].practices = entries[idx].practices || [];
-        entries[idx].practices.push({ type, min: mins });
-      }
-    } else {
-      entries.push({
-        id: Date.now(),
-        entry_type: 'quick',
-        date: todayStr(),
-        kpu,
-        chpu: null,
-        practices: (type && mins > 0) ? [{ type, min: mins }] : [],
-        rf: null,
-        pp: null,
-        pks: null,
-        os: null,
-        os_note: null,
-        dkp: null
-      });
-    }
-
-    saveEntries(entries);
-    closeBS();
-    renderDailyScore();
-    renderRecommendation();
-    if (document.getElementById('history').classList.contains('active')) renderHistory();
-    if (document.getElementById('trends').classList.contains('active')) { renderTrends(); renderInsights(); }
-  });
+  const quickKpBtn = document.getElementById('quickKpBtn');
+  const quickWorkoutBtn = document.getElementById('quickWorkoutBtn');
+  quickKpBtn.addEventListener('click', () => document.getElementById('kpTimerOpenBtn').click());
+  quickWorkoutBtn.addEventListener('click', () => document.getElementById('wizardOpenBtn').click());
 })();
 </script>
 <!-- Попап достижения -->

@@ -3,7 +3,7 @@
 // Дневник открывается офлайн из кэша, но при наличии сети быстро получает обновления.
 // При обновлении версии CACHE_VERSION старый кэш чистится.
 
-const CACHE_VERSION = 'dyshinosom-v7';
+const CACHE_VERSION = 'dyshinosom-v8';
 
 const CORE_ASSETS = [
   './',
